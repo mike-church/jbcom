@@ -45,6 +45,6 @@ switch( $template ) {
 		echo '</main></div>';
 		break;
 	default :
-		echo '';
+		echo '<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58a72778826dc565"></script> ';
 		break;
 }

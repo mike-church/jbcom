@@ -25,22 +25,40 @@ function woocommerce_template_single_meta(){
   $calories = rwmb_meta( 'nutrition_calories' );
   ?>
 
-    <?php if ( ! empty( $highlight_facts_values ) ) {
-    echo '<div class="highlight-facts"><ul>';
-    foreach ( $highlight_facts_values as $highlight_facts_value ) {
-    $fact = isset( $highlight_facts_value['nutrition_highlight_fact'] ) ? $highlight_facts_value['nutrition_highlight_fact'] : '';
-    $value = isset( $highlight_facts_value['nutrition_highlight_value'] ) ? $highlight_facts_value['nutrition_highlight_value'] : '';
-    ?>      
-      <li><span><?php echo $value;?></span><br><?php echo $fact;?></li>
-    <?php }
-    echo '</li><li><span>'.$net_carbs.'</span><br>Net Carbs*</li>';
-    } ?>
+<?php if ( ! empty( $highlight_facts_values ) ) { ?> 
+
+  <div class="highlight-facts">
+    <ul>
+
+      <?php foreach ( $highlight_facts_values as $highlight_facts_value ) { 
+        $fact = isset( $highlight_facts_value['nutrition_highlight_fact'] ) ? $highlight_facts_value['nutrition_highlight_fact'] : '';
+        $value = isset( $highlight_facts_value['nutrition_highlight_value'] ) ? $highlight_facts_value['nutrition_highlight_value'] : '';
+      ?> <li class="text-center"><span><?php echo $value;?></span><br><?php echo $fact;?></li> <?php } ?>
+      <?php if ( ! empty( $net_carbs ) ) { ?> <li class="text-center"><span><?php echo $net_carbs;?></span><br>Net Carbs*</li> <?php } ?>
+
+    </ul>
+  </div>
+
+<?php } else { ?>
+
+  <?php if ( ! empty( $net_carbs ) ) { ?>
+
+    <div class="highlight-facts">
+      <ul>
+        <li class="text-center"><span><?php echo $net_carbs;?></span><br>Net Carbs*</li>
+      </ul>
+    </div>
+
+  <?php } ?>
+
+<?php } ?>
+
     <?php if ( ! empty( $calories ) ) { ?> 
       <p><a href="#nutritionals">View Nutritionals <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
     <?php } ?>
-    <?php if ( ! empty( $highlight_facts_values ) ) { ?> 
-      <p><small>*Net Carbs are calculated by subtracting Fiber from Total Carbohydrates.</p>      
-    </div>
+    <?php if ( ! empty( $net_carbs ) ) { ?> 
+      <p style="line-height:normal;"><small>*Net Carbs are calculated by subtracting Fiber from Total Carbohydrates.</p>      
+
     <?php } ?>
 
   <?php

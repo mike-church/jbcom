@@ -63,7 +63,7 @@ $info = rwmb_meta( 'nutrition_additional_notes' );
 		</div>
 		<div class="col-sm-4">
 			<div id="nutritionals" class="nutritional-info-container">
-				<h3>Nutrtional Facts</h3>
+				<h3>Nutrition Facts</h3>
 				<ul>
 				<?php if ( ! empty( $serving_size) ) { ?> <li>Serving Size <?php echo $serving_size;?> (<?php echo $serving_weight;?>)</li> <?php } ?>
 				<?php if ( ! empty( $servings_per_container) ) { ?> <li>Servings Per Container <?php echo $servings_per_container;?></li> <?php } ?>				
