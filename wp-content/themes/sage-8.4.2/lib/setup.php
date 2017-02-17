@@ -101,7 +101,7 @@ function display_sidebar() {
  */
 function assets() {
   $post = get_post();
-  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), '', '1.3');
+  wp_enqueue_style('sage/css', Assets\asset_path('styles/main.css'), '', '1.4');
   wp_register_style( 'google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:400,700,300,600', false, null);
   wp_enqueue_style('google-fonts');
 
