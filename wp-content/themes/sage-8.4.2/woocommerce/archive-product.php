@@ -155,7 +155,7 @@ else { ?>
     $(function() {
         FWP.loading_handler = function() { }
     });
-})(jQuery);
+});
 </script>
 
 

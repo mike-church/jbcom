@@ -203,7 +203,7 @@ function fwp_load_more() {
             }
         });
     });
-})(jQuery);
+});
 </script>
 <?php
 }
