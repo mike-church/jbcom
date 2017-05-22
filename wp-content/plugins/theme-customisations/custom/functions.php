@@ -175,6 +175,10 @@ elseif( is_woocommerce() ){
 return $output;
 }
 
+/* Site Branding */
+function storefront_site_branding(){
+  ?><div class="site-branding"><a href="<?php echo home_url('/'); ?>" class="header-logo"></a></div><?php
+}
 
 /* Default woocommerce shit to get rid of */
 function woocommerce_pagination(){}
@@ -182,10 +186,7 @@ function woocommerce_catalog_ordering(){}
 function woocommerce_result_count(){}
 function woocommerce_review_display_gravatar(){}
 
-
-
-
-
+/* Enqeued Scripts */
 function custom_script() {
 wp_deregister_script('jquery');
 wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js', array(), null, true);
