@@ -27,8 +27,7 @@ wp-content/*
 wp-content/plugins/*
 !wp-content/plugins/jb-nutritionals/
 !wp-content/plugins/jb-feature-video/
-!wp-content/plugins/woocommerce/
-!wp-content/plugins/theme-customisations
+!wp-content/plugins/theme-customisations/
  
 # Ignore everything in the "themes" directory, except the themes you specify
 wp-content/themes/*
