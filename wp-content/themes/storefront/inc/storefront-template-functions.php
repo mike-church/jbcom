@@ -161,7 +161,8 @@ if ( ! function_exists( 'storefront_site_branding' ) ) {
 	function storefront_site_branding() {
 		?>
 		<div class="site-branding">
-			<?php storefront_site_title_or_logo(); ?>
+			<a href="<?php echo home_url('/'); ?>" class="header-logo"></a>
+			<!--<?php storefront_site_title_or_logo(); ?>-->
 		</div>
 		<?php
 	}

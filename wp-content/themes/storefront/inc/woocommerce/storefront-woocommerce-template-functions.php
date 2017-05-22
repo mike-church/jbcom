@@ -139,30 +139,6 @@ if ( ! function_exists( 'storefront_upsell_display' ) ) {
 	}
 }
 
-if ( ! function_exists( 'storefront_sorting_wrapper' ) ) {
-	/**
-	 * Sorting wrapper
-	 *
-	 * @since   1.4.3
-	 * @return  void
-	 */
-	function storefront_sorting_wrapper() {
-		echo '<div class="storefront-sorting">';
-	}
-}
-
-if ( ! function_exists( 'storefront_sorting_wrapper_close' ) ) {
-	/**
-	 * Sorting wrapper close
-	 *
-	 * @since   1.4.3
-	 * @return  void
-	 */
-	function storefront_sorting_wrapper_close() {
-		echo '</div>';
-	}
-}
-
 if ( ! function_exists( 'storefront_shop_messages' ) ) {
 	/**
 	 * Storefront shop messages
