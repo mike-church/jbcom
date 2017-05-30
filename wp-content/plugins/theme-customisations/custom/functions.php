@@ -73,12 +73,12 @@ add_filter( 'facetwp_index_all_products', '__return_true' );
 
 
 add_action( 'get_header', 'remove_storefront_sidebar' );
-
 function remove_storefront_sidebar() {
 	if ( is_product() || is_page() ) {
 		remove_action( 'storefront_sidebar', 'storefront_get_sidebar',10 );
 	}
 }
+
 
 /* Add Load more results pagination to FacetWP */
 function fwp_load_more() {
@@ -176,15 +176,38 @@ return $output;
 }
 
 /* Site Branding */
-function storefront_site_branding(){
-  ?><div class="site-branding"><a href="<?php echo home_url('/'); ?>" class="header-logo"></a></div><?php
+function storefront_site_branding() { ?>
+  <div class="site-branding"><a href="<?php echo home_url('/'); ?>" class="header-logo"></a></div>
+<?php
 }
 
-/* Default woocommerce shit to get rid of */
+/* Homepage Shit */
+function storefront_homepage_content() { ?>
+  <h1>Hello World</h1>
+<?php
+}
+
+
+function storefront_sorting_wrapper() {}
+function storefront_sorting_wrapper_close() {}
+
+/* Default woocommerce hooks shit to get rid of */
 function woocommerce_pagination(){}
 function woocommerce_catalog_ordering(){}
 function woocommerce_result_count(){}
 function woocommerce_review_display_gravatar(){}
+function woocommerce_breadcrumb(){
+  if ( is_home() || is_page() || is_search() ){}
+  else {
+    if ( function_exists('yoast_breadcrumb') ) {
+      yoast_breadcrumb('<nav id="breadcrumbs" style="padding:30px 0;">','</nav>');
+    }
+  }
+}
+
+
+
+function storefront_sorting(){}
 
 /* Enqeued Scripts */
 function custom_script() {
