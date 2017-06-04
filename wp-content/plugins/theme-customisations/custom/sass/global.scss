@@ -17,7 +17,7 @@
 .card {
 	border:$light-grey-3 solid 1px;
 	position: relative;
-	padding-bottom:40px;
+	padding-bottom:20px;
 	box-shadow: 0 3px 5px $light-grey-4;
 	overflow:hidden;
 	.add-to-cart-container {
@@ -36,6 +36,9 @@
 			width:100%;
 			text-transform: uppercase;
 		}
+	}
+	.card-body {
+		padding:15px;
 	}
 	.onsale {
 		width: 200px;

@@ -47,7 +47,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_before_shop_loop_item_title' );
 	
-	echo '</div>';
+	echo '</div><div class="card-body">';
 	
 	/**
 	 * woocommerce_shop_loop_item_title hook.
@@ -64,6 +64,8 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_after_shop_loop_item_title' );
 
+	echo '</div>';
+
 	/**
 	 * woocommerce_after_shop_loop_item hook.
 	 *
@@ -73,7 +75,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	do_action( 'woocommerce_after_shop_loop_item' );
 	?>
 
-	
+
 </li>
 
 

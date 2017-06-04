@@ -169,11 +169,11 @@ function woocommerce_template_loop_product_thumbnail() {
   $url = get_the_post_thumbnail_url($post->ID,'shop_catalog');
   if ( has_post_thumbnail() ) { ?>
 
-    <div class="square margin-bottom-15" style="background-image:url(<?php echo $url;?>); background-repeat:no-repeat; background-size:cover; background-position:center center;"></div>
+    <div class="square" style="background-image:url(<?php echo $url;?>); background-repeat:no-repeat; background-size:cover; background-position:center center;"></div>
   <?php
 
   } else { ?>
-    <div class="square margin-bottom-15" style="background-color:#d5d5d5;"></div>
+    <div class="square" style="background-color:#d5d5d5;"></div>
   <?php
     
   }
