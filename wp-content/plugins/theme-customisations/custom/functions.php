@@ -74,70 +74,26 @@ add_filter( 'facetwp_index_all_products', '__return_true' );
 
 add_action( 'get_header', 'remove_storefront_sidebar' );
 function remove_storefront_sidebar() {
-	if ( is_product() || is_page() ) {
+	if ( is_product() || is_page() || is_search() ) {
 		remove_action( 'storefront_sidebar', 'storefront_get_sidebar',10 );
 	}
 }
 
-
-/* Add Load more results pagination to FacetWP */
-function fwp_load_more() {
-?>
-<script>
-(function($) {
-    $(function() {
-        if ('object' != typeof FWP) {
-            return;
-        }
-
-        wp.hooks.addFilter('facetwp/template_html', function(resp, params) {
-            if (FWP.is_load_more) {
-                FWP.is_load_more = false;
-                $('.facetwp-template').append(params.html);
-                return true;
-            }
-            return resp;
-        });
-    });
-
-    $(document).on('click', '.fwp-load-more', function() {
-        $('.fwp-load-more').html('Loading...');
-        FWP.is_load_more = true;
-        FWP.paged = parseInt(FWP.settings.pager.page) + 1;
-        FWP.soft_refresh = true;
-        FWP.refresh();
-    });
-
-    $(document).on('facetwp-loaded', function() {
-        if (FWP.settings.pager.page < FWP.settings.pager.total_pages) {
-            if (! FWP.loaded && 1 > $('.fwp-load-more').length) {
-                $('.facetwp-template').after('<button class="fwp-load-more">Load more</button>');
-            }
-            else {
-                $('.fwp-load-more').html('Load more').show();
-            }
-        }
-        else {
-            $('.fwp-load-more').hide();
-        }
-    });
-
-    $(document).on('facetwp-refresh', function() {
-        if (! FWP.loaded) {
-            FWP.paged = 1;
-        }
-    });
-})(jQuery);
-</script>
-<?php
-}
-add_action( 'wp_head', 'fwp_load_more', 99 );
-add_filter( 'facetwp_template_force_load', '__return_true' );
-
 /* Adjust default per-page results*/
 add_filter( 'facetwp_per_page_options', function( $options ) {
-    return array( 12, 24, 48, 100 );
+    return array( 15, 30, 60, 100 );
 });
+
+
+/* Number of products to display */
+add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
+
+function new_loop_shop_per_page( $cols ) {
+  // $cols contains the current number of products per page based on the value stored on Options -> Reading
+  // Return the number of products you wanna show per page.
+  $cols = 15;
+  return $cols;
+}
 
 /* Add labels above facets */
 function fwp_add_facet_labels() {
@@ -188,14 +144,17 @@ function storefront_homepage_content() { ?>
 }
 
 
+
+
+/* Hooks shit to get rid of */
+
+function woocommerce_catalog_ordering(){}
+function woocommerce_review_display_gravatar(){}
 function storefront_sorting_wrapper() {}
 function storefront_sorting_wrapper_close() {}
+function storefront_sorting(){}
 
-/* Default woocommerce hooks shit to get rid of */
-function woocommerce_pagination(){}
-function woocommerce_catalog_ordering(){}
-function woocommerce_result_count(){}
-function woocommerce_review_display_gravatar(){}
+/* Breadcrumbs */
 function woocommerce_breadcrumb(){
   if ( is_home() || is_page() || is_search() ){}
   else {
@@ -205,9 +164,22 @@ function woocommerce_breadcrumb(){
   }
 }
 
+/* Catalog Thumbnail */
+function woocommerce_template_loop_product_thumbnail() {
+  $url = get_the_post_thumbnail_url($post->ID,'shop_catalog');
+  if ( has_post_thumbnail() ) { ?>
+
+    <div class="square margin-bottom-15" style="background-image:url(<?php echo $url;?>); background-repeat:no-repeat; background-size:cover; background-position:center center;"></div>
+  <?php
+
+  } else { ?>
+    <div class="square margin-bottom-15" style="background-color:#d5d5d5;"></div>
+  <?php
+    
+  }
+}
 
 
-function storefront_sorting(){}
 
 /* Enqeued Scripts */
 function custom_script() {

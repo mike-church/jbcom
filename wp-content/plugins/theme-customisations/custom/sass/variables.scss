@@ -1,3 +1,20 @@
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
 /// Slightly lighten a color
 /// @access public
 /// @param {Color} $color - color to tint
@@ -15,6 +32,8 @@
 @function shade($color, $percentage) {
   @return mix(black, $color, $percentage);
 }
+
+
 
 //Base Palette Colors
 $primary: 						  #288DC1;
