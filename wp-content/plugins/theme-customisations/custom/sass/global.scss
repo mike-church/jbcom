@@ -61,6 +61,10 @@
   @include aspect-ratio(1, 1);
 }
 
+.center {
+	text-align:center;
+} 
+
 
 //margins
 .margin-bottom-15 {

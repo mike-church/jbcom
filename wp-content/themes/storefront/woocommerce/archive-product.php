@@ -37,7 +37,7 @@ get_header( 'shop' ); ?>
 
 <div class="facetwp-template">
 
-		<?php if ( have_posts() ) : ?>
+	<?php if ( have_posts() ) : ?>
 
 			<?php
 				/**

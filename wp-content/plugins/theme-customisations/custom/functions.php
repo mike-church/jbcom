@@ -8,7 +8,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly.
+  exit; // Exit if accessed directly.
 }
 
 // Shared Taxonomies
@@ -74,10 +74,64 @@ add_filter( 'facetwp_index_all_products', '__return_true' );
 
 add_action( 'get_header', 'remove_storefront_sidebar' );
 function remove_storefront_sidebar() {
-	if ( is_product() || is_page() || is_search() ) {
-		remove_action( 'storefront_sidebar', 'storefront_get_sidebar',10 );
-	}
+  if ( is_product() || is_page() || is_search() ) {
+    remove_action( 'storefront_sidebar', 'storefront_get_sidebar',10 );
+  }
 }
+
+/* Add Load more results pagination to FacetWP */
+function fwp_load_more() {
+?>
+<script>
+(function($) {
+    $(function() {
+        if ('object' != typeof FWP) {
+            return;
+        }
+
+        wp.hooks.addFilter('facetwp/template_html', function(resp, params) {
+            if (FWP.is_load_more) {
+                FWP.is_load_more = false;
+                $('.facetwp-template').append(params.html);
+                return true;
+            }
+            return resp;
+        });
+    });
+
+    $(document).on('click', '.fwp-load-more', function() {
+        $('.fwp-load-more').html('Loading...');
+        FWP.is_load_more = true;
+        FWP.paged = parseInt(FWP.settings.pager.page) + 1;
+        FWP.soft_refresh = true;
+        FWP.refresh();
+    });
+
+    $(document).on('facetwp-loaded', function() {
+        if (FWP.settings.pager.page < FWP.settings.pager.total_pages) {
+            if (! FWP.loaded && 1 > $('.fwp-load-more').length) {
+                $('.facetwp-template').after('<div class="center"><button class="fwp-load-more button">Load more</button></div>');
+            }
+            else {
+                $('.fwp-load-more').html('Load more').show();
+            }
+        }
+        else {
+            $('.fwp-load-more').hide();
+        }
+    });
+
+    $(document).on('facetwp-refresh', function() {
+        if (! FWP.loaded) {
+            FWP.paged = 1;
+        }
+    });
+})(jQuery);
+</script>
+<?php
+}
+add_action( 'wp_head', 'fwp_load_more', 99 );
+add_filter( 'facetwp_template_force_load', '__return_true' );
 
 /* Adjust default per-page results*/
 add_filter( 'facetwp_per_page_options', function( $options ) {
@@ -147,8 +201,9 @@ function storefront_homepage_content() { ?>
 
 
 /* Hooks shit to get rid of */
-
+function woocommerce_pagination(){}
 function woocommerce_catalog_ordering(){}
+function woocommerce_result_count(){}
 function woocommerce_review_display_gravatar(){}
 function storefront_sorting_wrapper() {}
 function storefront_sorting_wrapper_close() {}
@@ -167,7 +222,7 @@ function woocommerce_breadcrumb(){
 /* Catalog Thumbnail */
 function woocommerce_template_loop_product_thumbnail() {
   $url = get_the_post_thumbnail_url($post->ID,'shop_catalog');
-  if ( has_post_thumbnail() ) { ?>
+  if ( has_post_thumbnail($post->ID) ) { ?>
 
     <div class="square" style="background-image:url(<?php echo $url;?>); background-repeat:no-repeat; background-size:cover; background-position:center center;"></div>
   <?php
@@ -179,7 +234,36 @@ function woocommerce_template_loop_product_thumbnail() {
   }
 }
 
-
+/* Adding nutrition highlights to single product page */
+function woocommerce_template_single_meta(){ 
+  $highlight_facts_values = rwmb_meta( 'nutrition_highlight_facts' );
+  $net_carbs = rwmb_meta( 'nutrition_highlight_net_carbs' );
+  $calories = rwmb_meta( 'nutrition_calories' );
+  if ( ! empty( $highlight_facts_values ) ) { ?>
+  <div class="highlight-facts">
+    <ul>
+    <?php foreach ( $highlight_facts_values as $highlight_facts_value ) { 
+    $fact = isset( $highlight_facts_value['nutrition_highlight_fact'] ) ? $highlight_facts_value['nutrition_highlight_fact'] : '';
+    $value = isset( $highlight_facts_value['nutrition_highlight_value'] ) ? $highlight_facts_value['nutrition_highlight_value'] : '';
+    ?> <li class="text-center"><span><?php echo $value;?></span><br><?php echo $fact;?></li> <?php } ?>
+    <?php if ( ! empty( $net_carbs ) ) { ?> <li class="text-center"><span><?php echo $net_carbs;?></span><br>Net Carbs*</li> <?php } ?>
+    </ul>
+  </div>
+  <?php } 
+  elseif ( ! empty( $net_carbs ) ) { ?>
+  <div class="highlight-facts">
+    <ul>
+      <li class="text-center"><span><?php echo $net_carbs;?></span><br>Net Carbs*</li>
+    </ul>
+  </div>
+  <?php }
+  if ( ! empty( $calories ) ) { ?> 
+      <p><a href="#nutritionals">View Nutritionals <i class="fa fa-arrow-circle-o-right" aria-hidden="true"></i></a></p>
+    <?php }
+  if ( ! empty( $net_carbs ) ) { ?> 
+      <p style="line-height:normal;"><small>*Net Carbs are calculated by subtracting Fiber from Total Carbohydrates.</small></p>      
+    <?php }
+}
 
 /* Enqeued Scripts */
 function custom_script() {
@@ -189,4 +273,4 @@ wp_enqueue_script( 'match_height', plugin_dir_url( __FILE__ ) . 'jquery-match-he
 }
 add_action('wp_enqueue_scripts', 'custom_script');
 
-
+add_filter('storefront_customizer_woocommerce_css', '__return_false');
