@@ -118,8 +118,9 @@
 	padding-bottom:60px;
 }
 
-
-
+.woocommerce-account .site-content {
+	padding-top:4.235801032em;
+}
 
 .storefront-product-section .section-title {
 	text-align:left;
@@ -187,32 +188,41 @@
 			display: inline-block;
 			font-size: 13px;
 			text-transform: uppercase;
-			margin-right:15px;
 			margin-bottom:15px;
 			line-height: normal;
 			text-align:center;
 			span {
 				text-transform: none;
-				font-size: 24px;
 				font-weight: $font-semi-bold;
 				letter-spacing: -1px;
 				color:$white;
 				display:block;
-				height:70px;
-				width:70px;
 				background-color:$success;
 				text-align:center;
 				border-radius:50%;
-				padding-top:18px;
 			}
 		}
 	}
 	p {
 		line-height: normal;
-		font-size: 14px;
+		font-size: 8px;
 		margin-bottom:15px;
 		font-weight: $font-normal;
 	}
+}
+#reviews .commentlist li .comment_container .comment-text {
+	width:100%;
+	border-bottom:#ebebeb solid 1px;
+}
+#respond {
+	padding:0;
+}
+input.submit, .single-product div.product .woocommerce-product-gallery .woocommerce-product-gallery__trigger {
+	color:$white !important;
+	text-transform:uppercase !important;
+}
+.footer-widgets {
+	border:none !important;
 }
 
 @media only screen and (min-width : 320px) {
@@ -238,6 +248,16 @@
 	a:active, a:visited, a:hover, a:link {
 		outline:none;
 	}
+	.highlight-facts ul li {
+		margin-right:10px;
+		font-size: 12px;
+		span {
+			font-size: 16px;
+			height:50px;
+			width:50px;
+			padding-top:15px;
+		}
+	}
 }
 
 @media only screen and (min-width : 768px) {
@@ -252,16 +272,23 @@
 	.storefront-primary-navigation, .widget_shopping_cart_content {
 		background-color:#2d2d2d;
 	}
-
-
-
-
 	.site-main .related.products ul.products li.product, .site-main .upsells.products ul.products li.product {
 	    width: 22%;
 	    float: left;
 	    margin-right: 4%;
 	}
+}
 
-
-
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+	.highlight-facts ul li {
+		margin-right:15px;
+		font-size:13px;
+		span {
+			font-size: 24px;
+			height:70px;
+			width:70px;
+			padding-top:18px;
+		}
+	}
 }

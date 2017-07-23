@@ -197,7 +197,7 @@ function storefront_homepage_content() { ?>
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <img src="http://placehold.it/560x315" class="img-responsive">
+          <img src="http://placehold.it/1600x900" class="img-responsive">
         </div>
       </div>
     </div>
@@ -205,6 +205,11 @@ function storefront_homepage_content() { ?>
 <?php
 }
 
+/* Remove Default Storefront Credit */
+add_action( 'init', 'custom_remove_footer_credit', 10 );
+function custom_remove_footer_credit () {
+    remove_action( 'storefront_footer', 'storefront_credit', 20 );
+}
 
 
 
