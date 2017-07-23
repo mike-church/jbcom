@@ -188,50 +188,53 @@ function nutritionals_register_meta_boxes( $meta_boxes )
 	);
 
 	$meta_boxes[] = array(
-		'title'  => __( 'Ingredients and Allergens', 'nutrition' ),
+		'title'  => __( 'Ingredients and Allergens', 'nutrition_' ),
 		'post_types' => 'product',
 		'context'    => 'normal',
 		'priority'   => 'low',
 		'fields' => array(
 
-			// HEADING
+			// WYSIWYG/RICH TEXT EDITOR
 			array(
-			'type' => 'heading',
-			'name' => __( 'Ingredients', 'nutrition_' ),
-			'id'   => 'fake_id', // Not used but needed for plugin
+				'name'    => esc_html__( 'Ingredients', 'nutrition_' ),
+				'id'      => "{$prefix}ingredients",
+				'type'    => 'wysiwyg',
+				// Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+				'raw'     => false,
+				// Editor settings, see wp_editor() function: look4wp.com/wp_editor
+				'options' => array(
+					'textarea_rows' => 4,
+					'teeny'         => true,
+					'media_buttons' => false,
+				),
 			),
-			// TEXTAREA
+			// WYSIWYG/RICH TEXT EDITOR
 			array(
-				'id'   => "{$prefix}ingredients",
-				'type' => 'textarea',
-				'cols' => 20,
-				'rows' => 6,
+				'name'    => esc_html__( 'Allergens', 'nutrition_' ),
+				'id'      => "{$prefix}allergens",
+				'type'    => 'wysiwyg',
+				// Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+				'raw'     => false,
+				// Editor settings, see wp_editor() function: look4wp.com/wp_editor
+				'options' => array(
+					'textarea_rows' => 4,
+					'teeny'         => true,
+					'media_buttons' => false,
+				),
 			),
-			// HEADING
+			// WYSIWYG/RICH TEXT EDITOR
 			array(
-			'type' => 'heading',
-			'name' => __( 'Allergens', 'nutrition_' ),
-			'id'   => 'fake_id', // Not used but needed for plugin
-			),
-			// TEXTAREA
-			array(
-				'id'   => "{$prefix}allergens",
-				'type' => 'textarea',
-				'cols' => 20,
-				'rows' => 6,
-			),
-			// HEADING
-			array(
-			'type' => 'heading',
-			'name' => __( 'Additional Notes', 'nutrition_' ),
-			'id'   => 'fake_id', // Not used but needed for plugin
-			),
-			// TEXTAREA
-			array(
-				'id'   => "{$prefix}additional_notes",
-				'type' => 'textarea',
-				'cols' => 20,
-				'rows' => 6,
+				'name'    => esc_html__( 'Additional Notes', 'nutrition_' ),
+				'id'      => "{$prefix}additional_notes",
+				'type'    => 'wysiwyg',
+				// Set the 'raw' parameter to TRUE to prevent data being passed through wpautop() on save
+				'raw'     => false,
+				// Editor settings, see wp_editor() function: look4wp.com/wp_editor
+				'options' => array(
+					'textarea_rows' => 4,
+					'teeny'         => true,
+					'media_buttons' => false,
+				),
 			),
 		),
 	);

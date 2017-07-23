@@ -193,7 +193,15 @@ function storefront_site_branding() { ?>
 
 /* Homepage Shit */
 function storefront_homepage_content() { ?>
-  <h1>Hello World</h1>
+  <section class="section-padding" style="padding-top:0;">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <img src="http://placehold.it/560x315" class="img-responsive">
+        </div>
+      </div>
+    </div>
+  </section>
 <?php
 }
 
@@ -208,6 +216,28 @@ function woocommerce_review_display_gravatar(){}
 function storefront_sorting_wrapper() {}
 function storefront_sorting_wrapper_close() {}
 function storefront_sorting(){}
+function storefront_product_categories(){}
+function storefront_featured_products(){}
+function storefront_popular_products(){}
+
+
+add_filter( 'woocommerce_output_related_products_args', 'change_number_related_products_storefront', 11 );
+ 
+function change_number_related_products_storefront( $args ) {
+ 
+ $args['posts_per_page'] = 4; // # of related products
+ $args['columns'] = 4; // # of columns per row
+ return $args;
+}
+
+add_filter( 'woocommerce_upsell_display_args', 'change_number_upsells_storefront', 11 );
+ 
+function change_number_upsells_storefront( $args ) {
+ 
+ $args['posts_per_page'] = 4; // # of related products
+ $args['columns'] = 4; // # of columns per row
+ return $args;
+}
 
 /* Breadcrumbs */
 function woocommerce_breadcrumb(){
@@ -274,3 +304,7 @@ wp_enqueue_script( 'match_height', plugin_dir_url( __FILE__ ) . 'jquery-match-he
 add_action('wp_enqueue_scripts', 'custom_script');
 
 add_filter('storefront_customizer_woocommerce_css', '__return_false');
+
+
+
+
