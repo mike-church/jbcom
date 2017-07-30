@@ -169,22 +169,6 @@ function fwp_add_facet_labels() {
 }
 add_action( 'wp_head', 'fwp_add_facet_labels', 100 );
 
-/* Change "Products" to "Shop" in Yoast breadcrumb */
-add_filter( 'wpseo_breadcrumb_output', 'custom_wpseo_breadcrumb_output' );
-function custom_wpseo_breadcrumb_output( $output ){
-if ( is_shop() ) {
-    $from = '<span class="breadcrumb_last">Products</span>'; 
-    $to = '<span class="breadcrumb_last">Shop</span>';
-    $output = str_replace( $from, $to, $output );
-}
-elseif( is_woocommerce() ){
-    $from = 'rel="v:url" property="v:title">Products</a>'; 
-    $to = 'rel="v:url" property="v:title">Shop</a>';
-    $output = str_replace( $from, $to, $output );
-}
-return $output;
-}
-
 /* Site Branding */
 function storefront_site_branding() { ?>
   <div class="site-branding"><a href="<?php echo home_url('/'); ?>" class="header-logo"></a></div>
@@ -197,7 +181,7 @@ function storefront_homepage_content() { ?>
     <div class="container">
       <div class="row">
         <div class="col-sm-12">
-          <img src="http://placehold.it/1600x900" class="img-responsive">
+          <a href="/shop"><img src="/wp-content/uploads/home-hero.jpg" class="img-responsive"></a>
         </div>
       </div>
     </div>
@@ -246,12 +230,28 @@ function change_number_upsells_storefront( $args ) {
 
 /* Breadcrumbs */
 function woocommerce_breadcrumb(){
-  if ( is_home() || is_page() || is_search() ){}
+  if ( is_home() || is_page() ){}
   else {
     if ( function_exists('yoast_breadcrumb') ) {
       yoast_breadcrumb('<nav id="breadcrumbs" style="padding:30px 0;">','</nav>');
     }
   }
+}
+
+/* Change "Products" to "Shop" in Yoast breadcrumb */
+add_filter( 'wpseo_breadcrumb_output', 'custom_wpseo_breadcrumb_output' );
+function custom_wpseo_breadcrumb_output( $output ){
+if ( is_shop() ) {
+    $from = '<span class="breadcrumb_last">Products</span>'; 
+    $to = '<span class="breadcrumb_last">Shop</span>';
+    $output = str_replace( $from, $to, $output );
+}
+elseif( is_woocommerce() ){
+    $from = 'rel="v:url" property="v:title">Products</a>'; 
+    $to = 'rel="v:url" property="v:title">Shop</a>';
+    $output = str_replace( $from, $to, $output );
+}
+return $output;
 }
 
 /* Catalog Thumbnail */
@@ -267,6 +267,17 @@ function woocommerce_template_loop_product_thumbnail() {
   <?php
     
   }
+}
+
+/* Change number of products per row */
+add_filter( 'storefront_loop_columns', 'sf_child_products_per_row' );
+function sf_child_products_per_row() { 
+  if ( is_search() ){
+    return 4;
+  }
+  else {
+    return 3;
+  }    
 }
 
 /* Adding nutrition highlights to single product page */

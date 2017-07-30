@@ -15,46 +15,30 @@
 
 
 .card {
-	border:$light-grey-3 solid 1px;
 	position: relative;
-	padding-bottom:20px;
-	box-shadow: 0 3px 5px $light-grey-4;
 	overflow:hidden;
-	.add-to-cart-container {
-		position:absolute;
-		left:0;
-		bottom:0;
-		width:100%;
-		.button {
-			width:100%;
-			margin:0 !important;
-		}
-		.added_to_cart {
-			position: absolute;
-			left:0;
-			bottom:0;
-			width:100%;
-			text-transform: uppercase;
-		}
-	}
-	.card-body {
-		padding:15px;
-	}
 	.onsale {
-		width: 200px;
 		background: $brand;
 		border-radius:0;
 		position: absolute;
-		top: 15px;
-		left: -60px;
 		text-align: center;
 		border:none;
-		line-height: 32px;
 		letter-spacing: 1px;
 		color: $white;
 		transform: rotate(-45deg);
 		-webkit-transform: rotate(-45deg);
 	}
+}
+.card .square {
+	background-color:#f1f1f1;
+	background-blend-mode: multiply;
+	-moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    transition: all .2s ease-in-out;
+}
+.card:hover .square {
+	background-color:#fff;
 }
 
 .square {
@@ -118,7 +102,7 @@
 	padding-bottom:60px;
 }
 
-.woocommerce-account .site-content {
+.woocommerce-account .site-content, .woocommerce-cart .site-content, .woocommerce-checkout .site-content, .page .site-content  {
 	padding-top:4.235801032em;
 }
 
@@ -224,6 +208,12 @@ input.submit, .single-product div.product .woocommerce-product-gallery .woocomme
 .footer-widgets {
 	border:none !important;
 }
+.site-content>.col-full>.woocommerce>.woocommerce-error:first-child, .site-content>.col-full>.woocommerce>.woocommerce-info:first-child, .site-content>.col-full>.woocommerce>.woocommerce-message:first-child {
+	margin-top:0;
+}
+.page-template-template-homepage:not(.has-post-thumbnail) .site-main {
+    padding-top: 0;
+}
 
 @media only screen and (min-width : 320px) {
 	.single-product.left-sidebar, .search-results.left-sidebar {
@@ -258,9 +248,165 @@ input.submit, .single-product div.product .woocommerce-product-gallery .woocomme
 			padding-top:15px;
 		}
 	}
+
+	.card {
+		border-bottom:$light-grey-3 solid 1px;
+		padding:0;
+		min-height: 80px;
+		margin-bottom:20px !important;
+		.image-container {
+			width:60px;
+			position:absolute;
+			top:0;
+			left:0;
+		}
+		.card-body {
+			text-align:left;
+			padding:0 115px 20px 75px;
+			h2 {
+				font-size:14px !important;
+				font-weight: $font-semi-bold !important;
+			}
+			.star-rating {
+				margin:0 !important;
+			}
+			.price {
+				position: absolute;
+				top:0;
+				right:0;
+			}
+			.price, .price ins {				
+				font-weight: $font-bold !important;
+				line-height: normal;
+				font-size:14px;
+			}
+			.price del {
+				display:none;
+			}
+		}
+		.onsale {
+			width: 100px;
+			top: 10px;
+			left: -30px;
+			line-height: 16px;
+			font-size:12px;
+		}
+		.add-to-cart-container {
+			position:absolute;
+			right:0;
+			top:30px;
+			width:100px;
+			.button {
+				width:100px;
+				margin:0 !important;
+				font-size:12px;
+				padding:5px 0;
+			}
+			.added_to_cart {
+				position: absolute;
+				left:0;
+				top:0;
+				width:100px;
+				text-transform: uppercase;
+				font-size:12px;
+				padding:5px 0;
+			}
+			.added_to_cart:after {
+				display:none;
+			}
+		}
+	}
 }
 
+/* Extra Small Devices, Phones */ 
+    @media only screen and (min-width : 480px) {
+    	.card {
+			min-height: 120px;
+			.image-container {
+				width:100px;
+			}			
+			.card-body {
+				text-align:left;
+				padding:0 115px 20px 115px ;
+				h2 {
+					font-size:20px !important;
+					font-weight: $font-semi-bold !important;
+				}
+				.price, .price ins {
+					font-size:18px;
+				}
+			}
+			.add-to-cart-container {
+				top:40px;
+			}
+		}
+    }
+
 @media only screen and (min-width : 768px) {
+	.card {
+		border:$light-grey-3 solid 1px;
+		box-shadow: 0 3px 5px $light-grey-4;
+		padding-bottom:20px;
+		margin-bottom:5% !important;
+		.image-container {
+			width:auto;
+			position:relative;
+			top:0;
+			left:0;
+		}
+		.card-body {
+			padding:15px;
+			text-align:center;			
+			h2 {
+				font-size:14px !important;
+				font-weight: $font-semi-bold !important;
+			}
+			.price {
+				position: relative;
+			}
+			.price, .price ins {				
+				font-size:16px;
+			}
+			.price del {
+				display:inline-block;
+			}
+			.star-rating {
+				margin:0 auto !important;
+			}
+		}
+		.onsale {
+			width: 200px;
+			top: 15px;
+			left: -60px;
+			line-height: 32px;
+			font-size:14px;
+		}
+		.add-to-cart-container {
+			position:absolute;
+			left:0;
+			bottom:0;
+			top:auto;
+			width:100%;
+			.button {
+				width:100%;
+				margin:0 !important;
+				font-size:14px;
+				padding:8px 0;
+			}
+			.added_to_cart {
+				position: absolute;
+				left:0;
+				bottom:0;
+				width:100%;
+				text-transform: uppercase;
+				font-size:14px;
+				padding:8px 0;
+			}
+			.added_to_cart:after {
+				display:inline-block;
+			}
+		}
+	}
 	.site-header {
 		.site-branding {
 			.header-logo {			
@@ -277,6 +423,9 @@ input.submit, .single-product div.product .woocommerce-product-gallery .woocomme
 	    float: left;
 	    margin-right: 4%;
 	}
+
+
+
 }
 
 /* Medium Devices, Desktops */
