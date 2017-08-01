@@ -273,6 +273,9 @@ input.submit, .single-product div.product .woocommerce-product-gallery .woocomme
     }
     li:last-child {
     	text-align: right;
+    	.facetwp-per-page, .facetwp-sort {
+    		text-align: left;
+    	}
     }
 }
 
