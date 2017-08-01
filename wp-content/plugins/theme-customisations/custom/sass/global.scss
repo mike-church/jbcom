@@ -215,12 +215,77 @@ input.submit, .single-product div.product .woocommerce-product-gallery .woocomme
     padding-top: 0;
 }
 
+.facetwp-per-page, .facetwp-sort, .facetwp-type-dropdown {
+	position: relative;
+	display:inline-block;
+	height:40px;
+	border: $light-grey-3 solid 1px;
+	border-radius: 1px;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    min-width: 100px;
+    background-color:white;
+	select {
+		height: 40px;
+        padding: 0 15px;
+        line-height: 1.4em;
+        font-size: 14px;
+        font-weight: $font-normal;
+		background:transparent;
+        background-image: none;
+        border:0;
+        border-radius: 0;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0;
+        -moz-appearance: none;
+        -moz-border-radius: 0;
+        outline:none;
+        cursor:pointer;
+        overflow:hidden;
+	}
+}
+.facetwp-per-page:hover, .facetwp-sort:hover, .facetwp-type-dropdown:hover {
+    background-color:$light-grey-4;
+}
+.facetwp-per-page:before, .facetwp-sort:before, .facetwp-type-dropdown:before {
+    font-family: fontawesome;
+    content:"\f0d7"; 
+    position: absolute;
+    top:8px;
+    right:15px;
+    color:$dark-grey-2;
+    font-size: 14px;
+    pointer-events: none;
+}
+.facetwp-counts {
+    display: inline-block !important;
+}
+
+.list-table {
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    display: table;
+    width:100%;
+    li {
+        display:table-cell;
+        white-space: nowrap;
+    }
+    li:last-child {
+    	text-align: right;
+    }
+}
+
 @media only screen and (min-width : 320px) {
-	.single-product.left-sidebar, .search-results.left-sidebar {
+	.single-product.left-sidebar, .search-no-results.left-sidebar {
 		.content-area {
 			width:100%;
 			float:none;
 		}
+	}
+	.search-no-results .list-table, .search-no-results .widget-area {
+		display:none;
+
 	}
 	.site-header {
 		background-color:#c0392b;
@@ -316,6 +381,47 @@ input.submit, .single-product div.product .woocommerce-product-gallery .woocomme
 			}
 		}
 	}
+	.hidden-sm {
+		display:none;
+	}
+	.hidden-lg {
+		display:block;
+	}
+	.filter-bar {
+		margin-bottom:30px;
+		padding-bottom:30px;
+		border-bottom:$dark-grey-2 solid 1px;
+		.filters {
+			list-style-type:none;
+			margin:0;
+			padding:0;
+			li {
+				display:block;
+				margin:0 0 5px 0;
+				height:42px;
+				position: relative;
+				overflow:hidden;
+				.facet-label {
+					display:none;
+				}
+				.facetwp-facet {
+					margin:0;
+				}
+				.facetwp-loading {
+					position: absolute;
+					left:15px;
+					top:8px;
+				}
+			}
+		}
+
+	}
+	.filter-bar .filters li .facetwp-type-dropdown {
+		width:100%;
+		select {
+			width:100%;
+		}
+	}
 }
 
 /* Extra Small Devices, Phones */ 
@@ -338,6 +444,16 @@ input.submit, .single-product div.product .woocommerce-product-gallery .woocomme
 			}
 			.add-to-cart-container {
 				top:40px;
+			}
+		}
+		.filter-bar .filters li {
+			display:inline-block;
+			margin:0 5px 0 0;
+		}
+		.filter-bar .filters li .facetwp-type-dropdown {
+			width:auto;
+			select {
+				width:auto;
 			}
 		}
     }
@@ -422,6 +538,12 @@ input.submit, .single-product div.product .woocommerce-product-gallery .woocomme
 	    width: 22%;
 	    float: left;
 	    margin-right: 4%;
+	}
+	.hidden-sm {
+		display:block;
+	}
+	.hidden-lg {
+		display:none;
 	}
 
 

@@ -74,7 +74,7 @@ add_filter( 'facetwp_index_all_products', '__return_true' );
 
 add_action( 'get_header', 'remove_storefront_sidebar' );
 function remove_storefront_sidebar() {
-  if ( is_product() || is_page() || is_search() ) {
+  if ( is_product() || is_page() ) {
     remove_action( 'storefront_sidebar', 'storefront_get_sidebar',10 );
   }
 }
@@ -135,7 +135,7 @@ add_filter( 'facetwp_template_force_load', '__return_true' );
 
 /* Adjust default per-page results*/
 add_filter( 'facetwp_per_page_options', function( $options ) {
-    return array( 15, 30, 60, 100 );
+    return array( 12, 24, 45, 100 );
 });
 
 
@@ -145,7 +145,7 @@ add_filter( 'loop_shop_per_page', 'new_loop_shop_per_page', 20 );
 function new_loop_shop_per_page( $cols ) {
   // $cols contains the current number of products per page based on the value stored on Options -> Reading
   // Return the number of products you wanna show per page.
-  $cols = 15;
+  $cols = 12;
   return $cols;
 }
 
@@ -189,11 +189,11 @@ function storefront_homepage_content() { ?>
 <?php
 }
 
-/* Remove Default Storefront Credit */
-add_action( 'init', 'custom_remove_footer_credit', 10 );
-function custom_remove_footer_credit () {
-    remove_action( 'storefront_footer', 'storefront_credit', 20 );
-}
+
+add_filter( 'facetwp_result_count', function( $output, $params ) {
+    $output = $params['lower'] . '-' . $params['upper'] . ' of ' . $params['total'] . ' products';
+    return $output;
+}, 10, 2 );
 
 
 
@@ -209,23 +209,26 @@ function storefront_product_categories(){}
 function storefront_featured_products(){}
 function storefront_popular_products(){}
 
-
-add_filter( 'woocommerce_output_related_products_args', 'change_number_related_products_storefront', 11 );
- 
-function change_number_related_products_storefront( $args ) {
- 
+/* Change number of related products */
+add_filter( 'woocommerce_output_related_products_args', 'change_number_related_products_storefront', 11 ); 
+function change_number_related_products_storefront( $args ) { 
  $args['posts_per_page'] = 4; // # of related products
  $args['columns'] = 4; // # of columns per row
  return $args;
 }
 
-add_filter( 'woocommerce_upsell_display_args', 'change_number_upsells_storefront', 11 );
- 
-function change_number_upsells_storefront( $args ) {
- 
+ /* Change number of upsels */
+add_filter( 'woocommerce_upsell_display_args', 'change_number_upsells_storefront', 11 ); 
+function change_number_upsells_storefront( $args ) { 
  $args['posts_per_page'] = 4; // # of related products
  $args['columns'] = 4; // # of columns per row
  return $args;
+}
+
+/* Remove Default Storefront Credit */
+add_action( 'init', 'custom_remove_footer_credit', 10 );
+function custom_remove_footer_credit () {
+    remove_action( 'storefront_footer', 'storefront_credit', 20 );
 }
 
 /* Breadcrumbs */
@@ -270,7 +273,7 @@ function woocommerce_template_loop_product_thumbnail() {
 }
 
 /* Change number of products per row */
-add_filter( 'storefront_loop_columns', 'sf_child_products_per_row' );
+/*add_filter( 'storefront_loop_columns', 'sf_child_products_per_row' );
 function sf_child_products_per_row() { 
   if ( is_search() ){
     return 4;
@@ -278,7 +281,7 @@ function sf_child_products_per_row() {
   else {
     return 3;
   }    
-}
+}*/
 
 /* Adding nutrition highlights to single product page */
 function woocommerce_template_single_meta(){ 

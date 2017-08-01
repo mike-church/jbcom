@@ -22,6 +22,19 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header( 'shop' ); ?>
 
+	<?php if ( is_search() ){ ?>
+	<h3 class="margin-bottom-30"><?php /* Search Count */ $allsearch = &new WP_Query("s=$s&showposts=-1"); $key = wp_specialchars($s, 1); $count = $allsearch->post_count; _e(''); _e('<span class="search-terms">"'); echo $key; _e('"</span>');?> we found <?php echo $count . ' '; _e('products!'); wp_reset_query(); ?></h3>
+	<?php } ?>
+
+	<div class="filter-bar hidden-lg">
+		<h4>Narrow your choices</h4>
+		<ul class="filters">
+			<li><?php echo do_shortcode('[facetwp facet="diet_dropdown"]');?></li>
+			<li><?php echo do_shortcode('[facetwp facet="categories_dropdown"]');?></li>
+			<li><button class="button" onclick="FWP.reset()"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
+		</ul>
+	</div>
+
 	<?php
 		/**
 		 * woocommerce_before_main_content hook.
@@ -34,10 +47,13 @@ get_header( 'shop' ); ?>
 	?>
 
 
-<?php if ( is_search() ){ ?>
-	<h2 class="margin-bottom-30">Search Result for <?php /* Search Count */ $allsearch = &new WP_Query("s=$s&showposts=-1"); $key = wp_specialchars($s, 1); $count = $allsearch->post_count; _e(''); _e('<span class="search-terms">'); echo $key; _e('</span>'); _e(' &mdash; '); echo $count . ' '; _e('products'); wp_reset_query(); ?></h2>
-<?php } ?>
 
+<div class="margin-bottom-30 hidden-sm">
+<ul class="list-table">
+<li><?php echo do_shortcode('[facetwp counts="true"]') ;?></li>
+<li><?php echo do_shortcode('[facetwp sort="true"]') ;?></li>
+</ul>
+</div>
 
 
 <div class="facetwp-template">
@@ -100,6 +116,13 @@ get_header( 'shop' ); ?>
 
 </div>
 
+<div class="hidden-sm" style="margin-top:30px">
+<ul class="list-table" >
+<li><?php echo do_shortcode('[facetwp counts="true"]') ;?></li>
+<li><?php echo do_shortcode('[facetwp per_page="true"]') ;?></li>
+</ul>
+</div>
+
 	<?php
 		/**
 		 * woocommerce_after_main_content hook.
@@ -119,4 +142,3 @@ get_header( 'shop' ); ?>
 	?>
 
 <?php get_footer( 'shop' ); ?>
-
