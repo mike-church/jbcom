@@ -33,3 +33,4 @@ wp-content/plugins/*
 wp-content/themes/*
 !wp-content/themes/sage-8.4.2/
 !wp-content/themes/storefront/
+!wp-content/themes/storefront-child/
