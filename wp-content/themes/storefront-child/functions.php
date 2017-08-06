@@ -248,16 +248,13 @@ function woocommerce_template_loop_product_thumbnail() {
   }
 }
 
-/* Change number of products per row */
-/*add_filter( 'storefront_loop_columns', 'sf_child_products_per_row' );
+/*Change number of products per row */
+add_filter( 'storefront_loop_columns', 'sf_child_products_per_row' );
 function sf_child_products_per_row() { 
-  if ( is_search() ){
+  if ( is_page('paleo-protein-bars') ){
     return 4;
-  }
-  else {
-    return 3;
-  }    
-}*/
+  }  
+}
 
 /* Adding nutrition highlights to single product page */
 function woocommerce_template_single_meta(){ 
@@ -305,7 +302,7 @@ function sf_child_theme_dequeue_style() {
   wp_dequeue_style( 'storefront-child-style' );
   $parent_style = 'parent-style';
   wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css','','2.2.4' );
-  wp_enqueue_style( 'cheese-style', get_stylesheet_directory_uri() . '/style.css', array( $parent_style ),'1.5.6' );
+  wp_enqueue_style( 'cheese-style', get_stylesheet_directory_uri() . '/style.min.css', array( $parent_style ),'1.5.8' );
 }
 add_action( 'wp_enqueue_scripts', 'sf_child_theme_dequeue_style', 999 );
 
