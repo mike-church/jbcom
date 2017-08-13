@@ -8,32 +8,17 @@
  */
 
 get_header( 'shop' ); ?>
+<section class="hero" style="background-image:url(/wp-content/uploads/protein-bar-hero.jpg);">
+	<div class="text">
+	<h1 class="color-white">Paleo Protein Bars</h1>
+	<p class="color-white">Introducing Julian Bakery’s Paleo Protein Bar®! They are 100% Paleo, Whey-free, and No Sugar Alcohols. All bars contain 20g of protein and are sweetened with monk fruit or organic stevia leaf. Each bar is a complete protein meal replacement or snack. They are soft, creamy, cake like, and best of all delicious!</p>
+	<p class="color-white">Each bar is made with egg white or grass-fed beef protein combined with carefully selected fibers, carbohydrates, and healthy fats (from coconut). Calorie values of 1.2 and 2.4 per gram respectively, versus 4 calories per gram used for typical carbohydrates. Our healthy organic prebiotic fiber (from organic tapioca) helps improve digestion, curb appetite without all the stomach issues.</p>
+	<p class="color-white">All flavors are lab tested for nutritional accuracy. We offer a MONEY BACK GUARANTEE on all our Paleo Protein Bars (full refund for any unopened bars returned).</p>
+	</div>
+</section>
 
-<h1>Paleo Protein Bars</h1>
-
-
-	<?php
-		/**
-		 * woocommerce_before_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper - 10 (outputs opening divs for the content)
-		 * @hooked woocommerce_breadcrumb - 20
-		 * @hooked WC_Structured_Data::generate_website_data() - 30
-		 */
-		do_action( 'woocommerce_before_main_content' );
-	?>
-
-<div class="filter-bar">
-<h4>Narrow your choices</h4>
-<ul class="filters">
-<li><?php echo do_shortcode('[facetwp facet="diet_dropdown"]');?></li>
-<li><?php echo do_shortcode('[facetwp facet="features_dropdown"]');?></li>
-<li><button class="button" onclick="FWP.reset()"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
-</ul>
-</div>
-
-
-<div class="facetwp-template">
+<?php do_action( 'woocommerce_before_main_content' ); ?>
+<h2 class="margin-bottom-30">Protein Bars</h2>
 
 <?php
 $params = array(
@@ -52,84 +37,97 @@ $params = array(
 		),
 	),
 );
-$wc_query = new WP_Query($params); // (2)
-?>
-
-<?php if ($wc_query->have_posts()) : // (3) ?>
-
-
-<?php
-/**
-* woocommerce_before_shop_loop hook.
-*
-* @hooked wc_print_notices - 10
-* @hooked woocommerce_result_count - 20
-* @hooked woocommerce_catalog_ordering - 30
-*/
-do_action( 'woocommerce_before_shop_loop' );
-?>
-
+$wc_query = new WP_Query($params); if ($wc_query->have_posts()) : ?>
+<?php do_action( 'woocommerce_before_shop_loop' ); ?>
 <?php woocommerce_product_loop_start(); ?>
-
 <?php woocommerce_product_subcategories(); ?>
-
-
-
-<?php while ($wc_query->have_posts()) : // (4)
-$wc_query->the_post(); ?>
-
-<?php
-/**
-* woocommerce_shop_loop hook.
-*
-* @hooked WC_Structured_Data::generate_product_data() - 10
-*/
-do_action( 'woocommerce_shop_loop' );
-?>
-
+<?php while ($wc_query->have_posts()) : $wc_query->the_post(); ?>
+<?php do_action( 'woocommerce_shop_loop' ); ?>
 <?php wc_get_template_part( 'content', 'product' ); ?>
-
 <?php endwhile; // end of the loop. ?>
-
 <?php woocommerce_product_loop_end(); ?>
-
-<?php
-/**
-* woocommerce_after_shop_loop hook.
-*
-* @hooked woocommerce_pagination - 10
-*/
-do_action( 'woocommerce_after_shop_loop' );
-?>
-
+<?php do_action( 'woocommerce_after_shop_loop' ); ?>
 <?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+<?php do_action( 'woocommerce_no_products_found' ); ?>
+<?php endif; ?>
+<h2 class="margin-bottom-30">You may also like our protein powders</h2>
 
 <?php
-/**
-* woocommerce_no_products_found hook.
-*
-* @hooked wc_no_products_found - 10
-*/
-do_action( 'woocommerce_no_products_found' );
-?>
-
+$params = array(
+'posts_per_page' => 100, 
+'post_type' => 'product',
+'tax_query' => array(
+		array(
+			'taxonomy' => 'type',
+			'field'    => 'slug',
+			'terms'    => array('paleo','primal','pegan'),
+		),
+		array(
+			'taxonomy' => 'product_cat',
+			'field'    => 'slug',
+			'terms'    => 'protein-powder',
+		),
+	),
+);
+$wc_query = new WP_Query($params); if ($wc_query->have_posts()) : ?>
+<?php do_action( 'woocommerce_before_shop_loop' ); ?>
+<?php woocommerce_product_loop_start(); ?>
+<?php woocommerce_product_subcategories(); ?>
+<?php while ($wc_query->have_posts()) : $wc_query->the_post(); ?>
+<?php do_action( 'woocommerce_shop_loop' ); ?>
+<?php wc_get_template_part( 'content', 'product' ); ?>
+<?php endwhile; // end of the loop. ?>
+<?php woocommerce_product_loop_end(); ?>
+<?php do_action( 'woocommerce_after_shop_loop' ); ?>
+<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
+<?php do_action( 'woocommerce_no_products_found' ); ?>
 <?php endif; ?>
 
+<h2 class="margin-bottom-30">Facebook Reviews</h2>
+<div id="fb_reviews" class="slider-arrows">
+
+  <div id="review" class="row speaker-tiles">
+    <div class="slide">
+      <div class="fb-comment-embed background-white" data-href="https://www.facebook.com/julianbakery/photos/a.165408446828667.30393.105112046191641/950300815006089/?type=3&comment_id=1514813802146690&comment_tracking=%7B%22tn%22%3A%22R9%22%7D" data-width="220" data-include-parent="false"></div>
+    </div>
+    <div class="slide">
+      <div class="fb-comment-embed background-white" data-href="https://www.facebook.com/julianbakery/photos/a.165408446828667.30393.105112046191641/1131791980190304/?type=3&amp;comment_id=1131899520179550" data-width="220" data-include-parent="false"></div>
+    </div>
+    <div class="slide">
+      <div class="fb-comment-embed background-white" data-href="https://www.facebook.com/julianbakery/photos/a.165408446828667.30393.105112046191641/1129218157114353/?type=3&amp;comment_id=1129408850428617" data-width="220" data-include-parent="false"></div>
+    </div>
+    <div class="slide">
+      <div class="fb-comment-embed background-white" data-href="https://www.facebook.com/julianbakery/photos/a.165408446828667.30393.105112046191641/1115214858514683/?type=3&amp;comment_id=1123555751013927" data-width="220" data-include-parent="false"></div>
+    </div>
+    <div class="slide">
+      <div class="fb-comment-embed background-white" data-href="https://www.facebook.com/julianbakery/photos/a.165408446828667.30393.105112046191641/1085841334785369/?type=3&amp;comment_id=1085842324785270&amp;reply_comment_id=1087279171308252" data-width="220" data-include-parent="false"></div>
+    </div>
+    <div class="slide">
+      <div class="fb-comment-embed background-white" data-href="https://www.facebook.com/julianbakery/photos/a.165408446828667.30393.105112046191641/1082186288484207/?type=3&amp;comment_id=1083594888343347" data-width="220" data-include-parent="false"></div>
+    </div>
+  </div>
+
 </div>
+<script>jQuery(function(a){a("#review").slick({arrows:!0,appendArrows:a("#fb_reviews"),prevArrow:'<div class="toggle-left"><i class="fa slick-prev fa-chevron-left"></i></div>',nextArrow:'<div class="toggle-right"><i class="fa slick-next fa-chevron-right"></i></div>',autoplay:!1,autoplaySpeed:8e3,speed:800,slidesToShow:4,slidesToScroll:4,accessibility:!1,dots:!1,responsive:[{breakpoint:992,settings:{slidesToShow:3,slidesToScroll:3}},{breakpoint:768,settings:{slidesToShow:2,slidesToScroll:2}},{breakpoint:480,settings:{slidesToShow:1,slidesToScroll:1}}]}),a("#review").show()});</script>
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 
 
-
-	<?php
-		/**
-		 * woocommerce_after_main_content hook.
-		 *
-		 * @hooked woocommerce_output_content_wrapper_end - 10 (outputs closing divs for the content)
-		 */
-		do_action( 'woocommerce_after_main_content' );
-	?>
 
 
 
 
 <?php get_footer( 'shop' ); ?>
+
+
+
+
+

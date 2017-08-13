@@ -294,8 +294,9 @@ function woocommerce_template_single_meta(){
 function custom_script() {
   wp_deregister_script('jquery');
   wp_enqueue_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js', array(), null, true);
-  wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery'), '1.1', false );
   wp_enqueue_script( 'match-height', get_stylesheet_directory_uri() . '/js/jquery-match-height/dist/jquery.matchHeight-min.js', array('jquery'), '1.0', false );
+  wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.min.js', array('jquery'), '1.7.1', false );
+  wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery'), '1.1', false );
 }
 
 add_action('wp_enqueue_scripts', 'custom_script');
@@ -305,7 +306,7 @@ function sf_child_theme_dequeue_style() {
   wp_dequeue_style( 'storefront-child-style' );
   $parent_style = 'parent-style';
   wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css','','2.2.4' );
-  wp_enqueue_style( 'cheese-style', get_stylesheet_directory_uri() . '/style.min.css', array( $parent_style ),'1.5.8' );
+  wp_enqueue_style( 'cheese-style', get_stylesheet_directory_uri() . '/style.min.css', array( $parent_style ),'1.5.9' );
 }
 add_action( 'wp_enqueue_scripts', 'sf_child_theme_dequeue_style', 999 );
 
