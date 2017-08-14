@@ -31,7 +31,7 @@ get_header( 'shop' ); ?>
 		<ul class="filters">
 			<li><?php echo do_shortcode('[facetwp facet="diet_dropdown"]');?></li>
 			<li><?php echo do_shortcode('[facetwp facet="categories_dropdown"]');?></li>
-			<li><button class="button" onclick="FWP.reset()"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
+			<li><button onclick="FWP.reset()" class="button"><i class="fa fa-undo" aria-hidden="true"></i> Reset</button></li>
 		</ul>
 	</div>
 

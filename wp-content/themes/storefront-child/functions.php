@@ -297,6 +297,8 @@ function custom_script() {
   wp_enqueue_script( 'match-height', get_stylesheet_directory_uri() . '/js/jquery-match-height/dist/jquery.matchHeight-min.js', array('jquery'), '1.0', false );
   wp_enqueue_script( 'slick', get_stylesheet_directory_uri() . '/js/slick/slick.min.js', array('jquery'), '1.7.1', false );
   wp_enqueue_script( 'custom-js', get_stylesheet_directory_uri() . '/js/custom.js', array('jquery'), '1.1', false );
+  wp_register_script('addthis', '//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58a72778826dc565', null, true);
+  wp_enqueue_script('addthis');
 }
 
 add_action('wp_enqueue_scripts', 'custom_script');
