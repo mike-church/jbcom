@@ -32,7 +32,7 @@ $vitamin_values = rwmb_meta( 'nutrition_vitamins' );
 $ingredients = rwmb_meta( 'nutrition_ingredients' );
 $allergens = rwmb_meta( 'nutrition_allergens' );
 $info = rwmb_meta( 'nutrition_additional_notes' );
-
+$videos = rwmb_meta( 'video_youtube_id' );
 $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', __( 'Description', 'woocommerce' ) ) );
 
 ?>
@@ -42,6 +42,23 @@ $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', _
 <?php endif; ?>
 
 <?php the_content(); ?>
+
+
+
+<?php if ( ! empty( $videos ) ) { 
+	$str = $videos;
+	$str = preg_replace('#^https?://youtu.be/#', '', $str);
+	?> 
+
+	<div class="video-container">
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $str;?>?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+	</div>
+
+<?php } ?>
+
+
+
+
 
 <?php if ( ! empty( $calories ) ) { ?>
 	<div id="nutritionals" class="nutritional-info-container margin-top-60 margin-bottom-60">

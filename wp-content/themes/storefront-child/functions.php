@@ -308,7 +308,7 @@ function sf_child_theme_dequeue_style() {
   wp_dequeue_style( 'storefront-child-style' );
   $parent_style = 'parent-style';
   wp_enqueue_style( $parent_style, get_template_directory_uri() . '/style.css','','2.2.4' );
-  wp_enqueue_style( 'cheese-style', get_stylesheet_directory_uri() . '/style.min.css', array( $parent_style ),'1.5.9' );
+  wp_enqueue_style( 'cheese-style', get_stylesheet_directory_uri() . '/style.min.css', array( $parent_style ),'1.5.10' );
 }
 add_action( 'wp_enqueue_scripts', 'sf_child_theme_dequeue_style', 999 );
 

@@ -24,9 +24,9 @@ function feature_video_register_meta_boxes( $meta_boxes )
 		'fields' => array(
 			// TEXT
 			array(
-				'name'  => __( 'YouTube ID', 'nutrition_' ),
+				'name'  => __( 'YouTube Share URL', 'video_' ),
 				'id'    => "{$prefix}youtube_id",
-				'desc' => __( 'Eample: 5upIQDYKhHs', 'video_' ),
+				'desc' => __( 'Eample: https://youtu.be/709ZjT7AXBs', 'video_' ),
 				'type'  => 'text',
 			),
 		),

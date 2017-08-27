@@ -30,7 +30,6 @@ if ( '0' === $comment->comment_approved ) { ?>
 <?php } else { ?>
 
 	<p class="meta">
-
 		<strong class="woocommerce-review__author" itemprop="author"><?php comment_author(); ?></strong> <?php
 
 		if ( 'yes' === get_option( 'woocommerce_review_rating_verification_label' ) && $verified ) {

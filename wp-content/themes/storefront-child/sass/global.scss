@@ -403,7 +403,23 @@ table.cart td.actions, table.cart td.product-remove {
         border-radius:3px;
         color:$white;
     }
-}  
+}
+
+/* Reponsive Video iFrame */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    iframe {
+        position: absolute;
+        top:0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+}
 
 
 @media only screen and (min-width : 320px) {
