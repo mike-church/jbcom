@@ -29,7 +29,6 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 ?>
 <li <?php post_class('match-height card'); ?>>
 	<?php
-	
 	/**
 	 * woocommerce_before_shop_loop_item hook.
 	 *
@@ -74,12 +73,4 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 	 */
 	do_action( 'woocommerce_after_shop_loop_item' );
 	?>
-
-
 </li>
-
-
-
-
-
-

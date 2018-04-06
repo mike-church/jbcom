@@ -68,60 +68,6 @@ function remove_storefront_sidebar() {
   }
 }
 
-/* Add Load more results pagination to FacetWP */
-function fwp_load_more() {
-?>
-<script>
-(function($) {
-    $(function() {
-        if ('object' != typeof FWP) {
-            return;
-        }
-
-        wp.hooks.addFilter('facetwp/template_html', function(resp, params) {
-            if (FWP.is_load_more) {
-                FWP.is_load_more = false;
-                $('.facetwp-template').append(params.html);
-                return true;
-            }
-            return resp;
-        });
-    });
-
-    $(document).on('click', '.fwp-load-more', function() {
-        $('.fwp-load-more').html('Loading...');
-        FWP.is_load_more = true;
-        FWP.paged = parseInt(FWP.settings.pager.page) + 1;
-        FWP.soft_refresh = true;
-        FWP.refresh();
-    });
-
-    $(document).on('facetwp-loaded', function() {
-        if (FWP.settings.pager.page < FWP.settings.pager.total_pages) {
-            if (! FWP.loaded && 1 > $('.fwp-load-more').length) {
-                $('.facetwp-template').after('<div class="center"><button class="fwp-load-more button">Load more</button></div>');
-            }
-            else {
-                $('.fwp-load-more').html('Load more').show();
-            }
-        }
-        else {
-            $('.fwp-load-more').hide();
-        }
-    });
-
-    $(document).on('facetwp-refresh', function() {
-        if (! FWP.loaded) {
-            FWP.paged = 1;
-        }
-    });
-})(jQuery);
-</script>
-<?php
-}
-add_action( 'wp_head', 'fwp_load_more', 99 );
-add_filter( 'facetwp_template_force_load', '__return_true' );
-
 /* Adjust default per-page results*/
 add_filter( 'facetwp_per_page_options', function( $options ) {
     return array( 12, 24, 45, 100 );
@@ -288,6 +234,46 @@ function woocommerce_template_single_meta(){
   if ( ! empty( $net_carbs ) ) { ?> 
       <p style="line-height:normal;"><small>*Net Carbs are calculated by subtracting Fiber from Total Carbohydrates.</small></p>      
     <?php }
+}
+
+// Add order notes to completed email.
+add_action( 'woocommerce_email_order_meta', 'woo_add_order_notes_to_email' );
+function woo_add_order_notes_to_email() {
+
+	global $woocommerce, $post;
+
+	$args = array(
+		'post_id' 	=> $post->ID,
+		'approve' 	=> 'approve',
+		'type' 		=> 'order_note'
+	);
+
+	$notes = get_comments( $args );
+	
+	echo '<h2>' . __( 'Order Notes', 'woocommerce' ) . '</h2>';
+
+	echo '<ul class="order_notes">';
+
+	if ( $notes ) {
+		foreach( $notes as $note ) {
+			$note_classes = get_comment_meta( $note->comment_ID, 'is_customer_note', true ) ? array( 'customer-note', 'note' ) : array( 'note' );
+
+			?>
+			<li rel="comment_ID ) ; ?>" class="">
+				<div class="note_content">
+					comment_content ) ) ); ?>
+				</div>
+				<p class="meta">
+					comment_date_gmt ), current_time( 'timestamp', 1 ) ) ); ?>
+				</p>
+			</li>
+			<?php
+		}
+	} else {
+		echo '<li>' . __( 'There are no notes for this order yet.', 'woocommerce' ) . '</li>';
+	}
+
+	echo '</ul>';
 }
 
 /* Enqeued Scripts */

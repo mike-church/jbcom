@@ -17,7 +17,7 @@
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-	exit; // Exit if accessed directly
+	exit;
 }
 
 ?>
@@ -49,10 +49,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	?>
 
 	<div class="summary entry-summary">
-
 		<?php
 			/**
-			 * woocommerce_single_product_summary hook.
+			 * Hook: Woocommerce_single_product_summary.
 			 *
 			 * @hooked woocommerce_template_single_title - 5
 			 * @hooked woocommerce_template_single_rating - 10
@@ -65,12 +64,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			 */
 			do_action( 'woocommerce_single_product_summary' );
 		?>
-
-	</div><!-- .summary -->
+	</div>
 
 	<?php
 		/**
-		 * woocommerce_after_single_product_summary hook.
+		 * Hook: woocommerce_after_single_product_summary.
 		 *
 		 * @hooked woocommerce_output_product_data_tabs - 10
 		 * @hooked woocommerce_upsell_display - 15
@@ -78,7 +76,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 		 */
 		do_action( 'woocommerce_after_single_product_summary' );
 	?>
-
-</div><!-- #product-<?php the_ID(); ?> -->
+</div>
 
 <?php do_action( 'woocommerce_after_single_product' ); ?>
