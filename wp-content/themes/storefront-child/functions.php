@@ -130,6 +130,7 @@ function storefront_sorting(){}
 function storefront_product_categories(){}
 function storefront_featured_products(){}
 function storefront_popular_products(){}
+function storefront_recent_products(){}
 
 /* Change number of related products */
 add_filter( 'woocommerce_output_related_products_args', 'change_number_related_products_storefront', 11 ); 
