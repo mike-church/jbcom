@@ -245,7 +245,7 @@ function woo_add_order_notes_to_email() {
 
 	$args = array(
 		'post_id' 	=> $post->ID,
-		'approve' 	=> 'approve',
+		'status' 	=> 'approve',
 		'type' 		=> 'order_note'
 	);
 
