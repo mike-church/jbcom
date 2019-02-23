@@ -1,0 +1,16 @@
+.storefront-handheld-footer-bar {
+    background-color:$black;
+    a {
+    	background-color:$black;
+    }
+    a:before {
+    	color:$white;
+    }
+    .site-search {
+    	background-color:$black;
+    }
+}
+.storefront-handheld-footer-bar ul li.cart .count {
+	background-color:$light-grey-4;
+	color:$black;
+}
