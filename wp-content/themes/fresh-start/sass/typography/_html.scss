@@ -1,0 +1,104 @@
+
+.font-light {
+  font-weight:$light;
+}
+.font-regular {
+  font-weight:$regular;
+}
+.font-medium {
+  font-weight:$medium;
+}
+.font-bold {
+  font-weight:$bold;
+}
+
+@include media-breakpoint-up(xs) {  
+  h1, h2, h3 {
+    letter-spacing:-.1rem;
+    font-weight: $light;
+  }
+  h4, h5 {
+    letter-spacing:-.03rem;
+    font-weight:$medium;
+  }
+  .display-1, .display-2, .display-3, .display-4 {
+    letter-spacing:-.1rem;
+  }
+  .display-1 {
+    font-size:3.75rem;
+  }
+  .display-2 {
+    font-size:3.5rem;
+  }
+  .display-3 {
+    font-size:3rem;
+  }
+  .display-4 {
+    font-size:2.5rem;
+  }
+  p {
+    font-weight: $light;
+  }
+  a {
+    transition: all .25s ease;
+    -moz-transition: all .25s ease;
+    -ms-transition: all .25s ease;
+    -webkit-transition: all .25s ease;
+    -o-transition: all .25s ease;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  h1 {
+    font-size:3.5rem;
+    line-height: 3.5rem;
+  }
+  h2 {
+    font-size: 3rem;
+    line-height: 3.1rem;
+  }
+  h3 {
+    font-size: 2.50rem;
+  }
+  h4 {
+    font-size: 1.75rem;
+  }
+  h5 {
+    font-size: 1.50rem;
+  }
+
+  .display-1 {
+    font-size:4.5rem;
+  }
+  .display-2 {
+    font-size:4rem;
+  }
+  .display-3 {
+    font-size:3.25rem;
+  }
+  .display-4 {
+    font-size:2.75rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  html, body {
+      font-size:1.05rem;
+  }
+  .display-1 {
+    font-size:5rem;
+  }
+  .display-2 {
+    font-size:4.5rem;
+  }
+  .display-3 {
+    font-size:4rem;
+  }
+  .display-4 {
+    font-size:3.5rem;
+  }
+}

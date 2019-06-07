@@ -1,0 +1,77 @@
+.btn {
+  text-transform: uppercase;
+  font-weight: $medium;
+  border-radius: 2em;
+  padding: .375rem 1rem;
+  border-width:2px;
+}
+.btn-link:hover, .btn-link.focus, .btn-link:focus {
+  text-decoration: none;
+}
+
+.btn-primary {
+	background-color:$primary;
+	border-color:$primary;
+}
+
+.btn-primary:hover {
+	background-color:$mdc-blue-700;
+	border-color:$mdc-blue-700;
+}
+
+.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
+	background-color:$primary;
+	color:$white;
+	font-size: 1rem;
+	line-height: 1.5;
+	vertical-align: middle;
+	padding: .375rem 1rem;
+	font-weight: $medium;
+	text-transform: uppercase;
+	border-color:$primary;
+	border-radius: 2em;
+	border-width: 2px;
+	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
+	background-color:$mdc-blue-700;
+	color:$white;
+}
+
+
+
+
+
+
+
+
+
+.close {
+	float: none;
+	position: absolute;
+	top:30px;
+	right:30px;
+	border-radius:50%;
+	border:2px solid $mdc-red-900;
+	width:50px;
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	overflow: hidden;
+	color:$white;
+	background-color:$mdc-red-900;
+	text-shadow: none;
+	opacity: 1;
+	transition: all .25s ease;
+	-moz-transition: all .25s ease;
+	-ms-transition: all .25s ease;
+	-webkit-transition: all .25s ease;
+	-o-transition: all .25s ease;
+}
+.close:hover {
+	text-shadow: none;
+	color:$white;
+}
+
+

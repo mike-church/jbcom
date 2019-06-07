@@ -1,0 +1,11 @@
+.woocommerce-notices-wrapper {
+
+	.woocommerce-message {
+	    margin:0;
+	    border: 1px solid transparent;
+	    border-radius: .25rem;
+	    color: $mdc-green-700;
+	    background-color: $mdc-green-50;
+	    border-color: $mdc-green-200;
+	}
+}

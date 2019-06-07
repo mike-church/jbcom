@@ -1,11 +1,11 @@
 <?php
 /*
-Plugin Name: Julian Bakery Feature Video
-Plugin URI: http://fishinglounge.com/
-Description: This plugin is an add-on for woocommerce. Its adds a field to enter a YouTube ID as a feature video for a product.
-Version: 1.0
+Plugin Name: JB Feature Video
+Plugin URI: https://www.julianbakery.com/
+Description: Adds video to product slider.
+Version: 2.0
 Author: Michael Church
-Author URI: http://fishinglounge.com/
+Author URI: https://www.julianbakery.com/
 License: GPLv2
 */
 
@@ -26,7 +26,7 @@ function feature_video_register_meta_boxes( $meta_boxes )
 			array(
 				'name'  => __( 'YouTube ID', 'nutrition_' ),
 				'id'    => "{$prefix}youtube_id",
-				'desc' => __( 'Eample: 5upIQDYKhHs', 'video_' ),
+				'desc' => __( 'Enter YouTube Share URL', 'video_' ),
 				'type'  => 'text',
 			),
 		),

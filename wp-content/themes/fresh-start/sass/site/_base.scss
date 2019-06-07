@@ -1,0 +1,18 @@
+html, body, [canvas=container], [off-canvas] {  
+	font-family: 'Roboto', sans-serif;
+	font-weight: $light;
+	color: $black;
+	letter-spacing: -0.3px;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	padding: 0;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	height:100%;
+}
+
+.border-bottom {
+	border-bottom:$mdc-grey-200 solid 1px !important;
+}

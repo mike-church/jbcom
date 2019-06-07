@@ -1,0 +1,104 @@
+.facetwp-checkbox {
+	position:relative;
+	line-height:normal;
+	font-size:16px;
+	background:none !important;
+	padding:10px 20px;
+	margin-bottom:0 !important;
+	border-bottom:$mdc-grey-200 solid 1px;
+	.facetwp-counter {
+		position:absolute;
+		right:0;
+		top:12px;
+		font-size:14px;
+	}
+}
+.facetwp-checkbox:before {
+	font-family: 'icomoon';
+	content: "\e909";
+	position:absolute;
+	top:11px;
+	left:0;
+	font-size:16px;
+	color:$mdc-blue-500;
+}
+.facetwp-checkbox.checked:before {
+	font-family: 'icomoon';
+	content: "\e906";
+	position:absolute;
+	top:11px;
+	left:0;
+	font-size:16px;
+}
+.facet-header {
+	position:relative;
+	padding:10px 24px 10px 0;
+	h6 {
+		font-size:.9rem;
+		text-transform: uppercase;
+	}
+	button {
+		background-image:none;
+		border:none;
+		padding:0;
+		height:100%;
+		width:100%;
+		position:absolute;
+		top:0;
+		right:0;
+		z-index: 1;
+		background:transparent;
+		i {
+			position:absolute;
+			right:0;
+			top:50%;
+			transform:translate(0, -50%);
+
+		}
+	}
+	button:focus {
+		outline:none;
+	}
+}
+.sortbar-top {
+	border-bottom:$mdc-grey-200 solid 1px;
+}
+.sortbar-bottom {
+	border-top:$mdc-grey-200 solid 1px;
+}
+.facetwp-counts {
+	font-size: .9rem;
+	font-weight: $medium;
+}
+.facetwp-sort, .facetwp-per-page {
+select {
+  margin: 0;
+  width: auto;
+  padding:.375rem 2rem .375rem 1rem;
+  font-size: 16px;
+  border: 2px solid $mdc-blue-500;
+  font-weight: $medium;
+  border-radius:2rem;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: url('../images/icon-sort-down.png') 90% / 10px no-repeat $white;
+  outline:none;
+}
+
+
+/* CAUTION: IE hackery ahead */
+
+
+select::-ms-expand { 
+    display: none; /* remove default arrow in IE 10 and 11 */
+}
+
+/* target Internet Explorer 9 to undo the custom arrow */
+@media screen and (min-width:0\0) {
+    select {
+        background:none\9;
+        padding: 5px\9;
+    }
+}
+}

@@ -1,0 +1,22 @@
+.sixteen-nine {
+  @include aspect-ratio(16, 9);
+}
+.twenty-one-nine {
+  @include aspect-ratio(21, 9);
+}
+.four-three {
+  @include aspect-ratio(4, 3);
+}
+.square {
+  @include aspect-ratio(1, 1);
+}
+.img-bg-cover {
+	background-size:cover;
+	background-position:center;
+	background-repeat:no-repeat;
+}
+.img-bg-contain {
+	background-size:contain;
+	background-position:center;
+	background-repeat:no-repeat;
+}

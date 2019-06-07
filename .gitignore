@@ -6,6 +6,7 @@
 *.bak
 *.swp
 Thumbs.db
+.htaccess
 
 # Sublime Text
 *.sublime-workspace
@@ -27,6 +28,10 @@ wp-content/*
 wp-content/plugins/*
 !wp-content/plugins/jb-nutritionals/
 !wp-content/plugins/jb-feature-video/
+!wp-content/plugins/jb-homepage-hero/
+!wp-content/plugins/jb-nutritional-facts/
+!wp-content/plugins/jb-recipes/
  
 # Ignore everything in the "themes" directory, except the themes you specify
 wp-content/themes/*
+!wp-content/themes/fresh-start/
