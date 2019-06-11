@@ -16,7 +16,7 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
 	$prefix = 'jb_nutritionals_';
 
     $meta_boxes[] = array(
-        'title'     => 'Nutritional Facts',
+        'title'     => 'Product Nutritional Facts',
         'post_types' => 'product',
 		'context'    => 'normal',
 		'priority' => 'low',
