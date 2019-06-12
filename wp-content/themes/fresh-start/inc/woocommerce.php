@@ -271,43 +271,43 @@ function fresh_start_product_gallery() {
 
 	?>
 
-<div class="row">
-<div class="col-lg-10">
-<div class="slick-for">
-<div class="slide"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'product-image');?>" class="img-fluid"></div>
+	<div class="row">
+		<div class="col-lg-10">
+			<div class="slick-for">
+				<div class="slide">
+					<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'product-image');?>" class="img-fluid">
+				</div>
 
-<?php if ( ! empty( $video ) ) { ?>
+				<?php if ( ! empty( $video ) ) { ?>
 
-	<div class="iframe-container slide">
-		<iframe src="https://www.youtube.com/embed/<?php echo $video_id;?>?rel=0&enablejsapi=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
-		<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/WuFQbQ9Gwdk?rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>-->
+					<div class="iframe-container slide">
+						<iframe src="https://www.youtube.com/embed/<?php echo $video_id;?>?rel=0&enablejsapi=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+					</div>
+
+					<?php
+				} ?>
+
+				<?php
+				foreach( $attachment_ids as $attachment_id ) 
+				{ echo '<div class="slide">' . wp_get_attachment_image($attachment_id, 'product-image') . '</div>'; }
+				?>
+
+			</div>
+		</div>
+		<div class="col col-lg-2">
+			<div class="slider-nav">
+				<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'shop_thumbnail');?>" class="img-fluid">
+
+				<?php if ( ! empty( $video ) ) echo '<img src="/wp-content/themes/fresh-start/dist/images/video-icon.png" class="img-fluid">';?>
+
+				<?php
+				foreach( $attachment_ids as $attachment_id ) 
+				{ echo wp_get_attachment_image($attachment_id, 'thumbnail'); }
+				?>
+				
+			</div>
+		</div>
 	</div>
-
-	<?php
-} ?>
-
-<?php
-foreach( $attachment_ids as $attachment_id ) 
-{ echo '<div class="slide">' . wp_get_attachment_image($attachment_id, 'product-image') . '</div>'; }
-?>
-
-</div>
-</div>
-<div class="col col-lg-2">
-<div class="slider-nav">
-<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'shop_thumbnail');?>" class="img-fluid">
-
-<?php if ( ! empty( $video ) ) echo '<img src="/wp-content/themes/fresh-start/dist/images/video-icon.png" class="img-fluid">';?>
-
-<?php
-foreach( $attachment_ids as $attachment_id ) 
-{ echo wp_get_attachment_image($attachment_id, 'thumbnail'); }
-?>
-
-
-</div>
-</div>
-</div>
 
 <?php
 }
