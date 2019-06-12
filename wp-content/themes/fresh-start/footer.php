@@ -2,11 +2,11 @@
 
 	<div class="container my-5">
 		<div class="row">
-			<div class="col-sm-6 col-md-4 mb-4">
+			<div class="col-sm-12 col-md-4 col-lg-4 mb-4 mr-lg-auto">
 				<div class="seal mb-3"></div>
 				<p>All Julian Bakery products are <span class="font-bold">100% Gluten Free, Grain Free, and Non GMO!</span> And, shipping is <span class="font-bold text-uppercase">always free</span> in the United States.</p>
 			</div>
-			<div class="col-sm-6 col-md-4 mb-4">
+			<div class="col-sm-12 col-md-4 col-lg-3 mb-4">
 				<h6 class="text-uppercase font-bold">Quick Links</h6>
 				<?php wp_nav_menu( array( 
 					'theme_location' => 'footer_nav_quick',
@@ -22,7 +22,7 @@
 				) ); ?>
 				
 			</div>
-			<div class="col-sm-6 col-md-4 mb-4">
+			<div class="col-sm-12 col-md-4 col-lg-3 mb-4">
 				<h6 class="text-uppercase font-bold">Julian Bakery, Inc.</h6>
 				<p>624 Garrison St.<br>Oceanside, CA 92054</p>
 				<p><span class="font-bold">Phone:</span> (760) 721-5200<br><span class="font-bold">Hours:</span> Monday - Friday, 8AM to 4PM PST</p>
