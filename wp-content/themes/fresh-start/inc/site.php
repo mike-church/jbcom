@@ -19,4 +19,6 @@ register_nav_menus([
 	'site_nav_diet' => __('Diet', 'freshstart'),
 	'site_nav_categories' => __('Popular Categories', 'freshstart'),
 	'site_nav_more' => __('More', 'freshstart'),
+	'footer_nav_quick' => __('Quick Links', 'freshstart'),
+	'footer_nav_additional' => __('Additional Links', 'freshstart'),
 ]);

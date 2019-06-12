@@ -1,0 +1,19 @@
+footer * {
+	color:$white;
+}
+footer {
+	.seal {
+		height:150px;
+		width:150px;
+		background-image:url('../images/100.svg');
+		background-repeat:no-repeat;
+		background-position:center;
+		background-size:contain;
+	}
+	.social i {
+		font-size:1.5rem;
+	}
+	a:hover, a:hover i {
+		color:$mdc-blue-300;
+	}
+}
