@@ -1,4 +1,21 @@
-<footer class="mdc-bg-grey-900" style="height:300px;">I'm the footer</footer>
+<footer class="mdc-bg-grey-900 py-5">
+
+	<div class="container my-5">
+		<div class="row">
+			<div class="col-sm-2">
+				<img src="/wp-content/themes/fresh-start/dist/images/100.svg" class="img-fluid">
+			</div>
+			<div class="col-sm-4">
+				
+			</div>
+			<div class="col-sm-4">
+				
+			</div>
+			
+		</div>
+	</div>
+
+</footer>
 
 <?php wp_footer(); ?>
 
