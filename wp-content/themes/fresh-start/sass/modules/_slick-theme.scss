@@ -111,6 +111,23 @@ $slick-opacity-not-active: 0.25 !default;
             max-width:50px;
         }
     }
+    .slide {
+        display:none;
+    }
+    .logo-wrapper .logo {
+        background-size:contain;
+        background-repeat:no-repeat;
+        background-position:center center;
+        position:relative;
+        a {
+            display:block;
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            height:100%;
+        }
+    }
 }
 
 @include media-breakpoint-up(md) {
@@ -127,6 +144,26 @@ $slick-opacity-not-active: 0.25 !default;
     .slick-next {
         &:before {
             color: $black;
+        }
+    }
+    .logo-wrapper {
+        position:relative;
+        .toggle-left {
+            position:absolute;
+            left:-15px;
+            top:30%;
+        }
+        .toggle-right {
+            position:absolute;
+            right:-15px;
+            top:30%;
+        }
+        .toggle-left, .toggle-right {
+            color:$mdc-grey-400;
+            cursor: pointer;
+        }
+        .toggle-left:hover, .toggle-right:hover {
+            color:$black;
         }
     }
 }

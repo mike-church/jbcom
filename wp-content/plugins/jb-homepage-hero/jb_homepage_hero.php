@@ -28,7 +28,6 @@ function jb_homepage_hero_post_type() {
         'search_items' => 'Search',
         'not_found' => 'Not found',
         'not_found_in_trash' => 'Not found in Trash',
-        'parent' => 'Parent Homepage Hero'
       ),
       'description' => 'Adds hero banner images to the homepage',
       'supports' => array( 'title' ),

@@ -274,11 +274,11 @@ function fresh_start_product_gallery() {
 <div class="row">
 <div class="col-lg-10">
 <div class="slick-for">
-<div><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'product-image');?>" class="img-fluid"></div>
+<div class="slide"><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'product-image');?>" class="img-fluid"></div>
 
 <?php if ( ! empty( $video ) ) { ?>
 
-	<div class="iframe-container">
+	<div class="iframe-container slide">
 		<iframe src="https://www.youtube.com/embed/<?php echo $video_id;?>?rel=0&enablejsapi=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
 		<!--<iframe width="560" height="315" src="https://www.youtube.com/embed/WuFQbQ9Gwdk?rel=0&enablejsapi=1" frameborder="0" allowfullscreen></iframe>-->
 	</div>
@@ -288,7 +288,7 @@ function fresh_start_product_gallery() {
 
 <?php
 foreach( $attachment_ids as $attachment_id ) 
-{ echo '<div>' . wp_get_attachment_image($attachment_id, 'product-image') . '</div>'; }
+{ echo '<div class="slide">' . wp_get_attachment_image($attachment_id, 'product-image') . '</div>'; }
 ?>
 
 </div>

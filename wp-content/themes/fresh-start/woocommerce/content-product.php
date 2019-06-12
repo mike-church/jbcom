@@ -27,7 +27,7 @@ if ( empty( $product ) || ! $product->is_visible() ) {
 
 
 
-<div class="col-sm-12 col-md-6 col-lg-4 col-xl-3">
+<div class="col-6 col-md-4 col-xl-3">
 	<div class="card product-card mb-4" <?php if(is_product()) {} else {echo 'data-aos="fade"';};?> data-mh="product-cards">
 
 		<?php

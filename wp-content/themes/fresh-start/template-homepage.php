@@ -19,27 +19,27 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="50">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="50">
 					<div class="display-1"><a href="/shop/?fwp_diet=paleo" class="mdc-text-brown-500"><i class="icon-paleo"></i></a></div>
 					<p class="text-uppercase font-medium">Paleo</p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="100">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="100">
 					<div class="display-1"><a href="#" class="mdc-text-light-green-900"><i class="icon-keto"></i></a></div>
 					<p class="text-uppercase font-medium">Keto</p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="150">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="150">
 					<div class="display-1"><a href="#" class="mdc-text-green-500"><i class="icon-vegan"></i></a></div>
 					<p class="text-uppercase font-medium">Vegan</p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="200">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="200">
 					<div class="display-1"><a href="/shop/?fwp_diet=gluten-free"  class="mdc-text-amber-300"><i class="icon-gluten-free"></i></a></div>
 					<p class="text-uppercase font-medium">Gluten Free</p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="250">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="250">
 					<div class="display-1"><a href="#" class="mdc-text-cyan-300"><i class="icon-dairy-free"></i></a></div>
 					<p class="text-uppercase font-medium">Dairy Free</p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="300">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="300">
 					<div class="display-1"><a href="#" class="mdc-text-deep-orange-900"><i class="icon-nut-free"></i></a></div>
 					<p class="text-uppercase font-medium">Nut Free</p>
 				</div>
@@ -71,27 +71,27 @@
 				</div>
 			</div>
 			<div class="row">
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="50">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="50">
 					<div class="display-1"><a href="#" class="mdc-text-blue-700"><i class="icon-muscle"></i></a></div>
 					<p class="text-uppercase font-medium">Protein</p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="100">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="100">
 					<div class="display-1"><a href="#" class="mdc-text-indigo-300"><i class="icon-granola"></i></a></div>
 					<p class="text-uppercase font-medium">Cereal &amp; Granola</p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="150">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="150">
 					<div class="display-1"><a href="#" class="mdc-text-deep-orange-700"><i class="icon-cookie"></i></a></div>
 					<p class="text-uppercase font-medium">Treats &amp; Snacks</p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="200">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="200">
 					<div class="display-1"><a href="#" class="mdc-text-brown-500"><i class="icon-bread"></i></a></div>
 					<p class="text-uppercase font-medium">Bread</p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="250">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="250">
 					<div class="display-1"><a href="#" class="mdc-text-lime-800"><i class="icon-grocery"></i></a></div>
 					<p class="text-uppercase font-medium">Staples</p>
 				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="300">
+				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="300">
 					<div class="display-1"><a href="#" class="mdc-text-cyan-600"><i class="icon-supplement"></i></a></div>
 					<p class="text-uppercase font-medium">Supplements</p>
 				</div>
@@ -104,7 +104,9 @@
 		</div>
 	</section>
 
+	<?php echo do_shortcode('[logo-slider]');?>
+
+
 </main>
 
-<?php
-get_footer();
+<?php get_footer();?>
