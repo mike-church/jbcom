@@ -39,7 +39,7 @@ html, body, [canvas=container], [off-canvas] {
 @include media-breakpoint-up(md) {
 
 	.login-background-wrapper {
-		height:100vh;
+		min-height:600px;
 	}
 
 	.login-background {
