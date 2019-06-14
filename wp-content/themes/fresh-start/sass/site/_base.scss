@@ -12,7 +12,41 @@ html, body, [canvas=container], [off-canvas] {
 	box-sizing: border-box;
 	height:100%;
 }
-
+ 
+.border{
+	border-bottom:$mdc-grey-200 solid 1px !important;
+}
+.border-top {
+	border-bottom:$mdc-grey-200 solid 1px !important;
+}
+.border-left {
+	border-bottom:$mdc-grey-200 solid 1px !important;
+}
+.border-right {
+	border-bottom:$mdc-grey-200 solid 1px !important;
+}
 .border-bottom {
 	border-bottom:$mdc-grey-200 solid 1px !important;
+}
+
+.login-background-wrapper {
+	height:100%;
+	width:100%;
+
+}
+
+
+@include media-breakpoint-up(md) {
+
+	.login-background-wrapper {
+		height:100vh;
+	}
+
+	.login-background {
+		background-image:url('../images/login-background.jpg');
+		background-repeat:no-repeat;
+		background-size:cover;
+		background-position:center center;
+	}
+
 }

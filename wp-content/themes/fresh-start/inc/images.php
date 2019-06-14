@@ -5,7 +5,6 @@ set_post_thumbnail_size( 360, 180, array( 'center', 'center')  );
 
 add_image_size( 'shop-thumb', 320, 1600);
 add_image_size( 'product-image', 500, 500);
-add_image_size( 'product', 500, 500);
 
 add_image_size( 'sixteen-nine', 720, 405, array( 'center', 'center'));
 add_image_size( 'sixteen-nine-large', 1600, 900, array( 'center', 'center'));

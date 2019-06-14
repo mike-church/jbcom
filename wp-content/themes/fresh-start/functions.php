@@ -1,14 +1,13 @@
 <?php
 
-$site_includes = [
-  'inc/enqueues.php',
-  'inc/site.php',
-  'inc/taxonomies.php',
-  'inc/facetwp.php',
-  'inc/woocommerce.php',
-  'inc/images.php',
-  'inc/login.php'
-];
+require_once( __DIR__ . '/inc/enqueues.php');
+require_once( __DIR__ . '/inc/site.php');
+require_once( __DIR__ . '/inc/taxonomies.php');
+require_once( __DIR__ . '/inc/facetwp.php');
+require_once( __DIR__ . '/inc/woocommerce.php');
+require_once( __DIR__ . '/inc/images.php');
+require_once( __DIR__ . '/inc/login.php');
+
 
 foreach ($site_includes as $file) {
   if (!$filepath = locate_template($file)) {

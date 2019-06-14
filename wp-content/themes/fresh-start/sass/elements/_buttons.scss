@@ -19,27 +19,29 @@
 	border-color:$mdc-blue-700;
 }
 
-.woocommerce #respond input#submit, .woocommerce a.button, .woocommerce button.button, .woocommerce input.button, .woocommerce #respond input#submit.alt, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button.alt {
-	background-color:$primary;
-	color:$white;
-	font-size: 1rem;
-	line-height: 1.5;
-	vertical-align: middle;
-	padding: .375rem 1rem;
-	font-weight: $medium;
-	text-transform: uppercase;
-	border-color:$primary;
-	border-radius: 2em;
-	border-width: 2px;
+.button {
+	background-color:$primary !important;
+	color:$white !important;
+	font-size: 1rem !important;
+	line-height: 1.5 !important;
+	vertical-align: middle !important;
+	padding: .375rem 1rem !important;
+	font-weight: $medium !important;
+	text-transform: uppercase !important;
+	border-color:$primary !important;
+	border-radius: 2em !important;
+	border-width: 2px !important;
 	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
-.woocommerce #respond input#submit:hover, .woocommerce a.button:hover, .woocommerce button.button:hover, .woocommerce input.button:hover, .woocommerce #respond input#submit.alt:hover, .woocommerce a.button.alt:hover, .woocommerce button.button.alt:hover, .woocommerce input.button.alt:hover {
-	background-color:$mdc-blue-700;
-	color:$white;
+.button:hover {
+	background-color:$mdc-blue-700 !important;
+	color:$white !important;
 }
 
-
+.checkout-button.button {
+	padding:.75rem 1rem !important;
+}
 
 
 
