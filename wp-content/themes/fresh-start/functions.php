@@ -9,14 +9,7 @@ require_once( __DIR__ . '/inc/images.php');
 require_once( __DIR__ . '/inc/login.php');
 
 
-foreach ($site_includes as $file) {
-  if (!$filepath = locate_template($file)) {
-    trigger_error(sprintf(__('Error locating %s for inclusion', 'fresh-start'), $file), E_USER_ERROR);
-  }
 
-  require_once $filepath;
-}
-unset($file, $filepath);
 
 /**
  * Block User Enumeration
