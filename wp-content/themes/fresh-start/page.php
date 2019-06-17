@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php if (is_page(array( 'cart', 'my-account' ))) { ?>
+<?php if (is_page(array( 'cart' ))) { ?>
 	<main>
 
 		<?php

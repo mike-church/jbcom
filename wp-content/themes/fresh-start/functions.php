@@ -6,7 +6,6 @@ require_once( __DIR__ . '/inc/taxonomies.php');
 require_once( __DIR__ . '/inc/facetwp.php');
 require_once( __DIR__ . '/inc/woocommerce.php');
 require_once( __DIR__ . '/inc/images.php');
-require_once( __DIR__ . '/inc/login.php');
 
 
 
