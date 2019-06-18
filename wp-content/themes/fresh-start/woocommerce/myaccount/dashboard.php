@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 
 <div class="row">
-	<div class="col-sm-6 col-md-4">
+	<div class="col-sm-6">
 		<div class="card mb-4" data-mh>
 			<div class="card-body">
 				<div class="display-4"><i class="icon-package mdc-text-red-500"></i></div>
@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-6 col-md-4">
+	<div class="col-sm-6">
 		<div class="card mb-4" data-mh>
 			<div class="card-body">
 				<div class="display-4"><i class="icon-address-card mdc-text-orange-500"></i></div>
@@ -61,7 +61,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-6 col-md-4">
+	<div class="col-sm-6">
 		<div class="card mb-4" data-mh>
 			<div class="card-body">
 				<div class="display-4"><i class="icon-user mdc-text-pink-500"></i></div>
@@ -73,7 +73,23 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 		</div>
 	</div>
+	<div class="col-sm-6">
+		<div class="card mb-4" data-mh>
+			<div class="card-body">
+				<div class="display-4"><i class="icon-credit-card mdc-text-green-500"></i></div>
+				<h5>Payment Methods</h5>
+				<p>Manage your payment methods.</p>
+			</div>
+			<div class="card-footer">
+				<a href="/my-account/payment-methods/" class="btn btn-primary btn-sm">Manage</a>
+			</div>
+		</div>
+	</div>
 </div>
+
+
+
+
 
 
 <?php
