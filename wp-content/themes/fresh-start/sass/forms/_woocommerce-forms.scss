@@ -85,16 +85,7 @@
 
 }
 
-.shop_table {
-	border-right:none !important;
-	border-left:none !important;
-	border-radius:0 !important;
-	border-collapse:collapse !important;
-	thead {
-		background-color:$mdc-grey-200 !important;
-	}
 
-}
 
 .woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
     border: 1px solid $mdc-grey-400;
@@ -112,6 +103,8 @@
 
 .woocommerce form {
 	.form-row {
+		margin-right:0;
+		margin-left:0;
 		label {
 			line-height: normal;
 			float:none;
@@ -129,6 +122,7 @@
 			border:$mdc-grey-400 solid 1px;
 			box-shadow: none;
 			background-color:$mdc-grey-50;
+			width:100%;
 		}
 		.select2-selection__arrow {
 			background-color:$mdc-grey-400;

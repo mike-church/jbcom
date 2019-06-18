@@ -29,7 +29,7 @@ do_action( 'woocommerce_before_account_payment_methods', $has_methods ); ?>
 
 <?php if ( $has_methods ) : ?>
 
-	<table class="woocommerce-MyAccount-paymentMethods shop_table shop_table_responsive account-payment-methods-table">
+	<table class="table">
 		<thead>
 			<tr>
 				<?php foreach ( wc_get_account_payment_methods_columns() as $column_id => $column_name ) : ?>

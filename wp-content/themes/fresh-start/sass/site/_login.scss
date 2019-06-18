@@ -62,11 +62,6 @@
 			padding-bottom: 0 !important;
 			margin: 0 !important;
 		}
-
-
-
-
-
 	}
 }
 
@@ -107,18 +102,20 @@
 }
 
 
+
 .woocommerce-account {
 	header, footer, .brand-strip {
 		display:none;
 	}
 	main, .woocommerce {
-
-height:100%;
-
+		height:100%;
 	}
 }
 .logged-in.woocommerce-account {
 	header, footer, .brand-strip {
 		display:block;
+	}
+	main, .woocommerce {
+		height:auto;
 	}
 }

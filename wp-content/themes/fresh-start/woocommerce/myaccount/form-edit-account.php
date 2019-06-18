@@ -19,6 +19,8 @@ defined( 'ABSPATH' ) || exit;
 
 do_action( 'woocommerce_before_edit_account_form' ); ?>
 
+<h2 class="mb-5">Account Details</h2>
+
 <form class="woocommerce-EditAccountForm edit-account" action="" method="post" <?php do_action( 'woocommerce_edit_account_form_tag' ); ?> >
 
 	<?php do_action( 'woocommerce_edit_account_form_start' ); ?>

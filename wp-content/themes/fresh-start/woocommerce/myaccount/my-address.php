@@ -36,19 +36,19 @@ $oldcol = 1;
 $col    = 1;
 ?>
 
-<p>
+<p class="mb-5">
 	<?php echo apply_filters( 'woocommerce_my_account_my_address_description', __( 'The following addresses will be used on the checkout page by default.', 'woocommerce' ) ); ?>
 </p>
 
 <?php if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) : ?>
-	<div class="u-columns woocommerce-Addresses col2-set addresses">
+	<div class="row">
 <?php endif; ?>
 
 <?php foreach ( $get_addresses as $name => $title ) : ?>
 
-	<div class="u-column<?php echo ( ( $col = $col * -1 ) < 0 ) ? 1 : 2; ?> col-<?php echo ( ( $oldcol = $oldcol * -1 ) < 0 ) ? 1 : 2; ?> woocommerce-Address">
+	<div class="col-sm-6 mb-4">
 		<header class="woocommerce-Address-title title">
-			<h3><?php echo $title; ?></h3>
+			<h6><?php echo $title; ?></h6>
 			<a href="<?php echo esc_url( wc_get_endpoint_url( 'edit-address', $name ) ); ?>" class="edit"><?php _e( 'Edit', 'woocommerce' ); ?></a>
 		</header>
 		<address><?php

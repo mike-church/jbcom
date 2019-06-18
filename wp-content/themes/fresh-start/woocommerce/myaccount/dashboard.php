@@ -22,23 +22,59 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<p><?php
-	/* translators: 1: user display name 2: logout url */
-	printf(
-		__( 'Hello %1$s (not %1$s? <a href="%2$s">Log out</a>)', 'woocommerce' ),
-		'<strong>' . esc_html( $current_user->display_name ) . '</strong>',
-		esc_url( wc_logout_url( wc_get_page_permalink( 'myaccount' ) ) )
-	);
-?></p>
 
-<p><?php
-	printf(
-		__( 'From your account dashboard you can view your <a href="%1$s">recent orders</a>, manage your <a href="%2$s">shipping and billing addresses</a>, and <a href="%3$s">edit your password and account details</a>.', 'woocommerce' ),
-		esc_url( wc_get_endpoint_url( 'orders' ) ),
-		esc_url( wc_get_endpoint_url( 'edit-address' ) ),
-		esc_url( wc_get_endpoint_url( 'edit-account' ) )
-	);
-?></p>
+
+	<h2 class="mb-5">Your Account</h2>
+
+	<p class="mb-5"><?php
+		/* translators: 1: user display name 2: logout url */
+		printf(
+			__( 'Hello %1$s (not %1$s? <a href="%2$s">Log out</a>)', 'woocommerce' ),
+			'<strong>' . esc_html( $current_user->display_name ) . '</strong>',
+			esc_url( wc_logout_url( wc_get_page_permalink( 'myaccount' ) ) )
+		);
+	?></p>
+
+
+<div class="row">
+	<div class="col-sm-6 col-md-4">
+		<div class="card mb-4" data-mh>
+			<div class="card-body">
+				<div class="display-4"><i class="icon-package mdc-text-red-500"></i></div>
+				<h5>Orders</h5>
+				<p>View your current/past orders and tracking info.</p>
+			</div>
+			<div class="card-footer">
+				<a href="/my-account/orders/" class="btn btn-primary btn-sm">View</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6 col-md-4">
+		<div class="card mb-4" data-mh>
+			<div class="card-body">
+				<div class="display-4"><i class="icon-address-card mdc-text-orange-500"></i></div>
+				<h5>Addresses</h5>
+				<p>Manage your billing and shipping address.</p>
+			</div>
+			<div class="card-footer">
+				<a href="/my-account/edit-address/" class="btn btn-primary btn-sm">Manage</a>
+			</div>
+		</div>
+	</div>
+	<div class="col-sm-6 col-md-4">
+		<div class="card mb-4" data-mh>
+			<div class="card-body">
+				<div class="display-4"><i class="icon-user mdc-text-pink-500"></i></div>
+				<h5>Account Details</h5>
+				<p>Change your password, update your email, and display name.</p>
+			</div>
+			<div class="card-footer">
+				<a href="/my-account/edit-account/" class="btn btn-primary btn-sm">Manage</a>
+			</div>
+		</div>
+	</div>
+</div>
+
 
 <?php
 	/**
@@ -63,3 +99,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 	do_action( 'woocommerce_after_my_account' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
+
+
