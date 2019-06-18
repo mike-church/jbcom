@@ -159,7 +159,7 @@ $value = rwmb_meta( 'jb_homepage_hero_color_value' );
 		</nav>
 	</div>
 </header>
-<div class="<?php echo $color;?><?php echo $value;?>" style="height:4px; width: 100%;"></div>
+<div class="brand-strip <?php echo $color;?><?php echo $value;?>"></div>
 
 <?php } 
 

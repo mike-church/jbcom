@@ -1,0 +1,124 @@
+@include media-breakpoint-up(xs) {
+
+	.account-login {
+	    background-image: none !important;
+	    display: -webkit-box;
+	    display: -webkit-flex;
+	    display: -ms-flexbox;
+	    display: flex;
+	    content: " ";
+	    -webkit-box-align: stretch;
+	    -webkit-align-items: stretch;
+	    -ms-flex-align: stretch;
+	    align-items: stretch;
+	    background-color:$mdc-red-500;
+	    height:100%;
+	    
+	    h1 a {
+			margin-bottom:30px;
+			width:200px;
+			height:37px;
+			background-size: 200px 37px;
+			margin-left:auto;
+			margin-right:auto;
+			background-repeat: no-repeat;
+			font-size: 20px;
+			font-weight: 400;
+			line-height: 1.3em;
+			margin: 0 auto 25px;
+			padding: 0;
+			text-decoration: none;
+			text-indent: -9999px;
+			outline: 0;
+			overflow: hidden;
+			display: block;
+			background-image: url( ../images/jb-logo.png );
+			background-position: center center;
+		}
+
+		.login-left {
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			-webkit-flex-direction: column;
+			-ms-flex-direction: column;
+			flex-direction: column;
+			width: 100%;
+			margin: 0;
+			max-width: 580px;
+			padding: 40px 0 0;
+			background-color:$white;
+		}
+		.tabs {
+			max-width: 420px;
+			margin: 0 auto !important;
+			padding-left: 25px;
+			padding-right: 25px
+		}
+
+		form.login, form.register {
+			border: none !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			padding-bottom: 0 !important;
+			margin: 0 !important;
+		}
+
+
+
+
+
+	}
+}
+
+@include media-breakpoint-up(sm) {
+
+	.account-login {
+
+		.login-left {
+			width:85%;
+		}
+
+		.login-right {
+			background-attachment: initial !important;
+			bottom: 0;
+			height: 100%;
+			left: 580px;
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: 100%;
+			width: calc(100% - 580px);
+			z-index: 0;
+			background-image:url(../images/login-background.jpg);
+			background-repeat:no-repeat;
+			background-position:center center;
+			background-size:cover;
+		}
+
+
+	}
+}
+
+
+@media only screen and (min-width:800px) {
+    .account-login .login-left {
+        padding: 100px 0 0
+    }
+}
+
+
+.woocommerce-account {
+	header, footer, .brand-strip {
+		display:none;
+	}
+	main, .woocommerce {
+
+height:100%;
+
+	}
+}
+.logged-in.woocommerce-account {
+	header, footer, .brand-strip {
+		display:block;
+	}
+}
