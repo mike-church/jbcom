@@ -61,7 +61,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									</div>
 								</li>
 								<li class="nav-item d-none d-lg-inline-block">
-									<a href="/blog" class="btn btn-outline-light ">Blog</a>
+									<a href="https://blog.julianbakery.com/" class="btn btn-outline-light ">Blog</a>
 								</li>
 								<li class="d-none d-lg-inline-block">
 									<a href="/my-account" class="btn btn-outline-light">My Account</a>
@@ -150,7 +150,7 @@ $value = rwmb_meta( 'jb_homepage_hero_color_value' );
 									</div>
 								</li>
 								<li class="nav-item d-none d-lg-inline-block">
-									<a href="/blog" class="btn btn-outline-dark ">Blog</a>
+									<a href="https://blog.julianbakery.com/" class="btn btn-outline-dark ">Blog</a>
 								</li>
 								<li class="d-none d-lg-inline-block">
 									<a href="/my-account" class="btn btn-outline-dark">My Account</a>
