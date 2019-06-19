@@ -1,0 +1,57 @@
+
+.lockscroll.aos-init {
+	pointer-events:none;
+}
+.lockscroll.aos-animate {
+	pointer-events:auto;
+}
+body.no-scroll {
+	overflow:hidden;
+	margin-right:15px;
+}
+
+@include media-breakpoint-up(xs) {
+	.overlay {
+		height: 100vh;
+		width: 100vw;
+		position: fixed;
+		top: 0;
+		left: -9999px;
+		z-index:9001;
+		overflow:hidden;
+		.overlay-container {
+			opacity:0;
+			transition: all .5s ease;
+			-moz-transition: all .5s ease;
+			-ms-transition: all .5s ease;
+			-webkit-transition: all .5s ease;
+			-o-transition: all .5s ease;
+			background-color: $white;
+			overflow-y:scroll;
+			position:absolute;
+			left:0;
+			top:0;
+			height: 100vh;
+			width: 100vw;
+			z-index: 10;
+		}
+		.filter-controls {
+			position:absolute;
+			top:0;
+			left:0;
+			width:100vw;
+			height:50px;
+			background-color:$black;
+			z-index: 100;
+		}
+	}
+}
+
+@include media-breakpoint-up(lg) {
+	.overlay {
+		.overlay-container {
+			overflow-y:hidden;
+		}
+	}
+
+}

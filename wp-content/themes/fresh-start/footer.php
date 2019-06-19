@@ -4,7 +4,7 @@
 		<div class="row">
 			<div class="col-sm-12 col-md-4 col-xl-4 mb-4 mr-xl-auto">
 				<div class="seal mb-3"></div>
-				<p>All Julian Bakery products are <span class="font-bold">100% Gluten Free, Grain Free, and Non GMO!</span> And, shipping is <span class="font-bold text-uppercase">always free</span> in the United States.</p>
+				<p>All Julian Bakery products are <span class="font-bold">100% Gluten Free, Grain Free, and Non GMO!</span> And, <span class="font-bold text-uppercase">always free Shipping</span> in the United States.</p>
 			</div>
 			<div class="col-sm-12 col-md-4 col-xl-3 mb-4">
 				<h6 class="text-uppercase font-bold">Quick Links</h6>
@@ -37,6 +37,7 @@
 					<a href="https://www.youtube.com/user/JulianBakery" target="_blank" class="social mr-4"><i class="icon-youtube"></i></a>
 					<a href="https://twitter.com/JulianBakery" target="_blank" class="social"><i class="icon-twitter"></i></a>
 				</div>
+				<small>&copy; <?php echo date("Y");?> Julian Bakery. All rights reserved.</small>
 			</div>
 			
 		</div>

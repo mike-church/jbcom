@@ -23,6 +23,24 @@ function remove_short_description() {
      remove_meta_box( 'postexcerpt', 'product', 'normal');
 }
 
+
+// Add This Code
+
+add_action( 'woocommerce_single_product_summary', 'fresh_start_addthis', 5 );
+function fresh_start_addthis() {
+   echo '<div class="addthis_inline_share_toolbox"></div>';
+}
+
+add_action( 'wp_footer', 'fresh_start_addthis_js', 100 );
+function fresh_start_addthis_js() {
+   // Only run this on the single product page
+   if ( ! is_product() ) return;
+   ?>
+      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58a72778826dc565"></script>
+
+   <?php
+}
+
 // Cart Form on Product Page
 
 add_action( 'woocommerce_before_add_to_cart_quantity', 'fresh_start_start_cart_wrapper' );

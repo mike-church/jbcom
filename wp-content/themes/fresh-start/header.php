@@ -4,6 +4,7 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="profile" href="https://gmpg.org/xfn/11" />
+	<link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>">
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -66,21 +67,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 									<a href="/my-account" class="btn btn-outline-light">My Account</a>
 								</li>
 								<li class="d-inline-block">
-									<a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-link text-white"><i class="icon-shopping-cart"></i> <sup><?php echo WC()->cart->get_cart_contents_count(); ?></sup></a>
+									<a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-link text-white px-2"><i class="icon-shopping-cart"></i> <sup><?php echo WC()->cart->get_cart_contents_count(); ?></sup></a>
 								</li>
 								<li class="d-inline-block">
-									<a href="javascript:void(0)" class="btn btn-link text-white lockscroll" onclick="openSearch()"><i class="icon-search"></i></a>
+									<a href="javascript:void(0)" class="btn btn-link text-white lockscroll px-2" onclick="openSearch()"><i class="icon-search"></i></a>
 								</li>
 								<li class="d-none d-lg-inline-block">
-									<button data-toggle="dropdown" class="btn btn-link text-white"><i class="icon-more"></i></button>
+									<button data-toggle="dropdown" class="btn btn-link text-white px-2"><i class="icon-more"></i></button>
 									<?php wp_nav_menu( array( 
 										'theme_location' => 'site_nav_more',
-										'container'       => '',
+										'container'       => 'div',
 										'menu_class' => 'dropdown-menu dropdown-menu-right' 
 									) ); ?>
 								</li>
 								<li class="d-inline-block d-lg-none">
-									<a href="#" class="btn btn-link text-white"><i class="icon-bars"></i></a>
+									<button data-toggle="dropdown" data-offset="0,10" class="btn btn-link text-white px-2"><i class="icon-bars"></i></button>
+									<?php wp_nav_menu( array( 
+										'theme_location' => 'site_nav_mobile',
+										'container'       => 'div',
+										'menu_class' => 'dropdown-menu dropdown-menu-right' 
+									) ); ?>
 								</li>
 							</ul>
 						</div>
@@ -150,21 +156,26 @@ $value = rwmb_meta( 'jb_homepage_hero_color_value' );
 									<a href="/my-account" class="btn btn-outline-dark">My Account</a>
 								</li>
 								<li class="d-inline-block">
-									<a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-link text-dark"><i class="icon-shopping-cart"></i> <sup><?php echo WC()->cart->get_cart_contents_count(); ?></sup></a>
+									<a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-link text-dark px-2"><i class="icon-shopping-cart"></i> <sup><?php echo WC()->cart->get_cart_contents_count(); ?></sup></a>
 								</li>
 								<li class="d-inline-block">
-									<a href="javascript:void(0)" class="btn btn-link text-dark lockscroll" onclick="openSearch()"><i class="icon-search"></i></a>
+									<a href="javascript:void(0)" class="btn btn-link text-dark px-2 lockscroll" onclick="openSearch()"><i class="icon-search"></i></a>
 								</li>
 								<li class="d-none d-lg-inline-block">
-									<button data-toggle="dropdown" data-offset="0,10" class="btn btn-link text-dark"><i class="icon-more"></i></button>
+									<button data-toggle="dropdown" data-offset="0,10" class="btn btn-link text-dark px-2"><i class="icon-more"></i></button>
 									<?php wp_nav_menu( array( 
 										'theme_location' => 'site_nav_more',
-										'container'       => '',
+										'container'       => 'div',
 										'menu_class' => 'dropdown-menu dropdown-menu-right' 
 									) ); ?>
 								</li>
 								<li class="d-inline-block d-lg-none">
-									<a href="#" class="btn btn-link text-dark"><i class="icon-bars"></i></a>
+									<button data-toggle="dropdown" data-offset="0,10" class="btn btn-link text-dark px-2"><i class="icon-bars"></i></button>
+									<?php wp_nav_menu( array( 
+										'theme_location' => 'site_nav_mobile',
+										'container'       => 'div',
+										'menu_class' => 'dropdown-menu dropdown-menu-right' 
+									) ); ?>
 								</li>
 							</ul>
 						</div>
