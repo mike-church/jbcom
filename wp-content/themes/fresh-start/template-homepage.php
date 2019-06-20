@@ -74,27 +74,27 @@
 			</div>
 			<div class="row">
 				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="50">
-					<div class="display-1 animate-icon"><a href="/shop/?fwp_product_categories=protein" class="mdc-text-blue-700"><i class="icon-muscle"></i></a></div>
+					<div class="display-1 animate-icon"><a href="/shop/?fwp_categories=protein" class="mdc-text-blue-700"><i class="icon-muscle"></i></a></div>
 					<p class="text-uppercase font-medium">Protein</p>
 				</div>
 				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="100">
-					<div class="display-1 animate-icon"><a href="/shop/?fwp_product_categories=granola-cereal" class="mdc-text-indigo-300"><i class="icon-granola"></i></a></div>
+					<div class="display-1 animate-icon"><a href="/shop/?fwp_categories=granola-cereal" class="mdc-text-indigo-300"><i class="icon-granola"></i></a></div>
 					<p class="text-uppercase font-medium">Cereal &amp; Granola</p>
 				</div>
 				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="150">
-					<div class="display-1 animate-icon"><a href="/shop/?fwp_product_categories=treats-snacks" class="mdc-text-deep-orange-700"><i class="icon-cookie"></i></a></div>
+					<div class="display-1 animate-icon"><a href="/shop/?fwp_categories=treats-snacks" class="mdc-text-deep-orange-700"><i class="icon-cookie"></i></a></div>
 					<p class="text-uppercase font-medium">Treats &amp; Snacks</p>
 				</div>
 				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="200">
-					<div class="display-1 animate-icon"><a href="/shop/?fwp_product_categories=bread" class="mdc-text-brown-500"><i class="icon-bread"></i></a></div>
+					<div class="display-1 animate-icon"><a href="/shop/?fwp_categories=bread" class="mdc-text-brown-500"><i class="icon-bread"></i></a></div>
 					<p class="text-uppercase font-medium">Bread</p>
 				</div>
 				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="250">
-					<div class="display-1 animate-icon"><a href="/shop/?fwp_product_categories=staples" class="mdc-text-lime-800"><i class="icon-grocery"></i></a></div>
+					<div class="display-1 animate-icon"><a href="/shop/?fwp_categories=staples" class="mdc-text-lime-800"><i class="icon-grocery"></i></a></div>
 					<p class="text-uppercase font-medium">Staples</p>
 				</div>
 				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="300">
-					<div class="display-1 animate-icon"><a href="/shop/?fwp_product_categories=supplements" class="mdc-text-cyan-600"><i class="icon-supplement"></i></a></div>
+					<div class="display-1 animate-icon"><a href="/shop/?fwp_categories=supplements" class="mdc-text-cyan-600"><i class="icon-supplement"></i></a></div>
 					<p class="text-uppercase font-medium">Supplements</p>
 				</div>
 			</div>
