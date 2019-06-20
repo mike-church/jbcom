@@ -112,18 +112,6 @@ function closeFilters() {
 }
 </script>
 
-<script>
-(function($) {
-    $(document).on('facetwp-refresh', function() {
-        if (FWP.loaded) { // after the initial pageload
-            FWP.parse_facets(); // load the values
-            FWP.set_hash(); // set the new URL
-            location.reload();
-            return false;
-        }
-     });
-})(jQuery);
-</script>
 
 
 
