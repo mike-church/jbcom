@@ -40,8 +40,8 @@
 					<p class="text-uppercase font-medium">Dairy Free</p>
 				</div>
 				<div class="col-6 col-md-4 col-lg-2 mb-5 text-center" data-aos="fade-up"  data-aos="ease-in-sine" data-aos-delay="300">
-					<div class="display-1 animate-icon"><a href="/shop/?fwp_diet=nut-free" class="mdc-text-deep-orange-900"><i class="icon-nut-free"></i></a></div>
-					<p class="text-uppercase font-medium">Nut Free</p>
+					<div class="display-1 animate-icon"><a href="/shop/?fwp_diet=organic" class="mdc-text-light-green-400"><i class="icon-organic"></i></a></div>
+					<p class="text-uppercase font-medium">Organic</p>
 				</div>
 			</div>
 			<div class="row">

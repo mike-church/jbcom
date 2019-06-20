@@ -4,7 +4,7 @@
 Plugin Name: JB Nutritional Facts
 Plugin URI: https://www.julianbakery.com
 Description: Julian Bakery product nutrition facts
-Version: 1.0
+Version: 1.0.1
 Author: Michael Church
 Author URI: https://www.julianbakery.com
 License: GPLv2
@@ -69,6 +69,14 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
             array(
                 'name' => 'Fiber',
                 'id'   => "{$prefix}featured_fiber",
+                'type' => 'number',
+                'columns' => 3,
+                'tab'  => 'featured',
+            ),
+
+            array(
+                'name' => 'Fat',
+                'id'   => "{$prefix}featured_fat",
                 'type' => 'number',
                 'columns' => 3,
                 'tab'  => 'featured',
@@ -605,16 +613,18 @@ function fresh_start_feature_facts() {
     $featured_calories = rwmb_meta( 'jb_nutritionals_featured_calories' );
     $featured_protein = rwmb_meta( 'jb_nutritionals_featured_protein' );
     $featured_fiber = rwmb_meta( 'jb_nutritionals_featured_fiber' );
+    $featured_fat = rwmb_meta( 'jb_nutritionals_featured_fat' );
     $featured_sugar = rwmb_meta( 'jb_nutritionals_featured_sugar' );
     $featured_net_carbs = rwmb_meta( 'jb_nutritionals_featured_net_carbs' );
 
-    if ( ! empty( $featured_calories || $featured_protein || $featured_fiber || $featured_sugar || $featured_net_carbs ) ) { ?>
+    if ( ! empty( $featured_calories || $featured_protein || $featured_fiber || $featured_fat || $featured_sugar || $featured_net_carbs ) ) { ?>
 
         <div class="d-flex flex-wrap align-items-start featured-facts mt-3">
             
             <?php if ( isset( $featured_calories ) && $featured_calories !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_calories . '</span><span>Calories</span></div>' ;?>
             <?php if ( isset( $featured_protein ) && $featured_protein !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_protein . 'g</span><span>Protein</span></div>' ;?>
             <?php if ( isset( $featured_fiber ) && $featured_fiber !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_fiber . 'g</span><span>Fiber</span></div>' ;?>
+            <?php if ( isset( $featured_fat ) && $featured_fat !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_fat . 'g</span><span>Fat</span></div>' ;?>
             <?php if ( isset( $featured_sugar ) && $featured_sugar !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_sugar . 'g</span><span>Sugar</span></div>' ;?>
             <?php if ( isset( $featured_net_carbs ) && $featured_net_carbs !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_net_carbs . 'g</span><span>Net Carbs</span></div>' ;?>
         
