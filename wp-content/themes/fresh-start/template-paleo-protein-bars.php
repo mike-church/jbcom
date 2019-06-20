@@ -7,16 +7,26 @@
  * @package storefront
  */
 
-get_header( 'shop' ); ?>
-<section class="hero" style="background-image:url(/wp-content/uploads/protein-bar-hero.jpg);">
-	<div class="text">
-	<h1 class="color-white">Protein Bars for Everyone</h1>
-	<p class="color-white">Julian Bakery’s Paleo Protein Bars&reg; are 100% Paleo*, no sugar alcohols, and no soy. All bars contain 20g of protein and are sweetened with monk fruit extract. Each bar is a complete protein meal replacement or snack. They are soft, creamy, chewy and best of all delicious!</p>
-	<p class="color-white">Pick your protein; from egg white, grass-fed beef, or organic plant proteins combined with carefully selected organic soluble tappioca (Dextrin) fiber and healthy fats. Our IMO-Free soluble fiber improves digestion and curbs appetite all without bloating and all bars are lab tested for nutritional accuracy.</p>
-	<p class="color-white">Select a flavor below for more information and remember, always FREE SHIPPING nationwide.</p>
-	<p class="color-white"><small>* <i>Primal &amp; Stay Thin brands are not 100% Paleo</i></small></p>
+get_header(); ?>
+<section class="py-5">
+	<div class="container my-5">
+		<div class="row">
+			<div class="col-12">
+				<h1>Protein Bars for Everyone</h1>
+				<p>Julian Bakery’s Paleo Protein Bars&reg; are 100% Paleo*, no sugar alcohols, and no soy. All bars contain 20g of protein and are sweetened with monk fruit extract. Each bar is a complete protein meal replacement or snack. They are soft, creamy, chewy and best of all delicious!</p>
+				<p>Pick your protein; from egg white, grass-fed beef, or organic plant proteins combined with carefully selected organic soluble tappioca (Dextrin) fiber and healthy fats. Our IMO-Free soluble fiber improves digestion and curbs appetite all without bloating and all bars are lab tested for nutritional accuracy.</p>
+				<p>Select a flavor below for more information and remember, always FREE SHIPPING nationwide.</p>
+				<p><small>* <i>Primal &amp; Stay Thin brands are not 100% Paleo</i></small></p>
+		</div>
 	</div>
 </section>
+
+<section class="py-5">
+	<div class="container my-5">
+		<div class="row">
+			<div class="col-12">
+
+
 
 <?php do_action( 'woocommerce_before_main_content' ); ?>
 <h2 class="margin-bottom-30">Protein Bars</h2>
@@ -120,13 +130,17 @@ $wc_query = new WP_Query($params); if ($wc_query->have_posts()) : ?>
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
+			</div>
+		</div>
+	</div>
+</section>
 
 
 
 
 
-
-<?php get_footer( 'shop' ); ?>
+<?php
+get_footer();
 
 
 
