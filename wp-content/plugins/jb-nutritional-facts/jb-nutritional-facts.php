@@ -4,7 +4,7 @@
 Plugin Name: JB Nutritional Facts
 Plugin URI: https://www.julianbakery.com
 Description: Julian Bakery product nutrition facts
-Version: 1.0.2
+Version: 1.0.3
 Author: Michael Church
 Author URI: https://www.julianbakery.com
 License: GPLv2
@@ -452,6 +452,42 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
                 'tab'  => 'nutrition',
             ),
 
+            array(
+                'name' => 'Phosphorus',
+                'id'   => "{$prefix}phosphorus",
+                'type' => 'number',
+                'step' => 'any',
+                'columns' => 3,
+                'tab'  => 'nutrition',
+            ),
+
+            array(
+                'name' => 'Phosphorus DV%',
+                'id'   => "{$prefix}phosphorus_dv",
+                'type' => 'number',
+                'step' => 'any',
+                'columns' => 3,
+                'tab'  => 'nutrition',
+            ),
+
+            array(
+                'name' => 'Magnesium',
+                'id'   => "{$prefix}magnesium",
+                'type' => 'number',
+                'step' => 'any',
+                'columns' => 3,
+                'tab'  => 'nutrition',
+            ),
+
+            array(
+                'name' => 'Magnesium DV%',
+                'id'   => "{$prefix}magnesium_dv",
+                'type' => 'number',
+                'step' => 'any',
+                'columns' => 3,
+                'tab'  => 'nutrition',
+            ),
+
 
             // Ingredients Tab
 
@@ -567,8 +603,14 @@ function jb_nutritionals_tab_content() {
     $iron_dv = rwmb_meta( 'jb_nutritionals_iron_dv' );
     $potassium = rwmb_meta( 'jb_nutritionals_potassium' );
     $potassium_dv = rwmb_meta( 'jb_nutritionals_potassium_dv' );
+    $phosphorus = rwmb_meta( 'jb_nutritionals_phosphorus' );
+    $phosphorus_dv = rwmb_meta( 'jb_nutritionals_phosphorus_dv' );
+    $magnesium = rwmb_meta( 'jb_nutritionals_magnesium' );
+    $magnesium_dv = rwmb_meta( 'jb_nutritionals_magnesium_dv' );
     $ingredients = rwmb_meta( 'jb_nutritionals_ingredients' );
     $allergens = rwmb_meta( 'jb_nutritionals_allergens' );
+
+    
 
 
 if ( ! empty( $servings_per_container && $ingredients ) ) { 
@@ -602,15 +644,61 @@ if ( ! empty( $servings_per_container && $ingredients ) ) {
                 <?php if ( isset( $added_sugars ) && $added_sugars !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 pl-3 py-1"><span>Includes ' . $added_sugars . 'g Added Sugars</span><span class="font-bold">' . $added_sugars_dv . '%</span></div>';?>
                 <?php if ( isset( $protein ) && $protein !== "" ) echo '<div class="d-flex justify-content-between py-1"><span><span class="font-bold">Protein</span> ' . $protein . 'g</span><span class="font-bold">' . $protein_dv . '%</span></div>';?>
                 <hr/>
-                <?php if ( isset( $vitamin_a ) && $vitamin_a !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span>Vitamin A ' . $vitamin_a . 'mg</span><span class="font-bold">' . $vitamin_a_dv . '%</span></div>';?>
-                <?php if ( isset( $vitamin_c ) && $vitamin_c !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span>Vitamin C ' . $vitamin_c . 'mg</span><span class="font-bold">' . $vitamin_c_dv . '%</span></div>';?>
-                <?php if ( isset( $vitamin_d ) && $vitamin_d !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span>Vitamin D ' . $vitamin_d . 'mcg</span><span class="font-bold">' . $vitamin_d_dv . '%</span></div>';?>
-                <?php if ( isset( $calcium ) && $calcium !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span>Calcium ' . $calcium . 'mg</span><span class="font-bold">' . $calcium_dv . '%</span></div>';?>
-                <?php if ( isset( $iron ) && $iron !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span>Iron ' . $iron . 'mg</span><span class="font-bold">' . $iron_dv . '%</span></div>';?>
-                <?php if ( isset( $potassium ) && $potassium !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span>Potassium ' . $potassium . 'mg</span><span class="font-bold">' . $potassium_dv . '%</span></div>';?>
+
+                <?php if ( isset( $vitamin_a ) && $vitamin_a !== "" ) { ?>
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Vitamin A <?php echo $vitamin_a;?>mg</span><span class="font-bold"><?php echo $vitamin_a_dv;?>%</span></div>
+                <?php } elseif ( isset( $vitamin_a_dv ) && $vitamin_a_dv !== "" ) { ?> 
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Vitamin A</span><span class="font-bold"><?php echo $vitamin_a_dv;?>%</span></div>
+                <?php } ?>
+
+                <?php if ( isset( $vitamin_c ) && $vitamin_c !== "" ) { ?>
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Vitamin C <?php echo $vitamin_c;?>mg</span><span class="font-bold"><?php echo $vitamin_c_dv;?>%</span></div>
+                <?php } elseif ( isset( $vitamin_c_dv ) && $vitamin_c_dv !== "" ) { ?> 
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Vitamin C</span><span class="font-bold"><?php echo $vitamin_c_dv;?>%</span></div>
+                <?php } ?>
+
+                <?php if ( isset( $vitamin_d ) && $vitamin_d !== "" ) { ?>
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Vitamin D <?php echo $vitamin_d;?>mcg</span><span class="font-bold"><?php echo $vitamin_d_dv;?>%</span></div>
+                <?php } elseif ( isset( $vitamin_d_dv ) && $vitamin_d_dv !== "" ) { ?> 
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Vitamin D</span><span class="font-bold"><?php echo $vitamin_d_dv;?>%</span></div>
+                <?php } ?>
+
+                <?php if ( isset( $calcium ) && $calcium !== "" ) { ?>
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Calcium <?php echo $calcium;?>mg</span><span class="font-bold"><?php echo $calcium_dv;?>%</span></div>
+                <?php } elseif ( isset( $calcium_dv ) && $calcium_dv !== "" ) { ?> 
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Calcium</span><span class="font-bold"><?php echo $calcium_dv;?>%</span></div>
+                <?php } ?>
+
+                <?php if ( isset( $iron ) && $iron !== "" ) { ?>
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Iron <?php echo $iron;?>mg</span><span class="font-bold"><?php echo $iron_dv;?>%</span></div>
+                <?php } elseif ( isset( $iron_dv ) && $iron_dv !== "" ) { ?> 
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Iron</span><span class="font-bold"><?php echo $iron_dv;?>%</span></div>
+                <?php } ?>
+
+                <?php if ( isset( $potassium ) && $potassium !== "" ) { ?>
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Potassium <?php echo $potassium;?>mg</span><span class="font-bold"><?php echo $potassium_dv;?>%</span></div>
+                <?php } elseif ( isset( $potassium_dv ) && $potassium_dv !== "" ) { ?> 
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Potassium</span><span class="font-bold"><?php echo $potassium_dv;?>%</span></div>
+                <?php } ?>
+
+                <?php if ( isset( $phosphorus ) && $phosphorus !== "" ) { ?>
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Phosphorus <?php echo $phosphorus;?>mg</span><span class="font-bold"><?php echo $phosphorus_dv;?>%</span></div>
+                <?php } elseif ( isset( $phosphorus_dv ) && $phosphorus_dv !== "" ) { ?> 
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Phosphorus</span><span class="font-bold"><?php echo $phosphorus_dv;?>%</span></div>
+                <?php } ?>
+
+                <?php if ( isset( $magnesium ) && $magnesium !== "" ) { ?>
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Magnesium <?php echo $magnesium;?>mg</span><span class="font-bold"><?php echo $magnesium_dv;?>%</span></div>
+                <?php } elseif ( isset( $magnesium_dv ) && $magnesium_dv !== "" ) { ?> 
+                    <div class="d-flex justify-content-between border-bottom py-1"><span>Magnesium</span><span class="font-bold"><?php echo $magnesium_dv;?>%</span></div>
+                <?php } ?>
+
                 <div class="d-flex justify-content-end py-1">
                     <span><small>The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</small></span>
                 </div>
+
+
+
             </div>
 
         </div>
