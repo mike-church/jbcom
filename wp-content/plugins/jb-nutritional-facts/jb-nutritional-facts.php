@@ -4,7 +4,7 @@
 Plugin Name: JB Nutritional Facts
 Plugin URI: https://www.julianbakery.com
 Description: Julian Bakery product nutrition facts
-Version: 1.0.3
+Version: 1.0.4
 Author: Michael Church
 Author URI: https://www.julianbakery.com
 License: GPLv2
@@ -55,7 +55,7 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
                 'id'   => "{$prefix}featured_calories",
                 'type' => 'number',
                 'step' => 'any',
-                'columns' => 3,
+                'columns' => 4,
                 'tab'  => 'featured',
             ),
 
@@ -64,7 +64,7 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
                 'id'   => "{$prefix}featured_protein",
                 'type' => 'number',
                 'step' => 'any',
-                'columns' => 3,
+                'columns' => 4,
                 'tab'  => 'featured',
             ),
 
@@ -73,7 +73,7 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
                 'id'   => "{$prefix}featured_fiber",
                 'type' => 'number',
                 'step' => 'any',
-                'columns' => 3,
+                'columns' => 4,
                 'tab'  => 'featured',
             ),
 
@@ -82,15 +82,16 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
                 'id'   => "{$prefix}featured_fat",
                 'type' => 'number',
                 'step' => 'any',
-                'columns' => 3,
+                'columns' => 4,
                 'tab'  => 'featured',
             ),
 
             array(
                 'name' => 'Sugar',
                 'id'   => "{$prefix}featured_sugar",
-                'type' => 'text',
-                'columns' => 3,
+                'type' => 'number',
+                'step' => 'any',
+                'columns' => 4,
                 'tab'  => 'featured',
             ),
 
@@ -99,7 +100,31 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
                 'id'   => "{$prefix}featured_net_carbs",
                 'type' => 'number',
                 'step' => 'any',
-                'columns' => 12,
+                'columns' => 4,
+                'tab'  => 'featured',
+            ),
+
+            array(
+                'name' => 'Optional Fact',
+                'type' => 'heading',
+                'tab'  => 'featured',
+            ),
+
+            array(
+                'name' => 'Value',
+                'desc' => 'ex. 14g',
+                'id'   => "{$prefix}featured_optional_value",
+                'type' => 'text',
+                'columns' => 4,
+                'tab'  => 'featured',
+            ),
+
+            array(
+                'name' => 'Value Description',
+                'desc' => 'ex. OF BHB',
+                'id'   => "{$prefix}featured_optional_description",
+                'type' => 'text',
+                'columns' => 4,
                 'tab'  => 'featured',
             ),
 
@@ -739,8 +764,10 @@ function fresh_start_feature_facts() {
     $featured_fat = rwmb_meta( 'jb_nutritionals_featured_fat' );
     $featured_sugar = rwmb_meta( 'jb_nutritionals_featured_sugar' );
     $featured_net_carbs = rwmb_meta( 'jb_nutritionals_featured_net_carbs' );
+    $featured_optional_value = rwmb_meta( 'jb_nutritionals_featured_optional_value' );
+    $featured_optional_description = rwmb_meta( 'jb_nutritionals_featured_optional_description' );
 
-    if ( ! empty( $featured_calories || $featured_protein || $featured_fiber || $featured_fat || $featured_sugar || $featured_net_carbs ) ) { ?>
+    if ( ! empty( $featured_calories || $featured_protein || $featured_fiber || $featured_fat || $featured_sugar || $featured_net_carbs || $featured_optional_value ) ) { ?>
 
         <div class="d-flex flex-wrap align-items-start featured-facts mt-3">
             
@@ -750,6 +777,7 @@ function fresh_start_feature_facts() {
             <?php if ( isset( $featured_fat ) && $featured_fat !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_fat . 'g</span><span>Fat</span></div>' ;?>
             <?php if ( isset( $featured_sugar ) && $featured_sugar !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_sugar . 'g</span><span>Sugar</span></div>' ;?>
             <?php if ( isset( $featured_net_carbs ) && $featured_net_carbs !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_net_carbs . 'g</span><span>Net Carbs</span></div>' ;?>
+            <?php if ( isset( $featured_optional_value ) && $featured_optional_value !== "" ) echo '<div class="py-3 mr-4"><span>'.$featured_optional_value.'</span><span>'.$featured_optional_description.'</span></div>' ;?>
         
         </div>
 
