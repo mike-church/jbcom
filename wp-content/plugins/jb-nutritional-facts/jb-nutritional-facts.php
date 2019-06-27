@@ -4,7 +4,7 @@
 Plugin Name: JB Nutritional Facts
 Plugin URI: https://www.julianbakery.com
 Description: Julian Bakery product nutrition facts
-Version: 1.0.4
+Version: 1.0.5
 Author: Michael Church
 Author URI: https://www.julianbakery.com
 License: GPLv2
@@ -513,6 +513,51 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
                 'tab'  => 'nutrition',
             ),
 
+            array(
+                'name' => 'Custom Nutrients',
+                'type' => 'heading',
+                'tab'  => 'nutrition',
+            ),
+
+
+
+
+
+array(
+    'id'     => "{$prefix}optional_nutrients",
+    'type'   => 'group',
+    'clone'  => true,
+    'sort_clone' => true,
+    'tab'  => 'nutrition',
+    'fields' => array(
+        array(
+            'name' => 'Name',
+            'id'   => "{$prefix}nutrient_name",
+            'type' => 'text',
+            'columns' => 4,
+        ),
+        array(
+            'name' => 'Value',
+            'id'   => "{$prefix}nutrient_value",
+            'type' => 'text',
+            'columns' => 4,
+        ),
+        array(
+            'name' => 'Daily Value',
+            'id'   => "{$prefix}nutrient_dv",
+            'type' => 'text',
+            'columns' => 4,
+        ),
+    ),
+),
+
+
+
+
+
+
+
+
 
             // Ingredients Tab
 
@@ -634,9 +679,7 @@ function jb_nutritionals_tab_content() {
     $magnesium_dv = rwmb_meta( 'jb_nutritionals_magnesium_dv' );
     $ingredients = rwmb_meta( 'jb_nutritionals_ingredients' );
     $allergens = rwmb_meta( 'jb_nutritionals_allergens' );
-
-    
-
+    $optional_nutrients = rwmb_meta( 'jb_nutritionals_optional_nutrients' );
 
 if ( ! empty( $servings_per_container && $ingredients ) ) { 
 
@@ -718,11 +761,19 @@ if ( ! empty( $servings_per_container && $ingredients ) ) {
                     <div class="d-flex justify-content-between border-bottom py-1"><span>Magnesium</span><span class="font-bold"><?php echo $magnesium_dv;?>%</span></div>
                 <?php } ?>
 
+                <?php foreach ( $optional_nutrients as $nutrient ) {
+                    $name = isset( $nutrient['jb_nutritionals_nutrient_name'] ) ? $nutrient['jb_nutritionals_nutrient_name'] : '';
+                    $value = isset( $nutrient['jb_nutritionals_nutrient_value'] ) ? $nutrient['jb_nutritionals_nutrient_value'] : '';
+                    $dv = isset( $nutrient['jb_nutritionals_nutrient_dv'] ) ? $nutrient['jb_nutritionals_nutrient_dv'] : ''; ?>
+
+                        <div class="d-flex justify-content-between border-bottom py-1"><span><?php echo $name;?> <?php echo $value;?></span><span class="font-bold"><?php echo $dv;?>%</span></div>
+                    
+                    <?php }
+                ?> 
+
                 <div class="d-flex justify-content-end py-1">
                     <span><small>The % Daily Value (DV) tells you how much a nutrient in a serving of food contributes to a daily diet. 2,000 calories a day is used for general nutrition advice.</small></span>
                 </div>
-
-
 
             </div>
 
@@ -769,6 +820,7 @@ function fresh_start_feature_facts() {
 
     if ( ! empty( $featured_calories || $featured_protein || $featured_fiber || $featured_fat || $featured_sugar || $featured_net_carbs || $featured_optional_value ) ) { ?>
 
+    
         <div class="d-flex flex-wrap align-items-start featured-facts mt-3">
             
             <?php if ( isset( $featured_calories ) && $featured_calories !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_calories . '</span><span>Calories</span></div>' ;?>
