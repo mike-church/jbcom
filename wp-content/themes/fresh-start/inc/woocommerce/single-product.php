@@ -257,6 +257,23 @@ function woo_rename_tabs( $tabs ) {
 	return $tabs;
 }
 
+
+/**
+ * Remove product data tabs
+ */
+add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+
+function woo_remove_product_tabs( $tabs ) {
+
+
+    unset( $tabs['additional_information'] );  	// Remove the additional information tab
+
+    return $tabs;
+}
+
+
+
+
 // Change Order of Upsell and Related Products
 
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);

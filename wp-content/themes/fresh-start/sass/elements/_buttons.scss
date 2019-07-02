@@ -80,4 +80,19 @@ transition: transform .5s;
 	color:$white;
 }
 
-
+.variations {
+	select {
+		margin: 0;
+		width: auto;
+		font-weight: $regular;
+		padding: 0 1rem !important;
+		font-size: 1rem;
+		border: 2px solid $primary;
+		border-radius: 2rem;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		background: url(../images/icon-sort-down.png) 90%/10px no-repeat #fff;
+		outline: 0;
+	}
+}
