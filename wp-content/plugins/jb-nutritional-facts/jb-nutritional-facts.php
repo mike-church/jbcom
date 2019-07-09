@@ -4,7 +4,7 @@
 Plugin Name: JB Nutritional Facts
 Plugin URI: https://www.julianbakery.com
 Description: Julian Bakery product nutrition facts
-Version: 1.0.5
+Version: 1.2
 Author: Michael Church
 Author URI: https://www.julianbakery.com
 License: GPLv2
@@ -131,13 +131,15 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
             // Nutrition Tab
 
             array(
-                'name' => 'Nutritional Label',
-                'id' => "{$prefix}label_image",
-                'type' => 'image_advanced',
-                'force_delete' => false,
-                'max_file_uploads' => 1,
-                'max_status'  => 'false',
-                'image_size' => 'thumbnail',
+                'name'    => 'Radio',
+                'id'      => "{$prefix}fact_title",
+                'type'    => 'radio',
+                'options' => array(
+                    'Nutrition Facts' => 'Nutrition Facts',
+                    'Suplement Facts' => 'Suplement Facts',
+                ),
+                'std'     => 'Nutrition Facts',
+                'inline' => false,
                 'tab'  => 'nutrition',
             ),
 
@@ -519,45 +521,33 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
                 'tab'  => 'nutrition',
             ),
 
-
-
-
-
-array(
-    'id'     => "{$prefix}optional_nutrients",
-    'type'   => 'group',
-    'clone'  => true,
-    'sort_clone' => true,
-    'tab'  => 'nutrition',
-    'fields' => array(
-        array(
-            'name' => 'Name',
-            'id'   => "{$prefix}nutrient_name",
-            'type' => 'text',
-            'columns' => 4,
-        ),
-        array(
-            'name' => 'Value',
-            'id'   => "{$prefix}nutrient_value",
-            'type' => 'text',
-            'columns' => 4,
-        ),
-        array(
-            'name' => 'Daily Value',
-            'id'   => "{$prefix}nutrient_dv",
-            'type' => 'text',
-            'columns' => 4,
-        ),
-    ),
-),
-
-
-
-
-
-
-
-
+            array(
+                'id'     => "{$prefix}optional_nutrients",
+                'type'   => 'group',
+                'clone'  => true,
+                'sort_clone' => true,
+                'tab'  => 'nutrition',
+                'fields' => array(
+                    array(
+                        'name' => 'Name',
+                        'id'   => "{$prefix}nutrient_name",
+                        'type' => 'text',
+                        'columns' => 4,
+                    ),
+                    array(
+                        'name' => 'Value',
+                        'id'   => "{$prefix}nutrient_value",
+                        'type' => 'text',
+                        'columns' => 4,
+                    ),
+                    array(
+                        'name' => 'Daily Value',
+                        'id'   => "{$prefix}nutrient_dv",
+                        'type' => 'text',
+                        'columns' => 4,
+                    ),
+                ),
+            ),
 
             // Ingredients Tab
 
@@ -640,6 +630,7 @@ function jb_nutritionals_tab( $tabs ) {
 function jb_nutritionals_tab_content() {
 
     $label_image = rwmb_meta( 'jb_nutritionals_label_image' );
+    $title = rwmb_meta( 'jb_nutritionals_fact_title' );
     $servings_per_container = rwmb_meta( 'jb_nutritionals_servings_per_container' );
     $serving_size = rwmb_meta( 'jb_nutritionals_serving_size' );
     $calories = rwmb_meta( 'jb_nutritionals_calories' );
@@ -689,7 +680,8 @@ if ( ! empty( $servings_per_container && $ingredients ) ) {
         <div class="col-sm-6">
 
             <div class="nutrition-facts p-3 border">
-                <h3 class="font-bold border-bottom">Nutrition Facts</h3>
+
+                <?php if ( ! empty( $title ) ) { ?> <h3 class="font-bold border-bottom"><?php echo $title;?></h3> <?php } else { ?><h3 class="font-bold border-bottom">Nutrition Facts</h3> <?php } ;?>
                 <?php if ( ! empty( $servings_per_container ) ) echo '<div>' . $servings_per_container . ' serving per container </div>' ;?>
                 <?php if ( ! empty( $serving_size ) ) echo '<div class="font-bold"> Serving size ' . $serving_size . '</div>' ;?>
                 <hr class="primary" />
@@ -710,7 +702,13 @@ if ( ! empty( $servings_per_container && $ingredients ) ) {
                 <?php if ( isset( $dietary_fiber ) && $dietary_fiber !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 py-1"><span>Dietary Fiber ' . $dietary_fiber . 'g</span><span class="font-bold">' . $dietary_fiber_dv . '%</span></div>';?>
                 <?php if ( isset( $sugars ) && $sugars !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 py-1"><span>Total Sugars ' . $sugars . 'g</span></div>';?>
                 <?php if ( isset( $added_sugars ) && $added_sugars !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 pl-3 py-1"><span>Includes ' . $added_sugars . 'g Added Sugars</span><span class="font-bold">' . $added_sugars_dv . '%</span></div>';?>
-                <?php if ( isset( $protein ) && $protein !== "" ) echo '<div class="d-flex justify-content-between py-1"><span><span class="font-bold">Protein</span> ' . $protein . 'g</span><span class="font-bold">' . $protein_dv . '%</span></div>';?>
+                <?php if ( isset( $protein ) && $protein !== "" ) { ?> 
+                    <div class="d-flex justify-content-between py-1">
+                        <?php echo '<span><span class="font-bold">Protein</span> '.$protein.'g</span>';?>
+                        <?php if ( ! empty( $protein_dv ) ) echo '<span class="font-bold">'.$protein_dv.'%</span>';?>
+                    </div>
+                <?php } ;?>
+
                 <hr/>
 
                 <?php if ( isset( $vitamin_a ) && $vitamin_a !== "" ) { ?>
