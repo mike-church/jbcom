@@ -40,7 +40,7 @@ if ( post_password_required() ) {
 		<div class="container">
 			<div class="row">
 
-				<div class="col-sm-6 col-lg-5 order-2 order-md-1">
+				<div class="col-sm-6 order-2 order-md-1">
 					<?php
 					/**
 					 * Hook: woocommerce_single_product_summary.
@@ -58,7 +58,7 @@ if ( post_password_required() ) {
 					?>
 				</div>
 				
-				<div class="col-sm-6 col-lg-7 order-1 order-md-2">
+				<div class="col-sm-6 order-1 order-md-2">
 					<?php
 					/**
 					 * Hook: woocommerce_before_single_product_summary.

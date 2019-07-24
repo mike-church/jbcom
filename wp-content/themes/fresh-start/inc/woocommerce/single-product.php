@@ -120,42 +120,36 @@ function fresh_start_product_gallery() {
 
 	?>
 
-	<div class="row">
-		<div class="col-lg-10">
-			<div class="slick-for">
-				<div class="slide">
-					<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'product-image');?>" class="img-fluid">
-				</div>
-
-				<?php if ( ! empty( $video ) ) { ?>
-
-					<div class="iframe-container slide">
-						<iframe src="https://www.youtube.com/embed/<?php echo $video_id;?>?rel=0&enablejsapi=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
-					</div>
-
-					<?php
-				} ?>
-
-				<?php
-				foreach( $attachment_ids as $attachment_id ) 
-				{ echo '<div class="slide">' . wp_get_attachment_image($attachment_id, 'product-image') . '</div>'; }
-				?>
-
-			</div>
+	<div class="slick-for">
+		<div class="slide">
+			<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'product-image');?>" class="img-fluid">
 		</div>
-		<div class="col col-lg-2">
-			<div class="slider-nav">
-				<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'shop_thumbnail');?>" class="img-fluid">
 
-				<?php if ( ! empty( $video ) ) echo '<img src="/wp-content/themes/fresh-start/dist/images/video-icon.png" class="img-fluid">';?>
+		<?php if ( ! empty( $video ) ) { ?>
 
-				<?php
-				foreach( $attachment_ids as $attachment_id ) 
-				{ echo wp_get_attachment_image($attachment_id, 'thumbnail'); }
-				?>
-				
+			<div class="iframe-container slide">
+				<iframe src="https://www.youtube.com/embed/<?php echo $video_id;?>?rel=0&enablejsapi=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
 			</div>
-		</div>
+
+			<?php
+		} ?>
+
+		<?php
+		foreach( $attachment_ids as $attachment_id ) 
+		{ echo '<div class="slide">' . wp_get_attachment_image($attachment_id, 'product-image') . '</div>'; }
+		?>
+
+	</div>
+
+	<div class="slider-nav">
+		<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'shop_thumbnail');?>" class="img-fluid">
+
+		<?php if ( ! empty( $video ) ) echo '<img src="/wp-content/themes/fresh-start/dist/images/video-icon.png" class="img-fluid">';?>
+
+		<?php
+		foreach( $attachment_ids as $attachment_id ) 
+		{ echo wp_get_attachment_image($attachment_id, 'thumbnail'); }
+		?>
 	</div>
 
 <?php
@@ -212,34 +206,18 @@ function fresh_start_product_slider() {
 			slidesToScroll: 1,
 			asNavFor: '.slick-for',
 			dots: false,
-			focusOnSelect: true,
-			vertical: true,
+			centerMode: true,
+  			focusOnSelect: true,
 
 			responsive: [
-		    {
-		      breakpoint: 1200,
-		      settings: {
-		      }
-		    },
-		    {
-		      breakpoint: 992,
-		      settings: {
-		      	vertical: false,
-		      }
-		    },
-		    {
-		      breakpoint: 768,
-		      settings: {
-				vertical: false,
-				centerMode: true,
-				slidesToShow: 3,
-				variableWidth: true,
-		      }
-		    }
-		    // You can unslick at a given breakpoint now by adding:
-		    // settings: "unslick"
-		    // instead of a settings object
-		  ]
+				{
+				breakpoint: 1024,
+					settings: {
+						arrows: false,
+					}
+				}
+			]
+
 		});
 
 	  });

@@ -679,7 +679,7 @@ if ( ! empty( $servings_per_container && $ingredients ) ) {
     <div class="row">
         <div class="col-sm-6">
 
-            <div class="nutrition-facts p-3 border">
+            <div class="nutrition-facts p-3 border mb-5">
 
                 <?php if ( ! empty( $title ) ) { ?> <h3 class="font-bold border-bottom"><?php echo $title;?></h3> <?php } else { ?><h3 class="font-bold border-bottom">Nutrition Facts</h3> <?php } ;?>
                 <?php if ( ! empty( $servings_per_container ) ) echo '<div>' . $servings_per_container . ' serving per container </div>' ;?>

@@ -99,33 +99,31 @@
     display: none;
 }
 
-
-
 .slider-nav {
+    .slick-track {
+        display:inline-block;
+    }
     .slick-slide {
-        padding:5px;        
+        padding:5px;
+        text-align: center;
         div {
             padding:5px;
-            border:$mdc-grey-200 solid 1px;
+            border:$mdc-grey-300 solid 1px;
+
         }
     }
     .slick-slide.slick-current {
         div {
-            border:$mdc-grey-400 solid 1px;
-            box-shadow:0 3px 5px rgba($black, .25);
+            border:$mdc-grey-500 solid 1px;
+            box-shadow:0 0 8px rgba($black, .25);
         }
     }
 }
 
-// Theme
-/*
-.slider-nav .slick-slide {
-    opacity: 0.5;
-    border:$mdc-grey-200 solid 1px;
-}
+@include media-breakpoint-up(lg) {
+    .slider-nav {
+        padding-left:30px;
+        padding-right:30px;
+    }
 
-.slider-nav .slick-slide.slick-current {
-    opacity: 1;
-    border:$mdc-grey-200 solid 1px;
-    box-shadow:0 0 15px rgba($black, .25);
-}*/
+}

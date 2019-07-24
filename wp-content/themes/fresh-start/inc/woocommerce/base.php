@@ -46,3 +46,21 @@ add_action( 'init', 'stop_heartbeat', 1 );
 function stop_heartbeat() {
 	wp_deregister_script('heartbeat');
 }
+
+// Prevent PO box shipping
+add_action('woocommerce_after_checkout_validation', 'deny_pobox_postcode');
+
+function deny_pobox_postcode( $posted ) {
+  global $woocommerce;
+
+  $address  = ( isset( $posted['shipping_address_1'] ) ) ? $posted['shipping_address_1'] : $posted['billing_address_1'];
+  $postcode = ( isset( $posted['shipping_postcode'] ) ) ? $posted['shipping_postcode'] : $posted['billing_postcode'];
+
+  $replace  = array(" ", ".", ",");
+  $address  = strtolower( str_replace( $replace, '', $address ) );
+  $postcode = strtolower( str_replace( $replace, '', $postcode ) );
+
+  if ( strstr( $address, 'pobox' ) || strstr( $postcode, 'pobox' ) ) {
+    wc_add_notice( sprintf( __( "Sorry, we cannot ship to PO BOX addresses.") ) ,'error' );
+  }
+}
