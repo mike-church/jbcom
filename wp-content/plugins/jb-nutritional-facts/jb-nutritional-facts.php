@@ -604,7 +604,7 @@ function jb_nutritionals_tab( $tabs ) {
         
         $tabs['nutrition_tab'] = array(
             'title'     => __( 'Nutrition & Ingredients', 'woocommerce' ),
-            'priority'  => 20,
+            'priority'  => 5,
             'callback'  => 'jb_nutritionals_tab_content'
         );
 
@@ -618,7 +618,7 @@ function jb_nutritionals_tab( $tabs ) {
         
         $tabs['nutrition_tab'] = array(
             'title'     => __( 'Ingredients', 'woocommerce' ),
-            'priority'  => 20,
+            'priority'  => 5,
             'callback'  => 'jb_nutritionals_tab_content'
         );
 

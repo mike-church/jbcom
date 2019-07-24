@@ -257,22 +257,20 @@ function woo_rename_tabs( $tabs ) {
 	return $tabs;
 }
 
+// Remove product data tabs
 
-/**
- * Remove product data tabs
- */
 add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
-
 function woo_remove_product_tabs( $tabs ) {
-
-
     unset( $tabs['additional_information'] );  	// Remove the additional information tab
-
     return $tabs;
 }
 
-
-
+add_filter( 'woocommerce_product_tabs', 'reordered_tabs', 98 );
+function reordered_tabs( $tabs ) {
+    $tabs['description']['priority'] = 10; 
+    $tabs['reviews']['priority'] = 15;
+    return $tabs;
+}
 
 // Change Order of Upsell and Related Products
 
