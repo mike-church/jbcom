@@ -2,7 +2,7 @@
 
 function freshstart_scripts() {
 	
-	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/dist/css/style.min.css', '', 'v3.1' );
+	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/dist/css/style.min.css', '', 'v3.1.1' );
 	wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,900', false, null);
 	wp_enqueue_style('google-fonts');
 
@@ -11,6 +11,14 @@ function freshstart_scripts() {
 	wp_enqueue_script( 'mainjs', get_template_directory_uri() . '/dist/js/main.js', array('jquery'), '1.0.0', true );
 }
 add_action( 'wp_enqueue_scripts', 'freshstart_scripts' );
+
+// Chat Bot script
+function hook_javascript() {
+	?>
+		<script async="async" src="https://static.mobilemonkey.com/js/105112046191641.js"></script>
+    <?php
+}
+add_action('wp_head', 'hook_javascript');
 
 /** Disable Ajax Call from WooCommerce */
 add_action( 'wp_enqueue_scripts', 'dequeue_woocommerce_cart_fragments', 11); 
