@@ -32,6 +32,7 @@ wp-content/plugins/*
 !wp-content/plugins/jb-nutritional-facts/
 !wp-content/plugins/jb-recipes/
 !wp-content/plugins/jb-logos/
+!wp-content/plugins/jb-product-notice/
  
 # Ignore everything in the "themes" directory, except the themes you specify
 wp-content/themes/*
