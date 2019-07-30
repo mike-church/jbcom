@@ -25,6 +25,4 @@ $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', _
 
 ?>
 
-<h4 class="mb-4">Overview</h4>
-
 <?php the_content(); ?>

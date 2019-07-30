@@ -39,7 +39,7 @@
 			}
 		}
 		.quantity-btns {
-			display:inline-block;
+			display:none;
 			height:42px;
 			border:$primary solid 2px;
 			border-radius:2em;
@@ -72,15 +72,15 @@
 		.button {
 			float:none !important;
 			height:42px;
-			margin-top:1rem;
+			
 
 		}
 	}
 }
 
-@include media-breakpoint-up(lg) {
-	form.cart .button {
-		margin-top:0;
+@include media-breakpoint-up(sm) {
+	form.cart .quantity-btns {
+		display:inline-block;
 	}
 
 }

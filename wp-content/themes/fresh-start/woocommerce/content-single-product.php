@@ -26,6 +26,8 @@ global $product;
  */
 do_action( 'woocommerce_before_single_product' );
 
+$jb_notice = rwmb_meta( 'jb_product_notice_notice' );
+
 if ( post_password_required() ) {
 	echo get_the_password_form(); // WPCS: XSS ok.
 	return;
@@ -38,9 +40,10 @@ if ( post_password_required() ) {
 
 	<section class="py-5">
 		<div class="container">
+
 			<div class="row">
 
-				<div class="col-sm-6 order-2 order-md-1">
+				<div class="col-lg-6">
 					<?php
 					/**
 					 * Hook: woocommerce_single_product_summary.
@@ -58,7 +61,7 @@ if ( post_password_required() ) {
 					?>
 				</div>
 				
-				<div class="col-sm-6 order-1 order-md-2">
+				<div class="col-lg-6">
 					<?php
 					/**
 					 * Hook: woocommerce_before_single_product_summary.

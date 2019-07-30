@@ -819,7 +819,7 @@ function fresh_start_feature_facts() {
     if ( ! empty( $featured_calories || $featured_protein || $featured_fiber || $featured_fat || $featured_sugar || $featured_net_carbs || $featured_optional_value ) ) { ?>
 
     
-        <div class="d-flex flex-wrap align-items-start featured-facts mt-3">
+        <div class="d-flex flex-wrap align-items-start featured-facts mt-3 mb-3 border-top border-bottom">
             
             <?php if ( isset( $featured_calories ) && $featured_calories !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_calories . '</span><span>Calories</span></div>' ;?>
             <?php if ( isset( $featured_protein ) && $featured_protein !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_protein . 'g</span><span>Protein</span></div>' ;?>

@@ -57,3 +57,19 @@
 .woocommerce-notice {
 	line-height: 1.5rem !important;
 }
+
+.product-alert {
+    padding:15px 15px 0px 40px;
+    position:relative;
+    strong {
+        font-weight: $bold;
+    }
+}
+
+.product-alert:before {
+    position:absolute;
+    top:15px;
+    left:15px;
+    font-family: 'icomoon';
+    content: "\e928";
+}

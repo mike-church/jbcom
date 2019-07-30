@@ -13,20 +13,31 @@
 
 }
 
-.featured-facts {
-    border-top:$mdc-grey-300 solid 1px;
-    line-height: normal;
-    div span {
-        display:block;
-        text-transform: uppercase;
-        font-size: .8rem;
-        font-weight: $medium;
+@include media-breakpoint-up(xs) {
+
+    .featured-facts {
+        line-height: normal;
+        div span {
+            display:block;
+            text-transform: uppercase;
+            font-size: .8rem;
+            font-weight: $medium;
+            letter-spacing: 0;
+        }
+        div span:first-child {
+            font-size: 2rem;
+            font-weight: $bold;
+            text-transform: lowercase;
+            letter-spacing: 0;
+        }
+    }
+
+}
+
+@include media-breakpoint-up(sm) {
+
+    .featured-facts div span {
         letter-spacing: 1px;
     }
-    div span:first-child {
-        font-size: 2rem;
-        font-weight: $bold;
-        text-transform: lowercase;
-        letter-spacing: normal;
-    }
+    
 }

@@ -24,6 +24,13 @@ function remove_short_description() {
 }
 
 
+// Move Overview Tab outside of the tabs
+function woocommerce_template_product_description() {
+wc_get_template( 'single-product/tabs/description.php' );
+}
+add_action( 'woocommerce_single_product_summary', 'woocommerce_template_product_description', 80 );
+
+
 // Add This Code
 
 add_action( 'woocommerce_single_product_summary', 'fresh_start_addthis', 5 );
@@ -240,12 +247,13 @@ function woo_rename_tabs( $tabs ) {
 add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 function woo_remove_product_tabs( $tabs ) {
     unset( $tabs['additional_information'] );  	// Remove the additional information tab
+	unset( $tabs['description'] );
     return $tabs;
 }
 
 add_filter( 'woocommerce_product_tabs', 'reordered_tabs', 98 );
 function reordered_tabs( $tabs ) {
-    $tabs['description']['priority'] = 10; 
+    
     $tabs['reviews']['priority'] = 15;
     return $tabs;
 }
