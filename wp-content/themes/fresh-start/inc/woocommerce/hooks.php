@@ -50,6 +50,7 @@ function fresh_start_wrapper_start() {
 						<div class="col-sm-12 col-md-3 col-xl-2 ml-auto pt-3 d-none d-md-block">
 							<?php echo facetwp_display( 'facet', 'diet' ); ?>
 							<?php echo facetwp_display( 'facet', 'categories' ); ?>
+							<?php echo facetwp_display( 'facet', 'flavor' ); ?>
 							<?php echo facetwp_display( 'facet', 'product_line' ); ?>
 							<?php echo facetwp_display( 'facet', 'sale_items' ); ?>
 						</div>
