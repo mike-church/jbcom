@@ -679,7 +679,7 @@ if ( ! empty( $servings_per_container && $ingredients ) ) {
     <div class="row">
         <div class="col-sm-6">
 
-            <div class="nutrition-facts p-3 border mb-5">
+            <div class="nutrition-facts p-3 border bg-white mb-5">
 
                 <?php if ( ! empty( $title ) ) { ?> <h3 class="font-bold border-bottom"><?php echo $title;?></h3> <?php } else { ?><h3 class="font-bold border-bottom">Nutrition Facts</h3> <?php } ;?>
                 <?php if ( ! empty( $servings_per_container ) ) echo '<div>' . $servings_per_container . ' serving per container </div>' ;?>
@@ -698,7 +698,7 @@ if ( ! empty( $servings_per_container && $ingredients ) ) {
                 <?php if ( isset( $trans_fat ) && $trans_fat !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 py-1"><span>Trans Fat ' . $trans_fat . 'g</span></div>';?>
                 <?php if ( isset( $cholesterol ) && $cholesterol !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span><span class="font-bold">Cholesterol</span> ' . $cholesterol . 'mg</span><span class="font-bold">' . $cholesterol_dv . '%</span></div>';?>
                 <?php if ( isset( $sodium ) && $sodium !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span><span class="font-bold">Sodium</span> ' . $sodium . 'mg</span><span class="font-bold">' . $sodium_dv . '%</span></div>';?>
-                <?php if ( isset( $carbohydrate ) && $carbohydrate !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span><span class="font-bold">Total Cabohydrate</span> ' . $carbohydrate . 'g</span><span class="font-bold">' . $carbohydrate_dv . '%</span></div>';?>
+                <?php if ( isset( $carbohydrate ) && $carbohydrate !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span><span class="font-bold">Total Carbohydrate</span> ' . $carbohydrate . 'g</span><span class="font-bold">' . $carbohydrate_dv . '%</span></div>';?>
                 <?php if ( isset( $dietary_fiber ) && $dietary_fiber !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 py-1"><span>Dietary Fiber ' . $dietary_fiber . 'g</span><span class="font-bold">' . $dietary_fiber_dv . '%</span></div>';?>
                 <?php if ( isset( $sugars ) && $sugars !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 py-1"><span>Total Sugars ' . $sugars . 'g</span></div>';?>
                 <?php if ( isset( $added_sugars ) && $added_sugars !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 pl-3 py-1"><span>Includes ' . $added_sugars . 'g Added Sugars</span><span class="font-bold">' . $added_sugars_dv . '%</span></div>';?>

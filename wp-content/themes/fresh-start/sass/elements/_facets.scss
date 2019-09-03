@@ -1,23 +1,37 @@
-.facetwp-checkbox {
+.facetwp-checkbox, .facetwp-link {
 	position:relative;
 	line-height:normal;
-	font-size:16px;
-	background:none !important;
-	padding:10px 20px;
+	font-size:1rem;
+	background-image:none !important;
 	margin-bottom:0 !important;
 	border-bottom:$mdc-grey-200 solid 1px;
 	.facetwp-counter {
 		position:absolute;
 		right:0;
-		top:12px;
-		font-size:14px;
+		top:10px;
+		font-size:.85rem;
+	}
+}
+.facetwp-checkbox:hover, .facetwp-link:hover {
+	color:$mdc-blue-500;
+}
+.facetwp-checkbox {
+	padding:8px 20px;
+}
+.facetwp-link {
+	padding:8px 0px;
+}
+.facetwp-depth {
+	margin-left:0 !important;
+	.facetwp-link.checked {
+		font-weight: $medium;
 	}
 }
 .facetwp-checkbox:before {
 	font-family: 'icomoon';
 	content: "\e909";
 	position:absolute;
-	top:11px;
+	top:10px;
 	left:0;
 	font-size:16px;
 	color:$mdc-blue-500;
@@ -30,11 +44,15 @@
 	left:0;
 	font-size:16px;
 }
+.facetwp-checkbox.checked {
+	font-weight: $medium;
+}
+
 .facet-header {
 	position:relative;
 	padding:10px 24px 10px 0;
 	h6 {
-		font-size:.9rem;
+		font-size:1rem;
 		text-transform: uppercase;
 	}
 	button {
@@ -105,4 +123,9 @@
 
 .facetwp-expand {
 	display:none;
+}
+a.facetwp-toggle {
+	font-weight: $medium;
+	font-size: .85rem;
+	line-height: 2rem;
 }

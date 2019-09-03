@@ -10,7 +10,7 @@
 
 <main>
 
-	<section class="py-5">
+	<section class="py-5 bg-white">
 		<div class="container my-5">
 			<div class="row">
 				<div class="col-sm-12 text-center">
@@ -65,7 +65,7 @@
 		</div>
 	</section>
 	-->
-	<section class="py-5 border-top">
+	<section class="py-5 border-top bg-white">
 		<div class="container my-5">
 			<div class="row">
 				<div class="col-sm-12 text-center">
