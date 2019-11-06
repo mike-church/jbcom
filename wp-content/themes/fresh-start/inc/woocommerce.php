@@ -9,3 +9,4 @@ require_once( __DIR__ . '/woocommerce/cart.php');
 require_once( __DIR__ . '/woocommerce/alerts.php');
 require_once( __DIR__ . '/woocommerce/coupons.php');
 
+

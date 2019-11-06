@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( $related_products ) : ?>
 
-	<section class="py-5 border-top">
+	<section class="py-5 border-top mdc-bg-grey-100">
 		<div class="container">
 			<div class="row">
 				<div class="col">

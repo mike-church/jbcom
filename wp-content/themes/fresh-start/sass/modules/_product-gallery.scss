@@ -1,0 +1,24 @@
+@include media-breakpoint-up(xs) {
+
+    .product-gallery {
+        figure {
+            width:auto;
+            img {
+                width:100%;
+                height:auto;
+            }
+
+        }
+    }
+
+}
+
+@include media-breakpoint-up(xs) {
+
+    .product-gallery {
+        figure {
+            width:100%;
+        }
+    }
+
+}

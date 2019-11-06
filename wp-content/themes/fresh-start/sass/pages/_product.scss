@@ -1,4 +1,11 @@
 .single-product {
+
+	.sticky-top {
+		top:30px;
+		z-index: 100;
+	}
+
+
 	span.onsale {
 		min-height: auto;
 		min-width: auto;
@@ -10,7 +17,7 @@
 		line-height: normal;
 		top: 0;
 		left: 0;
-		margin: 0 0 1rem 0;
+		margin: 0;
 		border-radius: 0;
 		background-color: transparent;
 		color: $white;
@@ -23,10 +30,11 @@
 	}
 	div.product p.price, div.product span.price {
 		color: $black;
-		font-size: 1.5rem;
-		margin:1rem 0;
+		font-size: 1em;
+		margin:0;
 		.amount {
 			font-weight:$medium;
+			font-size:1.25em;
 		}
 		ins {
 			text-decoration:none;
@@ -44,6 +52,39 @@
 	}
 	div.product .woocommerce-product-rating {
 		margin-bottom: 0;
-	}
+		line-height: 2;
+		font-size:.8em;
 
+	}
+	.variations {
+		margin:0 !important;
+		td.label {
+			display:none;
+		}
+		td.value {
+			select {
+				margin: 0 0 1em 0;
+				width: 100%;
+				font-weight: $regular;
+				padding: 0 1rem !important;
+				font-size: 1rem;
+				border: 2px solid $primary;
+				border-radius: 3px;
+				-webkit-appearance: none;
+				-moz-appearance: none;
+				appearance: none;
+				background: url(../images/icon-sort-down.png) 90%/10px no-repeat #fff;
+				outline: 0;
+			}
+		}
+	}
+	.single_variation_wrap {
+		.single_variation {
+			margin: 0 0 1em 0;
+			.woocommerce-variation-description p {
+				font-size:.8em;
+				margin-bottom:0 !important;
+			}
+		}
+	}
 }

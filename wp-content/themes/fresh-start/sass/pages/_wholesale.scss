@@ -1,0 +1,16 @@
+.wholesale-order-table {
+	.screen-reader-text {
+		display: none;
+	}
+	.quantity {
+		.input-text {
+			margin-bottom:1rem;
+		}
+	}
+	.actions {
+
+		a.button {
+			display:block;
+		}
+	}
+}

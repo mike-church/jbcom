@@ -592,42 +592,11 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
 
 // Add Nutrition & Ingredients Tab
 
-add_filter( 'woocommerce_product_tabs', 'jb_nutritionals_tab' );
-function jb_nutritionals_tab( $tabs ) {
-
-    $ingredients = rwmb_meta( 'jb_nutritionals_ingredients' );
-    $servings_per_container = rwmb_meta( 'jb_nutritionals_servings_per_container' );
-
-    if ( ! empty( $servings_per_container && $ingredients ) ) {
-    
-        // Adds the new tab
-        
-        $tabs['nutrition_tab'] = array(
-            'title'     => __( 'Nutrition & Ingredients', 'woocommerce' ),
-            'priority'  => 5,
-            'callback'  => 'jb_nutritionals_tab_content'
-        );
-
-        return $tabs;
-    }
+add_action('woocommerce_before_single_product_summary', 'fresh_start_nutritional_panel', 50);
 
 
-    elseif ( ! empty( $ingredients ) ) {
-    
-        // Adds the new tab
-        
-        $tabs['nutrition_tab'] = array(
-            'title'     => __( 'Ingredients', 'woocommerce' ),
-            'priority'  => 5,
-            'callback'  => 'jb_nutritionals_tab_content'
-        );
 
-        return $tabs;
-    }
-
-}
-
-function jb_nutritionals_tab_content() {
+function fresh_start_nutritional_panel() {
 
     $label_image = rwmb_meta( 'jb_nutritionals_label_image' );
     $title = rwmb_meta( 'jb_nutritionals_fact_title' );
@@ -676,10 +645,10 @@ if ( ! empty( $servings_per_container && $ingredients ) ) {
 
     ?>
 
-    <div class="row">
-        <div class="col-sm-6">
+    <div class="border-bottom py-4">
+        <h5 class="font-regular">Nutrition</h5>
 
-            <div class="nutrition-facts p-3 border bg-white mb-5">
+            <div class="nutrition-facts border p-3 mb-5">
 
                 <?php if ( ! empty( $title ) ) { ?> <h3 class="font-bold border-bottom"><?php echo $title;?></h3> <?php } else { ?><h3 class="font-bold border-bottom">Nutrition Facts</h3> <?php } ;?>
                 <?php if ( ! empty( $servings_per_container ) ) echo '<div>' . $servings_per_container . ' serving per container </div>' ;?>
@@ -775,27 +744,21 @@ if ( ! empty( $servings_per_container && $ingredients ) ) {
 
             </div>
 
-        </div>
+            <?php if ( ! empty( $ingredients ) ) echo '<h5 class="font-regular">Ingredients</h5>' . $ingredients ;?>
+            <?php if ( ! empty( $allergens ) ) echo '<h5 class="font-regular">Allergens</h5>' . $allergens ;?>
 
-        <div class="col-sm-6">
-
-            <?php if ( ! empty( $ingredients ) ) echo '<h4>Ingredients</h4>' . $ingredients ;?>
-            <?php if ( ! empty( $allergens ) ) echo '<h4>Allergens</h4>' . $allergens ;?>
-
-        </div>
     </div>
+
 
     <?php
 
     } elseif ( ! empty( $ingredients ) ) { ?> 
 
-        <div class="row">
-            <div class="col-sm-12">
+        <div class="py-4 border-bottom">
 
-                <?php if ( ! empty( $ingredients ) ) echo '<h4>Ingredients</h4>' . $ingredients ;?>
-                <?php if ( ! empty( $allergens ) ) echo '<h4>Allergens</h4>' . $allergens ;?>
+                <?php if ( ! empty( $ingredients ) ) echo '<h5 class="font-regular">Ingredients</h5>' . $ingredients ;?>
+                <?php if ( ! empty( $allergens ) ) echo '<h5 class="font-regular">Allergens</h5>' . $allergens ;?>
 
-            </div>
         </div>
 
     <?php };
@@ -804,7 +767,7 @@ if ( ! empty( $servings_per_container && $ingredients ) ) {
 
 // Feature Nutritionals
 
-add_action('woocommerce_single_product_summary', 'fresh_start_feature_facts', 70);
+add_action('woocommerce_before_single_product_summary', 'fresh_start_feature_facts', 20);
 function fresh_start_feature_facts() {
 
     $featured_calories = rwmb_meta( 'jb_nutritionals_featured_calories' );
@@ -818,17 +781,64 @@ function fresh_start_feature_facts() {
 
     if ( ! empty( $featured_calories || $featured_protein || $featured_fiber || $featured_fat || $featured_sugar || $featured_net_carbs || $featured_optional_value ) ) { ?>
 
-    
-        <div class="d-flex flex-wrap align-items-start featured-facts mt-3 mb-3 border-top border-bottom">
+        <div class="row featured-facts">
+
+            <?php if ( isset( $featured_calories ) && $featured_calories !== "" ) { ?>
+                <div class="col-4 col-md-3 mb-3">
+                    <div class="p-2 mdc-bg-grey-50 border text-center">
+                        <span><?php echo $featured_calories;?></span><span>Calories</span>
+                    </div>
+                </div>
+            <?php } ;?>
+
+            <?php if ( isset( $featured_protein ) && $featured_protein !== "" ) { ?>
+                <div class="col-4 col-md-3 mb-3">
+                    <div class="p-2 mdc-bg-grey-50 border text-center">
+                        <span><?php echo $featured_protein;?>g</span><span>Protein</span>
+                    </div>
+                </div>
+            <?php } ;?>
+
+            <?php if ( isset( $featured_fiber ) && $featured_fiber !== "" ) { ?>
+                <div class="col-4 col-md-3 mb-3">
+                    <div class="p-2 mdc-bg-grey-50 border text-center">
+                        <span><?php echo $featured_fiber;?>g</span><span>Fiber</span>
+                    </div>
+                </div>
+            <?php } ;?>
+
+            <?php if ( isset( $featured_fat ) && $featured_fat !== "" ) { ?>
+                <div class="col-4 col-md-3 mb-3">
+                    <div class="p-2 mdc-bg-grey-50 border text-center">
+                        <span><?php echo $featured_fat;?>g</span><span>Fat</span>
+                    </div>
+                </div>
+            <?php } ;?>
+
+            <?php if ( isset( $featured_sugar ) && $featured_sugar !== "" ) { ?>
+                <div class="col-4 col-md-3 mb-3">
+                    <div class="p-2 mdc-bg-grey-50 border text-center">
+                        <span><?php echo $featured_sugar;?>g</span><span>Sugar</span>
+                    </div>
+                </div>
+            <?php } ;?>
+
+            <?php if ( isset( $featured_net_carbs ) && $featured_net_carbs !== "" ) { ?>
+                <div class="col-4 col-md-3 mb-3">
+                    <div class="p-2 mdc-bg-grey-50 border text-center">
+                        <span><?php echo $featured_net_carbs;?>g</span><span>Net Carbs</span>
+                    </div>
+                </div>
+            <?php } ;?>
+
+            <?php if ( isset( $featured_optional_value ) && $featured_optional_value !== "" ) { ?>
+                <div class="col-4 col-md-3 mb-3">
+                    <div class="p-2 mdc-bg-grey-50 border text-center">
+                        <span><?php echo $featured_optional_value;?></span><span><?php echo $featured_optional_description;?></span>
+                    </div>
+                </div>
+            <?php } ;?>
             
-            <?php if ( isset( $featured_calories ) && $featured_calories !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_calories . '</span><span>Calories</span></div>' ;?>
-            <?php if ( isset( $featured_protein ) && $featured_protein !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_protein . 'g</span><span>Protein</span></div>' ;?>
-            <?php if ( isset( $featured_fiber ) && $featured_fiber !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_fiber . 'g</span><span>Fiber</span></div>' ;?>
-            <?php if ( isset( $featured_fat ) && $featured_fat !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_fat . 'g</span><span>Fat</span></div>' ;?>
-            <?php if ( isset( $featured_sugar ) && $featured_sugar !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_sugar . 'g</span><span>Sugar</span></div>' ;?>
-            <?php if ( isset( $featured_net_carbs ) && $featured_net_carbs !== "" ) echo '<div class="py-3 mr-4"><span>' . $featured_net_carbs . 'g</span><span>Net Carbs</span></div>' ;?>
-            <?php if ( isset( $featured_optional_value ) && $featured_optional_value !== "" ) echo '<div class="py-3 mr-4"><span>'.$featured_optional_value.'</span><span>'.$featured_optional_description.'</span></div>' ;?>
-        
         </div>
 
     <?php }

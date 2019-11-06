@@ -64,11 +64,14 @@
     strong {
         font-weight: $bold;
     }
+    p {
+        line-height: normal;
+    }
 }
 
 .product-alert:before {
     position:absolute;
-    top:15px;
+    top:12px;
     left:15px;
     font-family: 'icomoon';
     content: "\e928";

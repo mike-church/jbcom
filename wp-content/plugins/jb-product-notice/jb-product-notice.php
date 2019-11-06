@@ -44,8 +44,7 @@ return $meta_boxes;
 
 function jb_notices() {
 	$jb_notice = rwmb_meta( 'jb_product_notice_notice' );
-	if ( ! empty( $jb_notice ) ) { ?> <div class="alert alert-primary product-alert mb-4"><?php echo $jb_notice;?></div> <?php };
+	if ( ! empty( $jb_notice ) ) { ?> <div class="alert alert-primary product-alert mt-3 mb-0 d-none d-lg-block"><?php echo $jb_notice;?></div> <?php };
 }
 add_action( 'woocommerce_single_product_summary', 'jb_notices', 70 );
-
 

@@ -36,42 +36,69 @@ if ( post_password_required() ) {
 
 <main>
 
-	<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
+	<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?> >
+
+<?php
+
+// Use the build-in function if WP
+if(wp_is_mobile()) // On mobile
+{
+    echo "I'm mobile";
+}
+else
+{
+    echo "I'm a desktop";
+}
+
+?>
+
+
+
+		
+	<section class="py-5 mdc-bg-blue-600" style="height:600px;">
+		<div class="container my-5">
+			<div class="row">
+				
+			</div>
+		</div>
+	</section>
 
 	<section class="py-5">
 		<div class="container">
 
 			<div class="row">
-
-				<div class="col-lg-6">
-					<?php
-					/**
-					 * Hook: woocommerce_single_product_summary.
-					 *
-					 * @hooked woocommerce_template_single_title - 5
-					 * @hooked woocommerce_template_single_rating - 10
-					 * @hooked woocommerce_template_single_price - 10
-					 * @hooked woocommerce_template_single_excerpt - 20
-					 * @hooked woocommerce_template_single_add_to_cart - 30
-					 * @hooked woocommerce_template_single_meta - 40
-					 * @hooked woocommerce_template_single_sharing - 50
-					 * @hooked WC_Structured_Data::generate_product_data() - 60
-					 */
-					do_action( 'woocommerce_single_product_summary' );
-					?>
-				</div>
-				
-				<div class="col-lg-6">
+				<div class="col-lg-7">
 					<?php
 					/**
 					 * Hook: woocommerce_before_single_product_summary.
 					 *
-					 * @hooked woocommerce_show_product_sale_flash - 10
+					 * @hooked woocommerce_template_single_title - 5
+					 * @hooked fresh_start_feature_facts - 20
+					 * @hooked fresh_start_nutritional_panel -50
+					 * @hooked comments_template -80
 					 * @hooked woocommerce_show_product_images - 20
 					 */
 					do_action( 'woocommerce_before_single_product_summary' );
 					?>
 				</div>
+
+				<div class="col-lg-5">
+					<div class="p-4 sticky-top border bg-white price-block">
+					<?php
+					/**
+					* Hook: woocommerce_single_product_summary.
+					*
+					* @hooked woocommerce_show_product_sale_flash - 5
+					* @hooked woocommerce_template_single_price - 10
+					* @hooked woocommerce_template_single_rating - 20
+					* @hooked woocommerce_template_single_add_to_cart - 40
+					*/
+					do_action( 'woocommerce_single_product_summary' );
+					?>
+					</div>
+				</div>
+				
+				
 
 			</div>
 		</div>
@@ -83,7 +110,6 @@ if ( post_password_required() ) {
 	/**
 	 * Hook: woocommerce_after_single_product_summary.
 	 *
-	 * @hooked woocommerce_output_product_data_tabs - 10
 	 * @hooked woocommerce_upsell_display - 15
 	 * @hooked woocommerce_output_related_products - 20
 	 */

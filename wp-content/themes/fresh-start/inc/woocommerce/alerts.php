@@ -1,25 +1,5 @@
 <?php
 
-// Product Page
-
-remove_action( 'woocommerce_before_single_product', 'woocommerce_output_all_notices', 10 );
-add_action( 'woocommerce_before_single_product', 'fresh_start_output_all_notices', 10 );
-function fresh_start_output_all_notices() {
-	echo '<div class="woocommerce-notices-wrapper">';
-	wc_print_notices();
-	echo '</div>';
-}
-
-// Cart Page
-
-remove_action( 'woocommerce_cart_is_empty', 'woocommerce_output_all_notices', 5 );
-add_action( 'woocommerce_cart_is_empty', 'fresh_start_cart_is_empty', 5 );
-function fresh_start_cart_is_empty() {
-	echo '<div class="woocommerce-notices-wrapper">';
-	wc_print_notices();
-	echo '</div>';
-}
-
 // Cart Empty Message
 
 remove_action( 'woocommerce_cart_is_empty', 'wc_empty_cart_message', 10 );

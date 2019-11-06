@@ -24,5 +24,13 @@ global $post;
 $heading = esc_html( apply_filters( 'woocommerce_product_description_heading', __( 'Description', 'woocommerce' ) ) );
 
 ?>
-
+<div class="border-bottom py-4">
 <?php the_content(); ?>
+
+<?php 
+	$jb_notice = rwmb_meta( 'jb_product_notice_notice' );
+	if ( ! empty( $jb_notice ) ) { ?>
+		<div class="alert alert-primary product-alert d-lg-none"><?php echo $jb_notice;?></div> 
+	<?php };
+?>
+</div>
