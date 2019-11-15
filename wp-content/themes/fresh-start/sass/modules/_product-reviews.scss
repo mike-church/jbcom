@@ -13,6 +13,9 @@
                     position:absolute;
                     top:3px;
                     left:0;
+                    float:none !important;
+                    border:none !important;
+                    border-radius: 50% !important;
                 }
                 .avatar[style] {
                     line-height: 32px !important;
