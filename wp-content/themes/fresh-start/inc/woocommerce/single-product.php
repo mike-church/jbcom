@@ -145,6 +145,17 @@ $video_id = preg_replace('#^https?://youtu.be/#', '', $video_url);
 // Reviews
 add_action( 'woocommerce_before_single_product_summary', 'comments_template', 80 );
 
+remove_action('woocommerce_review_before', 'woocommerce_review_display_gravatar', 10);
+add_action( 'woocommerce_review_meta', 'woocommerce_review_display_gravatar', 10 );
+
+remove_action('woocommerce_review_meta', 'woocommerce_review_display_meta', 10);
+add_action( 'woocommerce_review_meta', 'woocommerce_review_display_meta', 20 );
+
+remove_action('woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10);
+add_action( 'woocommerce_review_meta', 'woocommerce_review_display_rating', 30 );
+
+
+
 
 
 // Add Price Wrapper
@@ -459,9 +470,8 @@ function fresh_start_add_cart_quantity_plus_minus() {
 
 
 
-
+// Remove Price Range on Variable Products 
 add_filter( 'woocommerce_variable_price_html', 'bbloomer_variation_price_format_min', 9999, 2 );
-  
 function bbloomer_variation_price_format_min( $price, $product ) {
    $prices = $product->get_variation_prices( true );
    $min_price = current( $prices['price'] );

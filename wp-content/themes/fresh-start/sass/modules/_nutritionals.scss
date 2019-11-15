@@ -20,12 +20,12 @@
         div span {
             display:block;
             text-transform: uppercase;
-            font-size: .8rem;
+            font-size: .7rem;
             font-weight: $medium;
             letter-spacing: 0;
         }
         div span:first-child {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: $bold;
             text-transform: lowercase;
             letter-spacing: 0;
@@ -39,5 +39,18 @@
     .featured-facts div span {
         letter-spacing: 1px;
     }
-    
+
+}
+
+@include media-breakpoint-up(md) {
+
+    .featured-facts {
+        div span {
+            font-size: .8rem;
+        }
+        div span:first-child {
+            font-size: 2rem;
+        }
+    }
+
 }

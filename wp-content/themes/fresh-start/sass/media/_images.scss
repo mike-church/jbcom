@@ -21,3 +21,20 @@
 	background-repeat:no-repeat;
 }
 
+@include media-breakpoint-up(xs) {
+	.feature-image {
+		height:200px;
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.feature-image {
+		height:350px;
+	}
+}
+
+@include media-breakpoint-up(xl) {
+	.feature-image {
+		height:600px;
+	}
+}

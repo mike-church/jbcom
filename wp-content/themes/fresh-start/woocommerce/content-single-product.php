@@ -36,38 +36,32 @@ if ( post_password_required() ) {
 
 <main>
 
-	<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?> >
+	<div id="product-<?php the_ID(); ?>" <?php wc_product_class( '', $product ); ?>>
 
-<?php
+	<?php
 
-// Use the build-in function if WP
-if(wp_is_mobile()) // On mobile
-{
-    echo "I'm mobile";
-}
-else
-{
-    echo "I'm a desktop";
-}
+		// Use the build-in function if WP
+		if(wp_is_mobile()) // On mobile
+		{
+		    $feature_image = rwmb_meta( 'feature_image_image', 'size=sixteen-nine' );
+		}
+		else
+		{
+		    $feature_image = rwmb_meta( 'feature_image_image', 'size=sixteen-nine-large' );
+		}
 
-?>
+		if ( ! empty( $feature_image ) ) { ?>
 
+			<div class="feature-image img-bg-cover mbc-bg-grey-100" style="background-image:url('<?php foreach ( $feature_image as $image ) { echo $image['url']; } ?>');"></div>
 
-
-		
-	<section class="py-5 mdc-bg-blue-600" style="height:600px;">
-		<div class="container my-5">
-			<div class="row">
-				
-			</div>
-		</div>
-	</section>
+			<?php } 
+		?>
 
 	<section class="py-5">
 		<div class="container">
-
 			<div class="row">
-				<div class="col-lg-7">
+
+				<div class="col-lg-7 order-2 order-lg-1">
 					<?php
 					/**
 					 * Hook: woocommerce_before_single_product_summary.
@@ -82,8 +76,8 @@ else
 					?>
 				</div>
 
-				<div class="col-lg-5">
-					<div class="p-4 sticky-top border bg-white price-block">
+				<div class="col-lg-5 order-1 order-lg-2">
+					<div class="p-4 mb-5 border shadow-sm sticky-top price-block">
 					<?php
 					/**
 					* Hook: woocommerce_single_product_summary.
@@ -97,8 +91,6 @@ else
 					?>
 					</div>
 				</div>
-				
-				
 
 			</div>
 		</div>

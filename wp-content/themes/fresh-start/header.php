@@ -27,7 +27,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <?php if ( is_page( 'home') ) { ?>
 
-<header class="position-absolute w-100 py-4">
+<header class="position-absolute w-100 py-2">
 	<div class="container-fluid">
 		<nav>
 			<div class="row">
@@ -115,7 +115,7 @@ $value = rwmb_meta( 'jb_homepage_hero_color_value' );
 
 ?>
 
-<header class="w-100 py-4 <?php echo $color;?>50">
+<header class="w-100 py-2 py-md-4 <?php echo $color;?>50">
 
 	<div class="container-fluid">
 		<nav>

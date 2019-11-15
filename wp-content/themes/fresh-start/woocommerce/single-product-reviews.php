@@ -26,7 +26,7 @@ if ( ! comments_open() ) {
 ?>
 <div id="reviews" class="woocommerce-Reviews py-4">
 	<div id="comments">
-		<h5 class="font-regular">
+		<h5 class="font-regular mb-4">
 			<?php
 			$count = $product->get_review_count();
 			if ( $count && wc_review_ratings_enabled() ) {
