@@ -47,7 +47,7 @@
 
 <?php wp_footer(); ?>
 
-<script>$(".lockscroll").click(function(){$("body").toggleClass("no-scroll")})</script>
+
 <script>AOS.init();</script>
 <script type="text/javascript">
 //Overlay
