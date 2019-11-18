@@ -18,6 +18,11 @@
 	background-color:$mdc-blue-700;
 	border-color:$mdc-blue-700;
 }
+.btn-outline-primary:hover {
+	background-color:$mdc-blue-700;
+	border-color:$mdc-blue-700;
+	color:$white !important;
+}
 
 .submit, .button {
 	background-color:$primary !important;
