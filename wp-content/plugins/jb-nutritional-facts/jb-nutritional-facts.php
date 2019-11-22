@@ -136,7 +136,7 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
                 'type'    => 'radio',
                 'options' => array(
                     'Nutrition Facts' => 'Nutrition Facts',
-                    'Suplement Facts' => 'Suplement Facts',
+                    'Supplement Facts' => 'Supplement Facts',
                 ),
                 'std'     => 'Nutrition Facts',
                 'inline' => false,
@@ -310,6 +310,15 @@ function jb_nutritionals_register_meta_boxes( $meta_boxes ) {
                 'name' => 'Dietary Fiber DV%',
                 'id'   => "{$prefix}dietary_fiber_dv",
                 'type' => 'number',
+                'step' => 'any',
+                'columns' => 3,
+                'tab'  => 'nutrition',
+            ),
+
+            array(
+                'name' => 'Soluble Fiber',
+                'id'   => "{$prefix}soluble_fiber",
+                'type' => 'text',
                 'step' => 'any',
                 'columns' => 3,
                 'tab'  => 'nutrition',
@@ -616,6 +625,7 @@ function fresh_start_nutritional_panel() {
     $carbohydrate_dv = rwmb_meta( 'jb_nutritionals_carbohydrate_dv' );
     $dietary_fiber = rwmb_meta( 'jb_nutritionals_dietary_fiber' );
     $dietary_fiber_dv = rwmb_meta( 'jb_nutritionals_dietary_fiber_dv' );
+    $soluble_fiber = rwmb_meta( 'jb_nutritionals_soluble_fiber' );
     $sugars = rwmb_meta( 'jb_nutritionals_sugars' );
     $added_sugars = rwmb_meta( 'jb_nutritionals_added_sugars' );
     $added_sugars_dv = rwmb_meta( 'jb_nutritionals_added_sugars_dv' );
@@ -669,6 +679,7 @@ if ( ! empty( $servings_per_container && $ingredients ) ) {
                 <?php if ( isset( $sodium ) && $sodium !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span><span class="font-bold">Sodium</span> ' . $sodium . 'mg</span><span class="font-bold">' . $sodium_dv . '%</span></div>';?>
                 <?php if ( isset( $carbohydrate ) && $carbohydrate !== "" ) echo '<div class="d-flex justify-content-between border-bottom py-1"><span><span class="font-bold">Total Carbohydrate</span> ' . $carbohydrate . 'g</span><span class="font-bold">' . $carbohydrate_dv . '%</span></div>';?>
                 <?php if ( isset( $dietary_fiber ) && $dietary_fiber !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 py-1"><span>Dietary Fiber ' . $dietary_fiber . 'g</span><span class="font-bold">' . $dietary_fiber_dv . '%</span></div>';?>
+                <?php if ( isset( $soluble_fiber ) && $soluble_fiber !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 py-1"><span>Soluble Fiber ' . $soluble_fiber . '</span></div>';?>
                 <?php if ( isset( $sugars ) && $sugars !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 py-1"><span>Total Sugars ' . $sugars . 'g</span></div>';?>
                 <?php if ( isset( $added_sugars ) && $added_sugars !== "" ) echo '<div class="d-flex justify-content-between border-bottom ml-3 pl-3 py-1"><span>Includes ' . $added_sugars . 'g Added Sugars</span><span class="font-bold">' . $added_sugars_dv . '%</span></div>';?>
                 <?php if ( isset( $protein ) && $protein !== "" ) { ?> 
