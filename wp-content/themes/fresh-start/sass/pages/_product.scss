@@ -107,7 +107,7 @@
 			tr.mnm_item {
 				border-top:$mdc-grey-200 solid 1px;
 				td.product-thumbnail {
-					vertical-align: top;
+					vertical-align: middle;
 					padding:15px 0;
 					.mnm_image {
 						min-width: 60px;
@@ -118,15 +118,30 @@
 				td.product-details {
 					line-height: normal;
 					padding:15px;
-					vertical-align: top;
+					vertical-align: middle;
 				}
 				td.product-quantity {
 					text-align: right;
-					vertical-align: top;
+					vertical-align: middle;
 					padding:15px 0;
 					font-size:1em;
 				}
 			}
+		}
+		.mnm_message_content {
+			padding:0;
+			line-height:normal;
+		}
+		.mnm_reset {
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: $medium;
+			border:$primary solid 2px;
+			border-radius:3px;
+			padding:10px;
+		}
+		.mnm_reset:hover {
+			background-color:$mdc-blue-100;
 		}
 	}
 }

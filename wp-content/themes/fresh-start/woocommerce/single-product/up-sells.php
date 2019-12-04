@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 if ( $upsells ) : ?>
 
-	<section class="py-5 border-top">
+	<section class="py-5 mdc-bg-grey-100 border-top">
 		<div class="container">
 			<div class="row">
 				<div class="col">
