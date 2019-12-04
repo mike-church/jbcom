@@ -2,7 +2,7 @@
 
 function schedule_delete_expired_coupons() {
 if ( ! wp_next_scheduled( 'delete_expired_coupons' ) ) {
-    wp_schedule_event( time(), 'daily', 'delete_expired_coupons' );
+    wp_schedule_event( time(), 'hourly', 'delete_expired_coupons' );
     }
 }
 add_action( 'init', 'schedule_delete_expired_coupons' );
