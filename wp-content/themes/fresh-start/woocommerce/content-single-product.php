@@ -77,6 +77,7 @@ if ( post_password_required() ) {
 				</div>
 
 				<div class="col-lg-5 order-1 order-lg-2">
+					<h1 class="product_title entry-title mb-4 d-lg-none"><?php the_title();?></h1>
 					<div class="p-4 mb-5 border shadow-sm sticky-top price-block">
 					<?php
 					/**

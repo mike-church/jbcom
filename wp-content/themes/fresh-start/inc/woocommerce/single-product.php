@@ -8,11 +8,15 @@
 // Title
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
 add_action('woocommerce_before_single_product_summary', 'woocommerce_template_single_title', 5);
+function woocommerce_template_single_title() { ?>
+  <h1 class="product_title entry-title d-none d-lg-block"><?php the_title();?></h1>
+  <?php
+}
 
 // Add This Code
 add_action( 'woocommerce_before_single_product_summary', 'fresh_start_addthis', 10 );
 function fresh_start_addthis() {
-   echo '<div class="addthis_inline_share_toolbox pb-4"></div>';
+   echo '<div class="addthis_inline_share_toolbox pb-4 d-none d-lg-block"></div>';
 }
 add_action( 'wp_footer', 'fresh_start_addthis_js', 100 );
 function fresh_start_addthis_js() {
@@ -33,114 +37,166 @@ function woocommerce_template_product_description() {
 add_action( 'woocommerce_before_single_product_summary', 'fresh_start_product_gallery', 40 );
 function fresh_start_product_gallery() {
 
-$video = rwmb_meta( 'video_youtube_id' );
-$video_url = $video;
-$video_id = preg_replace('#^https?://youtu.be/#', '', $video_url);
+  global $product;
+  $video = rwmb_meta( 'video_youtube_id' );
+  $video_url = $video;
+  $video_id = preg_replace('#^https?://youtu.be/#', '', $video_url);
+  $attachment_ids = $product->get_gallery_attachment_ids();
 
-?>
+  if (!empty($video)  && !empty($attachment_ids)) {
 
-<div class="border-bottom py-4">
+    echo '<div class="border-bottom py-4">';
 
-  <?php if ( ! empty( $video ) ) { ?>
-
+    if (!empty($video)) { ?>
       <div class="iframe-container mb-4">
         <iframe src="https://www.youtube.com/embed/<?php echo $video_id;?>?rel=0&enablejsapi=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
       </div>
-
-      <?php
-    } ?>
-
-  <h5 class="font-regular">Gallery</h5>
-
-  <div class="product-gallery row" itemscope itemtype="http://schema.org/ImageGallery">
-
-  <?php
+      <?php }
     
-  global $product;
-    $attachment_ids = $product->get_gallery_attachment_ids();
-
-    ?>
-    <div class="col-4 col-sm-3">
-      <figure class="border" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-        <a href="<?php echo get_the_post_thumbnail_url(get_the_ID(),'product-image');?>" itemprop="contentUrl" data-size="600x600">
-
-          <img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'thumbnail');?>">
-          
-        </a>
-      </figure>
-    </div>
-    <?php
-
-    foreach( $attachment_ids as $attachment_id ) { ?>
-      <div class="col-4 col-sm-3">
-
-      <figure class="border" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-        <a href="<?php echo wp_get_attachment_url($attachment_id, 'product-image');?>" itemprop="contentUrl" data-size="600x600">
-          <?php echo wp_get_attachment_image($attachment_id, 'thumbnail'); ?>
-        </a>
-      </figure>
-
+    if (!empty($attachment_ids)) { ?>
+      <h5 class="font-regular">Gallery</h5>
+      <div class="product-gallery row" itemscope itemtype="http://schema.org/ImageGallery">
+        <?php foreach( $attachment_ids as $attachment_id ) { ?> 
+          <div class="col-4 col-sm-3">
+            <figure class="border" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+            <a href="<?php echo wp_get_attachment_url($attachment_id, 'product-image');?>" itemprop="contentUrl" data-size="600x600">
+            <?php echo wp_get_attachment_image($attachment_id, 'thumbnail'); ?>
+            </a>
+            </figure>
+          </div>
+        <?php } ?>
       </div>
+      <!-- Modal -->
+      <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="pswp__bg"></div>
+        <!-- Slides wrapper -->
+        <div class="pswp__scroll-wrap">
+          <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+          </div>
+          <!-- Slide UI -->
+          <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+              <div class="pswp__counter"></div>
+              <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+              <button class="pswp__button pswp__button--share" title="Share"></button>
+              <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+              <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+              <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+              <!-- element will get class pswp__preloader--active when preloader is running -->
+              <div class="pswp__preloader">
+                <div class="pswp__preloader__icn">
+                  <div class="pswp__preloader__cut">
+                    <div class="pswp__preloader__donut"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+              <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+            <div class="pswp__caption">
+              <div class="pswp__caption__center"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <?php }
 
-      <?php
-    }
+    echo '</div>';
 
-  ?>
+  } else {
 
-  </div>
-
-  <!-- Modal -->
-  <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="pswp__bg"></div>
+    if (!empty($video)) { ?>
+      <div class="border-bottom py-4">
+        <div class="iframe-container mb-4">
+          <iframe src="https://www.youtube.com/embed/<?php echo $video_id;?>?rel=0&enablejsapi=1&showinfo=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+    <?php }
     
-    <!-- Slides wrapper -->
-    <div class="pswp__scroll-wrap">
-      <div class="pswp__container">
-        <div class="pswp__item"></div>
-        <div class="pswp__item"></div>
-        <div class="pswp__item"></div>
-      </div>
-
-      <!-- Slide UI -->
-      <div class="pswp__ui pswp__ui--hidden">
-        <div class="pswp__top-bar">
-          <div class="pswp__counter"></div>
-          <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-          <button class="pswp__button pswp__button--share" title="Share"></button>
-          <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-          <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-
-          <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
-          <!-- element will get class pswp__preloader--active when preloader is running -->
-          <div class="pswp__preloader">
-            <div class="pswp__preloader__icn">
-              <div class="pswp__preloader__cut">
-                <div class="pswp__preloader__donut"></div>
+    if (!empty($attachment_ids)) { ?>
+      <div class="border-bottom py-4">
+        <h5 class="font-regular">Gallery</h5>
+        <div class="product-gallery row" itemscope itemtype="http://schema.org/ImageGallery">
+          <?php foreach( $attachment_ids as $attachment_id ) { ?> 
+            <div class="col-4 col-sm-3">
+              <figure class="border" itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+              <a href="<?php echo wp_get_attachment_url($attachment_id, 'product-image');?>" itemprop="contentUrl" data-size="600x600">
+              <?php echo wp_get_attachment_image($attachment_id, 'thumbnail'); ?>
+              </a>
+              </figure>
+            </div>
+          <?php } ?>
+        </div>
+        <!-- Modal -->
+        <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="pswp__bg"></div>
+          <!-- Slides wrapper -->
+          <div class="pswp__scroll-wrap">
+            <div class="pswp__container">
+              <div class="pswp__item"></div>
+              <div class="pswp__item"></div>
+              <div class="pswp__item"></div>
+            </div>
+            <!-- Slide UI -->
+            <div class="pswp__ui pswp__ui--hidden">
+              <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                  <div class="pswp__preloader__icn">
+                    <div class="pswp__preloader__cut">
+                      <div class="pswp__preloader__donut"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+              </div>
+              <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+              <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+              <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-          <div class="pswp__share-tooltip"></div> 
-        </div>
-
-        <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
-        <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
-
-        <div class="pswp__caption">
-          <div class="pswp__caption__center"></div>
-        </div>
-
       </div>
-    </div>
-  </div>
+    <?php }
 
-</div>
-
-<?php
-
+  }
 }
+
+
+// Mix and Match Modifications
+
+
+
+add_action( 'woocommerce_single_product_summary', 'mix_info', 40 );
+function mix_info() {
+  global $product;
+  if ( $product->is_type( 'mix-and-match' ) ) { ?>
+    <div class="woocommerce-info">
+      <ul class="msg mnm_message_content m-0 p-0">
+        <li><?php echo wc_mnm_get_quantity_message( $product ); ?></li>
+      </ul>
+    </div>
+  <?php }
+}
+
+
+remove_action('woocommerce_single_product_summary', 'woocommerce_mix-and-match_add_to_cart', 0);
 
 // Reviews
 add_action( 'woocommerce_before_single_product_summary', 'comments_template', 80 );
@@ -153,9 +209,6 @@ add_action( 'woocommerce_review_meta', 'woocommerce_review_display_meta', 20 );
 
 remove_action('woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10);
 add_action( 'woocommerce_review_meta', 'woocommerce_review_display_rating', 30 );
-
-
-
 
 
 // Add Price Wrapper
@@ -189,8 +242,6 @@ add_action( 'woocommerce_after_add_to_cart_button', 'fresh_start_end_cart_wrappe
 function fresh_start_end_cart_wrapper() {
    echo '</div>';
 }
-
-
 
 remove_action( 'woocommerce_after_single_product_summary', 'wc_mnm_template_add_to_cart_after_summary', -1000 );
 
