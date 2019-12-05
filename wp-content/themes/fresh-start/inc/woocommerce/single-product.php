@@ -195,8 +195,25 @@ function mix_info() {
   <?php }
 }
 
-
 remove_action('woocommerce_single_product_summary', 'woocommerce_mix-and-match_add_to_cart', 0);
+
+// Single product template for Mix and Match. Form location: After summary.
+add_action( 'woocommerce_before_single_product_summary', 'wc_mnm_template_add_to_cart_before_summary', 100 );
+
+function wc_mnm_template_add_to_cart_before_summary() {
+
+  global $product;
+
+  if ( $product->is_type( 'mix-and-match' ) ) {
+    if ( 'after_summary' === $product->get_add_to_cart_form_location() ) {
+      $classes = implode( ' ', apply_filters( 'woocommerce_mnm_form_wrapper_classes', array( 'summary-add-to-cart-form', 'summary-add-to-cart-form-mnm' ), $product ) );
+      ?><div class="summary-add-to-cart-form"><?php
+        do_action( 'woocommerce_mix-and-match_add_to_cart' );
+      ?></div><?php
+    }
+  }
+}
+
 
 // Reviews
 add_action( 'woocommerce_before_single_product_summary', 'comments_template', 80 );
