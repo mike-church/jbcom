@@ -207,7 +207,7 @@ function wc_mnm_template_add_to_cart_before_summary() {
   if ( $product->is_type( 'mix-and-match' ) ) {
     if ( 'after_summary' === $product->get_add_to_cart_form_location() ) {
       $classes = implode( ' ', apply_filters( 'woocommerce_mnm_form_wrapper_classes', array( 'summary-add-to-cart-form', 'summary-add-to-cart-form-mnm' ), $product ) );
-      ?><div class="summary-add-to-cart-form"><?php
+      ?><div class="summary-add-to-cart-form border-bottom py-4"><?php
         do_action( 'woocommerce_mix-and-match_add_to_cart' );
       ?></div><?php
     }
