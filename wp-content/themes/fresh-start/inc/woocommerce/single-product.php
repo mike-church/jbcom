@@ -198,7 +198,7 @@ function mix_info() {
 remove_action('woocommerce_single_product_summary', 'woocommerce_mix-and-match_add_to_cart', 0);
 
 
-add_action( 'woocommerce_before_single_product_summary', 'wc_mnm_template_add_to_cart_before_summary', 40 );
+add_action( 'woocommerce_before_single_product_summary', 'wc_mnm_template_add_to_cart_before_summary', 30 );
 
 function wc_mnm_template_add_to_cart_before_summary() {
 

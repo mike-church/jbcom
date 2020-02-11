@@ -8,7 +8,7 @@ remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_template_l
 add_action( 'woocommerce_before_shop_loop_item_title', 'fresh_start_card_thumb', 10 );
 function fresh_start_card_thumb() { ?>
 	<div class="card-header">
-		<div class="square img-bg-contain" style="background-image:url('<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium');?>');">
+		<div class="square img-bg-cover" style="background-image:url('<?php echo get_the_post_thumbnail_url(get_the_ID(),'medium');?>');">
 		</div>
 	</div>
 <?php

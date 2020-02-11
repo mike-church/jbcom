@@ -12,17 +12,13 @@ get_header(); ?>
 	<div class="container my-5">
 		<div class="row">
 			<div class="col-12">
-				<h1>Protein Bars for Everyone</h1>
-				<p>Julian Bakery’s Paleo Protein Bars&reg; are 100% Paleo*, no sugar alcohols, and no soy. All bars contain 20g of protein and are sweetened with monk fruit extract. Each bar is a complete protein meal replacement or snack. They are soft, creamy, chewy and best of all delicious!</p>
-				<p>Pick your protein; from egg white, grass-fed beef, or organic plant proteins combined with carefully selected organic soluble tappioca (Dextrin) fiber and healthy fats. Our IMO-Free soluble fiber improves digestion and curbs appetite all without bloating and all bars are lab tested for nutritional accuracy.</p>
-				<p>Select a flavor below for more information and remember, always FREE SHIPPING nationwide.</p>
-				<p><small>* <i>Primal &amp; Stay Thin brands are not 100% Paleo</i></small></p>
+				<?php the_content(); ?>
 		</div>
 	</div>
 </section>
 
 <section class="py-5">
-	<div class="container my-5">
+	<div class="container">
 		<div class="row">
 			<div class="col-12">
 

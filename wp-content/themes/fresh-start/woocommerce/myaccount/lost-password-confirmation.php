@@ -12,23 +12,17 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.5.2
+ * @version 3.9.0
  */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 ?>
 <div class="container py-5">
 	<div class="row">
 		<div class="col-sm-8 col-lg-4 mx-auto px-4">
-
-<?php
-
-wc_print_notice( __( 'Password reset email has been sent.', 'woocommerce' ) );
-?>
-<p><span class="font-bold">A password reset email has been sent to the email address on file for your account</span>, but may take several minutes to show up in your inbox. Please wait at least 10 minutes before attempting another reset.</p>
-</div>
-</div>
+			<?php wc_print_notice( esc_html__( 'Password reset email has been sent.', 'woocommerce' ) );?>
+			<p><span class="font-bold">A password reset email has been sent to the email address on file for your account</span>, but may take several minutes to show up in your inbox. Please wait at least 10 minutes before attempting another reset.</p>
+		</div>
+	</div>
 </div>
