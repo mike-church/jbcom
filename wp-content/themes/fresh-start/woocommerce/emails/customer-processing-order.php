@@ -28,7 +28,6 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 <p><?php printf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
 <?php /* translators: %s: Order number */ ?>
 <p><?php printf( esc_html__( 'We\'ve received your order #%s, and it\'s now being processed. You will receive an email once your order has been assigned a tracking number(s). If you have ordered more than one item, it\'s possible that your order may be divided into multiple shipments. If this occurs you will be notified and tracking information will be sent for each package. We appreciate your business.', 'woocommerce' ), esc_html( $order->get_order_number() ) ); ?></p>
-<p><strong>PLEASE NOTE: Due to the holiday season, bread orders placed after December 17th will NOT ship until January 7, 2020.</strong></p>
 
 <?php
 
