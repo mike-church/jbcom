@@ -91,6 +91,11 @@
 				border-color: $white transparent transparent transparent !important;
 			}
 		}
+		label.checkbox {
+			input {
+				width:auto;
+			}
+		}
 
 	}
 }
