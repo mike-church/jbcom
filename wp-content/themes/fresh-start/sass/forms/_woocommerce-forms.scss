@@ -106,8 +106,13 @@
 				margin:-15px 0 0 20px;
 			}
 		}
-		#wc-elavon-converge-credit-card-credit-card-form .form-row label {
-			margin:auto;
+		#wc-elavon-converge-credit-card-credit-card-form { 
+			.form-row label {
+				margin:auto;
+			}
+			.woocommerce-validated label {
+				margin:-15px 0 0 20px;
+			}
 		}
 	}
 }
