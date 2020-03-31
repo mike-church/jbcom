@@ -98,6 +98,11 @@
 		}
 
 	}
+	.woocommerce-checkout-payment {
+		.form-row {
+			flex-direction: column;
+		}
+	}
 }
 
 .woocommerce-checkout-payment {

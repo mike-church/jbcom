@@ -1,7 +1,7 @@
 <?php
 add_action( 'wp_enqueue_scripts', 'freshstart_scripts' );
 function freshstart_scripts() {
-	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/dist/css/style.min.css', '', 'v3.3.17' );
+	wp_enqueue_style( 'main', get_stylesheet_directory_uri() . '/dist/css/style.min.css', '', 'v3.3.18' );
 	wp_register_style('google-fonts', 'https://fonts.googleapis.com/css?family=Roboto:300,400,500,900', false, null);
 	wp_enqueue_style('google-fonts');
 
