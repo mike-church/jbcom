@@ -13,8 +13,12 @@
 }
 
 @include media-breakpoint-up(xs) {  
-  h1, h2, h3 {
+  h1 {
     letter-spacing:-.1rem;
+    font-weight: $light;
+  }
+  h2, h3 {
+    letter-spacing:-.05rem;
     font-weight: $light;
   }
   h4, h5 {

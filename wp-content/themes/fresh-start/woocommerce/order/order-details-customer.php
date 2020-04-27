@@ -23,37 +23,37 @@ $show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_a
 <section class="woocommerce-customer-details">
 	<div class="row">
 
+		<?php if ( $show_shipping ) echo '<div class="col-sm-6">'; else echo '<div class="col">' ?>
+
+			<h2 class="woocommerce-column__title mb-3"><?php esc_html_e( 'Billing address', 'woocommerce' ); ?></h2>
+
+			<address>
+				<?php echo wp_kses_post( $order->get_formatted_billing_address( __( 'N/A', 'woocommerce' ) ) ); ?>
+
+				<?php if ( $order->get_billing_phone() ) : ?>
+					<p class="woocommerce-customer-details--phone"><?php echo esc_html( $order->get_billing_phone() ); ?></p>
+				<?php endif; ?>
+
+				<?php if ( $order->get_billing_email() ) : ?>
+					<p class="woocommerce-customer-details--email"><?php echo esc_html( $order->get_billing_email() ); ?></p>
+				<?php endif; ?>
+			</address>
+
+		</div>
+
 		<?php if ( $show_shipping ) : ?>
+
 		<div class="col-sm-6">
+			<h2 class="woocommerce-column__title mb-3"><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></h2>
+			<address>
+				<?php echo wp_kses_post( $order->get_formatted_shipping_address( __( 'N/A', 'woocommerce' ) ) ); ?>
+			</address>
+		</div>
+
 		<?php endif; ?>
 
-			<h6 class="woocommerce-column__title"><?php esc_html_e( 'Billing address', 'woocommerce' ); ?></h6>
-
-				<address>
-					<?php echo wp_kses_post( $order->get_formatted_billing_address( __( 'N/A', 'woocommerce' ) ) ); ?>
-
-					<?php if ( $order->get_billing_phone() ) : ?>
-						<p class="woocommerce-customer-details--phone"><?php echo esc_html( $order->get_billing_phone() ); ?></p>
-					<?php endif; ?>
-
-					<?php if ( $order->get_billing_email() ) : ?>
-						<p class="woocommerce-customer-details--email"><?php echo esc_html( $order->get_billing_email() ); ?></p>
-					<?php endif; ?>
-				</address>
-
-			<?php if ( $show_shipping ) : ?>
-
-		</div><!-- /.col-1 -->
-
-		<div class="col-sm-6">
-			<h6 class="woocommerce-column__title"><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></h6>
-				<address>
-					<?php echo wp_kses_post( $order->get_formatted_shipping_address( __( 'N/A', 'woocommerce' ) ) ); ?>
-				</address>
-		</div><!-- /.col-2 -->
-	<?php endif; ?>
-
-	<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
+		<?php do_action( 'woocommerce_order_details_after_customer_details', $order ); ?>
 
 	</div>
+
 </section>

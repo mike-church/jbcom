@@ -18,6 +18,7 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
+$show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_address();
 
 /*
  * @hooked WC_Emails::email_header() Output the email header
@@ -27,7 +28,13 @@ do_action( 'woocommerce_email_header', $email_heading, $email ); ?>
 <?php /* translators: %s: Customer first name */ ?>
 <p><?php printf( esc_html__( 'Hi %s,', 'woocommerce' ), esc_html( $order->get_billing_first_name() ) ); ?></p>
 <?php /* translators: %s: Order number */ ?>
-<p><?php printf( esc_html__( 'We\'ve received your order #%s, and it\'s now being processed. You will receive an email once your order has been assigned a tracking number(s). If you have ordered more than one item, it\'s possible that your order may be divided into multiple shipments. If this occurs you will be notified and tracking information will be sent for each package. We appreciate your business.', 'woocommerce' ), esc_html( $order->get_order_number() ) ); ?></p>
+<p><?php printf( esc_html__( 'We\'ve received your order #%s, and it\'s now being processed.', 'woocommerce' ), esc_html( $order->get_order_number() ) ); ?></p>
+
+<?php if ( $show_shipping ) : ?>
+
+<p>You will receive an email once your order has been assigned a tracking number(s). If you have ordered more than one item, it's possible that your order may be divided into multiple shipments. If this occurs you will be notified and tracking information will be sent for each package. We appreciate your business.</p>
+
+<?php endif; ?>
 
 <?php
 

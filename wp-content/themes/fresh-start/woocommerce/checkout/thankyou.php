@@ -39,38 +39,39 @@ defined( 'ABSPATH' ) || exit;
 
 			<h2 class="mb-5 woocommerce-notice woocommerce-notice--success woocommerce-thankyou-order-received"><?php echo apply_filters( 'woocommerce_thankyou_order_received_text', esc_html__( 'Thank you. Your order has been received.', 'woocommerce' ), $order ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></h2>
 
-			<ul class="woocommerce-order-overview woocommerce-thankyou-order-details order_details">
+			<div class="d-flex flex-column flex-lg-row justify-content-between py-3 mb-3" style="border-bottom:#E0E0E0 solid 4px;">
 
-				<li class="woocommerce-order-overview__order order">
-					<?php esc_html_e( 'Order number:', 'woocommerce' ); ?>
+				<div class="mb-2 mb-lg-0">
+					<small><?php esc_html_e( 'ORDER NUMBER:', 'woocommerce' ); ?></small><br/>
 					<strong><?php echo $order->get_order_number(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
-				</li>
+				</div>
 
-				<li class="woocommerce-order-overview__date date">
-					<?php esc_html_e( 'Date:', 'woocommerce' ); ?>
+				<div class="mb-2 mb-lg-0">
+					<small><?php esc_html_e( 'DATE:', 'woocommerce' ); ?></small><br/>
 					<strong><?php echo wc_format_datetime( $order->get_date_created() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
-				</li>
+				</div>
 
 				<?php if ( is_user_logged_in() && $order->get_user_id() === get_current_user_id() && $order->get_billing_email() ) : ?>
-					<li class="woocommerce-order-overview__email email">
-						<?php esc_html_e( 'Email:', 'woocommerce' ); ?>
+					<div class="mb-2 mb-lg-0">
+						<small><?php esc_html_e( 'EMAIL:', 'woocommerce' ); ?></small><br/>
 						<strong><?php echo $order->get_billing_email(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
-					</li>
+					</div>
 				<?php endif; ?>
 
-				<li class="woocommerce-order-overview__total total">
-					<?php esc_html_e( 'Total:', 'woocommerce' ); ?>
+				<div class="mb-2 mb-lg-0">
+					<small><?php esc_html_e( 'TOTAL:', 'woocommerce' ); ?></small><br/>
 					<strong><?php echo $order->get_formatted_order_total(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?></strong>
-				</li>
+				</div>
 
 				<?php if ( $order->get_payment_method_title() ) : ?>
-					<li class="woocommerce-order-overview__payment-method method">
-						<?php esc_html_e( 'Payment method:', 'woocommerce' ); ?>
+					<div class="mb-2 mb-lg-0">
+						<small><?php esc_html_e( 'PAYMENT METHOD:', 'woocommerce' ); ?></small><br/>
 						<strong><?php echo wp_kses_post( $order->get_payment_method_title() ); ?></strong>
-					</li>
+					</div>
 				<?php endif; ?>
 
-			</ul>
+			</div>
+
 
 		<?php endif; ?>
 
