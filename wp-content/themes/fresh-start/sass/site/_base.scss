@@ -15,22 +15,6 @@ html, body, [canvas=container], [off-canvas] {
 	background-color:$white;
 }
  
-.border{
-	border:$mdc-grey-300 solid 1px !important;
-}
-.border-top {
-	border-top:$mdc-grey-300 solid 1px !important;
-}
-.border-left {
-	border-left:$mdc-grey-300 solid 1px !important;
-}
-.border-right {
-	border-right:$mdc-grey-300 solid 1px !important;
-}
-.border-bottom {
-	border-bottom:$mdc-grey-300 solid 1px !important;
-}
-
 .login-background-wrapper {
 	height:100%;
 	width:100%;
