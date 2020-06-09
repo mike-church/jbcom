@@ -37,7 +37,7 @@ defined( 'ABSPATH' ) || exit;
 			</div>
 		<?php endforeach; ?>
 		
-		<div style="display:none;">
+
 
 		<?php if ( WC()->cart->needs_shipping() && WC()->cart->show_shipping() ) : ?>
 
@@ -56,7 +56,7 @@ defined( 'ABSPATH' ) || exit;
 
 		<?php endif; ?>
 		
-		</div>
+
 
 		<?php foreach ( WC()->cart->get_fees() as $fee ) : ?>
 			<div class="d-flex flex-row justify-content-between border-bottom py-2">

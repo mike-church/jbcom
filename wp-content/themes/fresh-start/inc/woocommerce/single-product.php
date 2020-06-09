@@ -179,42 +179,6 @@ function fresh_start_product_gallery() {
 }
 
 
-// Mix and Match Modifications
-
-
-
-add_action( 'woocommerce_single_product_summary', 'mix_info', 40 );
-function mix_info() {
-  global $product;
-  if ( $product->is_type( 'mix-and-match' ) ) { ?>
-    <div class="woocommerce-info">
-      <ul class="msg mnm_message_content m-0 p-0">
-        <li><?php echo wc_mnm_get_quantity_message( $product ); ?></li>
-      </ul>
-    </div>
-  <?php }
-}
-
-remove_action('woocommerce_single_product_summary', 'woocommerce_mix-and-match_add_to_cart', 0);
-
-
-add_action( 'woocommerce_before_single_product_summary', 'wc_mnm_template_add_to_cart_before_summary', 30 );
-
-function wc_mnm_template_add_to_cart_before_summary() {
-
-  global $product;
-
-  if ( $product->is_type( 'mix-and-match' ) ) {
-    if ( 'after_summary' === $product->get_add_to_cart_form_location() ) {
-      $classes = implode( ' ', apply_filters( 'woocommerce_mnm_form_wrapper_classes', array( 'summary-add-to-cart-form', 'summary-add-to-cart-form-mnm' ), $product ) );
-      ?><div class="border-bottom py-4"><div class="summary-add-to-cart-form p-4 border shadow-sm"><?php
-        do_action( 'woocommerce_mix-and-match_add_to_cart' );
-      ?></div></div><?php
-    }
-  }
-}
-
-
 // Reviews
 add_action( 'woocommerce_before_single_product_summary', 'comments_template', 80 );
 
@@ -530,21 +494,5 @@ function fresh_start_add_cart_quantity_plus_minus() {
 }
 
 
-
-
-
-
-
-
-
-
-// Remove Price Range on Variable Products 
-add_filter( 'woocommerce_variable_price_html', 'bbloomer_variation_price_format_min', 9999, 2 );
-function bbloomer_variation_price_format_min( $price, $product ) {
-   $prices = $product->get_variation_prices( true );
-   $min_price = current( $prices['price'] );
-   $price = sprintf( __( 'From: %1$s', 'woocommerce' ), wc_price( $min_price ) );
-   return $price;
-}
 
 

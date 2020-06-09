@@ -24,13 +24,13 @@ $has_calculated_shipping  = ! empty( $has_calculated_shipping );
 $show_shipping_calculator = ! empty( $show_shipping_calculator );
 $calculator_text          = '';
 ?>
-<div class="d-flex flex-column py-2 border-bottom">
-	<div><h6><?php echo wp_kses_post( $package_name ); ?></h6></div>
+<div class="d-flex flex-row justify-content-between border-bottom py-2">
+	<div><h6 class="m-0"><?php echo wp_kses_post( $package_name ); ?></h6></div>
 	<div data-title="<?php echo esc_attr( $package_name ); ?>">
 		<?php if ( $available_methods ) : ?>
-			<ul id="shipping_method" class="woocommerce-shipping-methods">
+			<ul id="shipping_method" class="woocommerce-shipping-methods m-0">
 				<?php foreach ( $available_methods as $method ) : ?>
-					<li>
+					<li class="m-0">
 						<?php
 						if ( 1 < count( $available_methods ) ) {
 							printf( '<input type="radio" name="shipping_method[%1$d]" data-index="%1$d" id="shipping_method_%1$d_%2$s" value="%3$s" class="shipping_method" %4$s />', $index, esc_attr( sanitize_title( $method->id ) ), esc_attr( $method->id ), checked( $method->id, $chosen_method, false ) ); // WPCS: XSS ok.
@@ -43,19 +43,6 @@ $calculator_text          = '';
 					</li>
 				<?php endforeach; ?>
 			</ul>
-			<?php if ( is_cart() ) : ?>
-				<p class="woocommerce-shipping-destination">
-					<?php
-					if ( $formatted_destination ) {
-						// Translators: $s shipping destination.
-						printf( esc_html__( 'Shipping to %s.', 'woocommerce' ) . ' ', '<strong>' . esc_html( $formatted_destination ) . '</strong>' );
-						$calculator_text = esc_html__( 'Change address', 'woocommerce' );
-					} else {
-						echo wp_kses_post( apply_filters( 'woocommerce_shipping_estimate_html', __( 'Shipping options will be updated during checkout.', 'woocommerce' ) ) );
-					}
-					?>
-				</p>
-			<?php endif; ?>
 			<?php
 			elseif ( ! $has_calculated_shipping || ! $formatted_destination ) :
 				if ( is_cart() && 'no' === get_option( 'woocommerce_enable_shipping_calc' ) ) {
