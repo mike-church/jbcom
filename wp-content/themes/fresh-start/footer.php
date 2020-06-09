@@ -4,7 +4,8 @@
 		<div class="row">
 			<div class="col-sm-12 col-md-4 col-xl-4 mb-4 mr-xl-auto">
 				<div class="seal mb-3"></div>
-				<p>All Julian Bakery products are <span class="font-bold">100% Gluten Free, Grain Free, and Non GMO!</span> And... <span class="font-bold text-uppercase">always free Shipping</span> in the United States.</p>
+				<p>All Julian Bakery products are <span class="font-bold">100% Gluten Free, Grain Free, and Non GMO!</span>.</p>
+				<p><span class="font-bold">FREE SHIPPING</span> on all orders over $39.</p>
 			</div>
 			<div class="col-sm-12 col-md-4 col-xl-3 mb-4">
 				<h6 class="text-uppercase font-bold">Quick Links</h6>

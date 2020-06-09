@@ -358,13 +358,18 @@ $value = rwmb_meta( 'jb_homepage_hero_color_value' );
 	</div>
 </header>
 <div class="brand-strip <?php echo $color;?><?php echo $value;?>"></div>
-
 <?php } 
 
 wp_reset_postdata(); 
 
 }   
 ?>
+
+
+
+<?php if ( is_archive() || is_page( array('cart', 'checkout') ) ) { ?>
+	<div class="w-100 py-2 mdc-bg-grey-100 text-center text-uppercase font-medium border-bottom">Free U.S. shipping on orders $39+</div>
+<?php } ?>
 
 
 <div id="siteSearch" class="overlay">
