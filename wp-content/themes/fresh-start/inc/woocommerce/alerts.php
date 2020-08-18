@@ -40,3 +40,9 @@ function wc_add_to_cart_message_filter($message, $product_id = null) {
 remove_action( 'woocommerce_before_customer_login_form', 'woocommerce_output_all_notices', 10 );
 remove_action( 'woocommerce_before_lost_password_form', 'woocommerce_output_all_notices', 10 );
 
+
+function move_amazon_pay() {
+    remove_action( 'woocommerce_before_checkout_form', array( wc_apa(), 'checkout_message' ), 5 );
+    add_action( 'woocommerce_after_checkout_form', array( wc_apa(), 'checkout_message' ), 5 );
+}
+add_action( 'woocommerce_checkout_init', 'move_amazon_pay', 11 );
