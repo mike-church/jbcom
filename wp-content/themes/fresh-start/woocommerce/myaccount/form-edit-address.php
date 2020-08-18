@@ -21,15 +21,19 @@ $page_title = ( 'billing' === $load_address ) ? __( 'Billing address', 'woocomme
 
 do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 
-<h2 class="mb-5">Addresses</h2>
+<div class="col-12">
+	<h2 class="mb-5">Addresses</h2>
+</div>
 
 <?php if ( ! $load_address ) : ?>
 	<?php wc_get_template( 'myaccount/my-address.php' ); ?>
 <?php else : ?>
 
+<div class="col-12">
+
 	<form method="post">
 
-		<h4 class="mb-3"><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></h4><?php // @codingStandardsIgnoreLine ?>
+		<h5 class="mb-3 font-light"><?php echo apply_filters( 'woocommerce_my_account_edit_address_title', $page_title, $load_address ); ?></h5><?php // @codingStandardsIgnoreLine ?>
 
 		<div class="woocommerce-address-fields">
 			<?php do_action( "woocommerce_before_edit_address_form_{$load_address}" ); ?>
@@ -52,6 +56,8 @@ do_action( 'woocommerce_before_edit_account_address_form' ); ?>
 		</div>
 
 	</form>
+
+</div>
 
 <?php endif; ?>
 

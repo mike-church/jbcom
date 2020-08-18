@@ -19,18 +19,55 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-do_action( 'woocommerce_before_account_navigation' );
-?>
-<div class="row">
-	
-	<div class="col-sm-12 col-lg-3 order-lg-2 mb-5 mb-lg-0">
-		<ul class="nav flex-lg-column">
+do_action( 'woocommerce_before_account_navigation' );?>
+
+
+<div class="col-12 mb-5">
+
+<ul class="nav nav-pills">
+  <li class="nav-item dropdown">
+    <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
+    <div class="dropdown-menu">
+		<a class="dropdown-item" href="/my-account/">Dashboard</a>
+		<?php $current_user = wp_get_current_user(); if ( current_user_can( 'buy_wholesale' ) ): ?>
+			<a class="dropdown-item" href="/wholesale-ordering/">Wholesale Order Form</a>
+		<?php endif; ?>
+		<a class="dropdown-item" href="/my-account/orders/">Orders</a>
+		<a class="dropdown-item" href="/my-account/edit-address/">Addresses</a>
+		<a class="dropdown-item" href="/my-account/edit-account/">Account Details</a>
+		<a class="dropdown-item" href="/my-account/payment-methods/">Payment Methods</a>
+		<?php $current_user = wp_get_current_user(); if ( current_user_can( 'customer' ) ): ?>
+			<a class="dropdown-item" href="/affiliates/">Affiliate Program</a>
+		<?php endif; ?>
+		<a class="dropdown-item" href="<?php echo wp_logout_url(get_permalink()); ?>">Logout</a>
+    </div>
+  </li>
+</ul>
+
+
+<!--
+<ul class="nav flex-lg-column">
 			<?php foreach ( wc_get_account_menu_items() as $endpoint => $label ) : ?>
 				<li class="nav-item <?php echo wc_get_account_menu_item_classes( $endpoint ); ?>">
 					<a href="<?php echo esc_url( wc_get_account_endpoint_url( $endpoint ) ); ?>" class="nav-link"><?php echo esc_html( $label ); ?></a>
 				</li>
 			<?php endforeach; ?>
 		</ul>
+
+-->
+
+
+</div>
+
+
+<!--
+
+<div class="row">
+	
+	<div class="col-sm-12 col-lg-3 order-lg-2 mb-5 mb-lg-0">
+		
 	</div>
+
+-->
 
 <?php do_action( 'woocommerce_after_account_navigation' ); ?>

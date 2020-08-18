@@ -18,7 +18,7 @@
 defined( 'ABSPATH' ) || exit;
 ?>
 
-<div class="p-3 border mb-3 shop_table woocommerce-checkout-review-order-table">
+<div class="p-3 border mb-3 shop_table woocommerce-checkout-review-order-table shadow">
 	<?php
 	do_action( 'woocommerce_review_order_before_cart_contents' ); ?>
 

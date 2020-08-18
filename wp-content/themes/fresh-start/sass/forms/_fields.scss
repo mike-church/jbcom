@@ -1,0 +1,21 @@
+@include media-breakpoint-up(xs) {
+
+	.affwp-form {
+		.affwp-wrap, fieldset {
+			input {
+				padding:.5rem 1rem;;
+				background:#fafafa;
+				border:#bdbdbd solid 1px;
+				font-size:16px;
+			}
+			label {
+				font-size: 14px;
+				font-weight: $medium;
+			}
+			textarea {
+				padding:.5rem 1rem;;
+			}
+		}
+	}
+
+}

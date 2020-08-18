@@ -1,16 +1,36 @@
-.wholesale-order-table {
-	.screen-reader-text {
-		display: none;
-	}
-	.quantity {
-		.input-text {
-			margin-bottom:1rem;
-		}
-	}
-	.actions {
-
-		a.button {
+@include media-breakpoint-up(xs) {
+	.single-product {
+		.wholesale_price_container .wholesale_price_title {
 			display:block;
+			font-size:1rem;
+			text-transform: uppercase;
+			font-weight: $medium;
+		}
+		.table-view {
+			width:100%;
+		}
+		.wholesale_price_minimum_order_quantity {
+			font-weight: $medium;
 		}
 	}
+	.wholesale-order-table {
+		.screen-reader-text {
+			display: none;
+		}
+		.quantity {
+			.input-text {
+				margin-bottom:1rem;
+			}
+		}
+		.actions {
+
+			a.button {
+				display:block;
+			}
+		}
+	}
+}
+
+.single_variation_wrap .single_variation .woocommerce-variation-price .price .original-computed-price, .single_variation_wrap .single_variation .woocommerce-variation-price .price .wholesale_price_container {
+    display: block !important;
 }

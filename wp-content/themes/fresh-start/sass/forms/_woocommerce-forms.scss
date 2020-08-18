@@ -10,8 +10,8 @@
 				text-transform: uppercase;
 				letter-spacing: 1px;
 				position:absolute;
-				top:0;
-				left:0;
+				top:.5rem;
+				left:.5rem;
 				padding:10px 12px 0 12px;
 				height:42px;
 				background-color:$mdc-grey-100;
@@ -45,15 +45,13 @@
 	}
 }
 
-
-
-
 .woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
     border: 1px solid $mdc-grey-400;
     padding: 20px;
-    margin: 1rem 0;
+    margin: 0;
     text-align: left;
     border-radius: 0;
+    background-color: $mdc-grey-50;
 }
 
 .woocommerce form.login, .woocommerce form.register {
@@ -70,7 +68,6 @@
 			line-height: normal;
 			float:none;
 			display:block;
-			width:100%;
 			font-size: 14px;
 			font-weight: $medium;
 		}
@@ -91,7 +88,7 @@
 				border-color: $white transparent transparent transparent !important;
 			}
 		}
-		label.checkbox {
+		label.checkbox, label.woocommerce-form-login__rememberme {
 			input {
 				width:auto;
 			}
@@ -157,4 +154,8 @@
     -ms-flex: 0 0 100%;
     flex: 0 0 100%;
     max-width: 100%;
+}
+
+.woocommerce #content table.cart td.actions .input-text, .woocommerce table.cart td.actions .input-text, .woocommerce-page #content table.cart td.actions .input-text, .woocommerce-page table.cart td.actions .input-text {
+    width: auto;
 }

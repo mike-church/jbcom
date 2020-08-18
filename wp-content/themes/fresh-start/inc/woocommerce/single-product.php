@@ -219,7 +219,7 @@ add_action('woocommerce_single_product_summary', 'woocommerce_template_single_ad
 // Add Cart Form Wrapper
 add_action( 'woocommerce_before_add_to_cart_quantity', 'fresh_start_start_cart_wrapper' );
 function fresh_start_start_cart_wrapper() {
-   echo '<div class="d-flex justify-content-between add-to-cart-wrap"><label>Qty</label>';
+   echo '<div class="d-flex justify-content-between add-to-cart-wrap p-2 border shadow rounded"><label>Qty</label>';
 }
 add_action( 'woocommerce_after_add_to_cart_button', 'fresh_start_end_cart_wrapper', 10 );
 function fresh_start_end_cart_wrapper() {

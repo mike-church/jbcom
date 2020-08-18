@@ -1,5 +1,28 @@
 @include media-breakpoint-up(xs) {
 
+	.login {
+		h1 {
+			position:relative;
+			width:200px;
+			height:37px;
+			display:inline-block;
+			background-size: 200px 37px;
+			background-repeat: no-repeat;
+			background-image: url( ../images/jb-logo.png );
+			background-position: left;
+			a {
+				position:absolute;
+				top:0;
+				left: 0;
+				width:200px;
+				height:37px;
+				text-indent: -9999px;
+				outline: 0;
+				overflow: hidden;
+			}
+		}
+	}
+
 	.account-login {
 	    background-image: none !important;
 	    display: -webkit-box;

@@ -12,21 +12,28 @@
  * happen. When this occurs the version of the template file will be bumped and
  * the readme will list any important changes.
  *
- * @see         https://docs.woocommerce.com/document/template-structure/
- * @package     WooCommerce/Templates
- * @version     2.6.0
+ * @see     https://docs.woocommerce.com/document/template-structure/
+ * @package WooCommerce/Templates
+ * @version 4.4.0
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly
 }
+
+$allowed_html = array(
+	'a' => array(
+		'href' => array(),
+	),
+);
 ?>
 
 
+<div class="col-12 mb-3">
 
-	<h2 class="mb-5">Your Account</h2>
+	<h2>Your Account</h2>
 
-	<p class="mb-5"><?php
+	<p><?php
 		/* translators: 1: user display name 2: logout url */
 		printf(
 			__( 'Hello %1$s (not %1$s? <a href="%2$s">Log out</a>)', 'woocommerce' ),
@@ -35,62 +42,96 @@ if ( ! defined( 'ABSPATH' ) ) {
 		);
 	?></p>
 
+</div>
 
-<div class="row">
-	<div class="col-sm-6">
+<?php
+$current_user = wp_get_current_user(); 
+
+if ( current_user_can( 'buy_wholesale' ) ): ?>
+
+    <div class="col-sm-6 col-md-4">
 		<div class="card mb-4" data-mh>
 			<div class="card-body">
-				<div class="display-4"><i class="icon-package mdc-text-red-500"></i></div>
-				<h5>Orders</h5>
-				<p>View your current/past orders and tracking info.</p>
+				<div class="display-4"><i class="icon-form mdc-text-indigo-500"></i></div>
+				<h5>Wholesale Order Form</h5>
+				<p>Purchase products on one convenient page.</p>
 			</div>
 			<div class="card-footer">
-				<a href="/my-account/orders/" class="btn btn-primary btn-sm">View</a>
+				<a href="/wholesale-ordering/" class="btn btn-primary btn-sm">View</a>
 			</div>
 		</div>
 	</div>
-	<div class="col-sm-6">
-		<div class="card mb-4" data-mh>
-			<div class="card-body">
-				<div class="display-4"><i class="icon-address-card mdc-text-orange-500"></i></div>
-				<h5>Addresses</h5>
-				<p>Manage your billing and shipping address.</p>
-			</div>
-			<div class="card-footer">
-				<a href="/my-account/edit-address/" class="btn btn-primary btn-sm">Manage</a>
-			</div>
+
+<?php endif; ?>
+
+<div class="col-sm-6 col-md-4">
+	<div class="card mb-4" data-mh>
+		<div class="card-body">
+			<div class="display-4"><i class="icon-package mdc-text-red-500"></i></div>
+			<h5>Orders</h5>
+			<p>View your current/past orders and tracking info.</p>
+		</div>
+		<div class="card-footer">
+			<a href="/my-account/orders/" class="btn btn-primary btn-sm">View</a>
 		</div>
 	</div>
-	<div class="col-sm-6">
-		<div class="card mb-4" data-mh>
-			<div class="card-body">
-				<div class="display-4"><i class="icon-user mdc-text-pink-500"></i></div>
-				<h5>Account Details</h5>
-				<p>Change your password, update your email, and display name.</p>
-			</div>
-			<div class="card-footer">
-				<a href="/my-account/edit-account/" class="btn btn-primary btn-sm">Manage</a>
-			</div>
+</div>
+<div class="col-sm-6 col-md-4">
+	<div class="card mb-4" data-mh>
+		<div class="card-body">
+			<div class="display-4"><i class="icon-address-card mdc-text-orange-500"></i></div>
+			<h5>Addresses</h5>
+			<p>Manage your billing and shipping address.</p>
+		</div>
+		<div class="card-footer">
+			<a href="/my-account/edit-address/" class="btn btn-primary btn-sm">Manage</a>
 		</div>
 	</div>
-	<div class="col-sm-6">
-		<div class="card mb-4" data-mh>
-			<div class="card-body">
-				<div class="display-4"><i class="icon-credit-card mdc-text-green-500"></i></div>
-				<h5>Payment Methods</h5>
-				<p>Manage your payment methods.</p>
-			</div>
-			<div class="card-footer">
-				<a href="/my-account/payment-methods/" class="btn btn-primary btn-sm">Manage</a>
-			</div>
+</div>
+<div class="col-sm-6 col-md-4">
+	<div class="card mb-4" data-mh>
+		<div class="card-body">
+			<div class="display-4"><i class="icon-user mdc-text-pink-500"></i></div>
+			<h5>Account Details</h5>
+			<p>Change your password, update your email, and display name.</p>
+		</div>
+		<div class="card-footer">
+			<a href="/my-account/edit-account/" class="btn btn-primary btn-sm">Manage</a>
+		</div>
+	</div>
+</div>
+<div class="col-sm-6 col-md-4">
+	<div class="card mb-4" data-mh>
+		<div class="card-body">
+			<div class="display-4"><i class="icon-credit-card mdc-text-teal-500"></i></div>
+			<h5>Payment Methods</h5>
+			<p>Manage your payment methods.</p>
+		</div>
+		<div class="card-footer">
+			<a href="/my-account/payment-methods/" class="btn btn-primary btn-sm">Manage</a>
 		</div>
 	</div>
 </div>
 
+	<?php
+	$current_user = wp_get_current_user(); 
 
+	if ( current_user_can( 'customer' ) ): ?>
 
+	    <div class="col-sm-6 col-md-4">
+			<div class="card mb-4" data-mh>
+				<div class="card-body">
+					<div class="display-4"><i class="icon-us-dollar mdc-text-green-500"></i></div>
+					<h5>Affiliate Program</h5>
+					<p>Earn extra money by reffering people you know.</p>
+				</div>
+				<div class="card-footer">
+					<a href="/affiliates/" class="btn btn-primary btn-sm">View</a>
+				</div>
+			</div>
+		</div>
 
-
+	<?php endif; ?>
 
 <?php
 	/**
@@ -115,5 +156,3 @@ if ( ! defined( 'ABSPATH' ) ) {
 	do_action( 'woocommerce_after_my_account' );
 
 /* Omit closing PHP tag at the end of PHP files to avoid "headers already sent" issues. */
-
-

@@ -1,3 +1,5 @@
+/*
+
 @include media-breakpoint-up(xs) {
 	.logged-in.woocommerce-account {
 		.woocommerce {
@@ -38,10 +40,9 @@
 	}
 }
 
+*/
+
 
 .woocommerce-account .woocommerce .nav-item {
-	border-bottom:$mdc-grey-200 solid 1px;
-	.nav-link:hover {
-		background-color:$mdc-grey-200;
-	}
+	font-weight: $regular;
 }

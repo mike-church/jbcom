@@ -1,0 +1,11 @@
+@include media-breakpoint-up(xs) {
+	.table, .shop_table {
+		thead th {
+			font-weight: $medium !important;
+		}
+		thead tr th:last-child, tbody tr td:last-child {
+			text-align: right;
+		}
+
+	}
+}

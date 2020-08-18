@@ -1,8 +1,8 @@
 <?php
 /**
- * My Account page
+ * Show messages
  *
- * This template can be overridden by copying it to yourtheme/woocommerce/myaccount/my-account.php.
+ * This template can be overridden by copying it to yourtheme/woocommerce/notices/notice.php.
  *
  * HOWEVER, on occasion WooCommerce will need to update template files and you
  * (the theme developer) will need to copy the new files to your theme to
@@ -12,31 +12,21 @@
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
  * @package WooCommerce/Templates
- * @version 3.5.0
+ * @version 3.9.0
  */
 
-defined( 'ABSPATH' ) || exit; ?>
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
-<div class="container py-5">
-	<div class="row">
+if ( ! $notices ) {
+	return;
+}
 
-	<?php
-	/**
-	 * My Account navigation.
-	 *
-	 * @since 2.6.0
-	 */
-	do_action( 'woocommerce_account_navigation' ); ?>
+?>
 
-	<?php
-	/**
-	 * My Account content.
-	 *
-	 * @since 2.6.0
-	 */
-	do_action( 'woocommerce_account_content' );
-	?>
-
+<?php foreach ( $notices as $notice ) : ?>
+	<div class="mb-2" <?php echo wc_get_notice_data_attr( $notice ); ?>>
+		<?php echo wc_kses_notice( $notice['notice'] ); ?>
 	</div>
-</div>
-
+<?php endforeach; ?>

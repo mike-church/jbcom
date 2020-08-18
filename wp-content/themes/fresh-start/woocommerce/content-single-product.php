@@ -26,7 +26,7 @@ global $product;
  */
 do_action( 'woocommerce_before_single_product' );
 
-$jb_notice = rwmb_meta( 'jb_product_notice_notice' );
+
 
 if ( post_password_required() ) {
 	echo get_the_password_form(); // WPCS: XSS ok.
@@ -57,48 +57,55 @@ if ( post_password_required() ) {
 			<?php } 
 		?>
 
-	<section class="py-5">
+
+
+	<section>
 		<div class="container">
 			<div class="row">
 
-				<div class="col-lg-7 order-2 order-lg-1">
+				<div class="col-lg-7 order-2 order-lg-1 single-product-content">
+					<div class="py-5 block">
 
-					<div class="d-none d-lg-block">
-						<?php do_action( 'woocommerce_product_title_rating' ); ?>
+						<?php $jb_notice = rwmb_meta( 'jb_product_notice_notice' );?>
+
+						<div class="d-none d-lg-block">
+							<?php do_action( 'woocommerce_product_title_rating' ); ?>
+						</div>
+						
+						<?php
+						/**
+						 * Hook: woocommerce_before_single_product_summary.
+						 *
+						 * @hooked woocommerce_template_single_title - 5
+						 * @hooked fresh_start_feature_facts - 20
+						 * @hooked fresh_start_nutritional_panel -50
+						 * @hooked comments_template -80
+						 * @hooked woocommerce_show_product_images - 20
+						 */
+						do_action( 'woocommerce_before_single_product_summary' );
+						?>
 					</div>
-					
-					<?php
-					/**
-					 * Hook: woocommerce_before_single_product_summary.
-					 *
-					 * @hooked woocommerce_template_single_title - 5
-					 * @hooked fresh_start_feature_facts - 20
-					 * @hooked fresh_start_nutritional_panel -50
-					 * @hooked comments_template -80
-					 * @hooked woocommerce_show_product_images - 20
-					 */
-					do_action( 'woocommerce_before_single_product_summary' );
-					?>
 				</div>
 
-				<div class="col-lg-5 order-1 order-lg-2">
+				<div class="col-lg-5 order-1 order-lg-2 single-product-price">
+					<div class="py-5 sticky-top block">
+					
+						<div class="d-block d-lg-none">
+							<?php do_action( 'woocommerce_product_title_rating' ); ?>
+						</div>
 
-					<div class="d-block d-lg-none">
-						<?php do_action( 'woocommerce_product_title_rating' ); ?>
-					</div>
+						<?php
+						/**
+						* Hook: woocommerce_single_product_summary.
+						*
+						* @hooked woocommerce_show_product_sale_flash - 5
+						* @hooked woocommerce_template_single_price - 10
+						* @hooked woocommerce_template_single_rating - 20
+						* @hooked woocommerce_template_single_add_to_cart - 40
+						*/
+						do_action( 'woocommerce_single_product_summary' );
+						?>
 
-					<div class="p-4 mb-5 border shadow-sm sticky-top">
-					<?php
-					/**
-					* Hook: woocommerce_single_product_summary.
-					*
-					* @hooked woocommerce_show_product_sale_flash - 5
-					* @hooked woocommerce_template_single_price - 10
-					* @hooked woocommerce_template_single_rating - 20
-					* @hooked woocommerce_template_single_add_to_cart - 40
-					*/
-					do_action( 'woocommerce_single_product_summary' );
-					?>
 					</div>
 				</div>
 

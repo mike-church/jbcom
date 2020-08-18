@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-<?php if (is_page(array( 'cart', 'my-account' ))) { ?>
+<?php if (is_page(array( 'my-account' ))) { ?>
 	<main>
 
 		<?php
@@ -17,16 +17,18 @@
 } else { ?>
 	<main>
 		<div class="container py-5">
+			<div class="row">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+				<?php
+				while ( have_posts() ) :
+					the_post();
 
-			get_template_part( 'template-parts/content/content', 'page' );
+					get_template_part( 'template-parts/content/content', 'page' );
 
-		endwhile; 
-		?>
-
+				endwhile; 
+				?>
+			
+			</div>
 		</div>
 	</main>
 

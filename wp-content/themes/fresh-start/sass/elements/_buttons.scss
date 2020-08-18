@@ -36,6 +36,8 @@
 	border-color:$primary !important;
 	border-radius: 3px !important;
 	border-width: 2px !important;
+	border-style:none !important;
+	width:auto !important;
 	transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 

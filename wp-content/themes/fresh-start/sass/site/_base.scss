@@ -21,6 +21,12 @@ html, body, [canvas=container], [off-canvas] {
 
 }
 
+.woocommerce-page .woocommerce {
+	display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width:100%;
+}
 
 @include media-breakpoint-up(md) {
 

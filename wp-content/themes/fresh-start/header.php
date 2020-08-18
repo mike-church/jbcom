@@ -25,7 +25,9 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<?php if ( is_page( 'home') ) { ?>
+<?php if ( is_page( 'registration') ) { 
+
+} elseif ( is_page( 'home') ) { ?>
 
 <header class="position-absolute w-100 py-2 py-md-4">
 	<div class="container-fluid">
@@ -107,7 +109,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 	if ( ! empty( $feature_image ) ) { ?>
 
-	<header class="position-absolute w-100 py-2 py-md-4" style="z-index:1;">
+	<header class="position-absolute w-100 py-2 py-md-4" style="z-index:1; background: rgb(0,0,0);
+background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);">
 		<div class="container-fluid">
 			<nav>
 				<div class="row">
