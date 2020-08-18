@@ -41,5 +41,8 @@ remove_action( 'woocommerce_before_customer_login_form', 'woocommerce_output_all
 remove_action( 'woocommerce_before_lost_password_form', 'woocommerce_output_all_notices', 10 );
 
 
-remove_action( 'woocommerce_before_checkout_form', array( wc_apa(), 'checkout_message' ), 5 );
+function move_amazon_pay() {
+    remove_action( 'woocommerce_before_checkout_form', array( wc_apa(), 'checkout_message' ), 5 );
     add_action( 'woocommerce_after_checkout_form', array( wc_apa(), 'checkout_message' ), 5 );
+}
+add_action( 'woocommerce_checkout_order_review', 'move_amazon_pay', 11 );
