@@ -24,7 +24,7 @@ do_action( 'woocommerce_cart_is_empty' );
 
 if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
 
-	<div class="container pb-5 mb-5 text-center">
+	<div class="col-12 pb-5 mb-5 text-center">
 		<a class="button wc-backward" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
 			<?php esc_html_e( 'Return to shop', 'woocommerce' ); ?>
 		</a>

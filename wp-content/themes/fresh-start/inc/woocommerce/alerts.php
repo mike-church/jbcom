@@ -5,7 +5,7 @@
 remove_action( 'woocommerce_cart_is_empty', 'wc_empty_cart_message', 10 );
 add_action( 'woocommerce_cart_is_empty', 'fresh_start_cart_empty_message', 10 );
 function fresh_start_cart_empty_message() {
-    echo '<section class="pt-5"><div class="container my-5"><h4 class="cart-empty text-center">' . wp_kses_post( apply_filters( 'wc_empty_cart_message', __( 'Your cart is currently empty.', 'woocommerce' ) ) ) . '</h4></div></section>';
+    echo '<div class="col-12 pt-5 my-5"><h4 class="cart-empty text-center">' . wp_kses_post( apply_filters( 'wc_empty_cart_message', __( 'Your cart is currently empty.', 'woocommerce' ) ) ) . '</h4></div>';
 }
 
 // Change Alert Messages
@@ -42,6 +42,8 @@ remove_action( 'woocommerce_before_lost_password_form', 'woocommerce_output_all_
 
 function move_amazon_pay() {
     remove_action( 'woocommerce_before_checkout_form', array( wc_apa(), 'checkout_message' ), 5 );
-    add_action( 'woocommerce_review_order_before_payment', array( wc_apa(), 'checkout_message' ), 5 );
+    add_action( 'woocommerce_review_order_before_payment', array( wc_apa(), 'checkout_message' ), 15 );
 }
 add_action( 'woocommerce_checkout_init', 'move_amazon_pay', 11 );
+
+

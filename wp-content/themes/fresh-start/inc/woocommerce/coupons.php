@@ -1,7 +1,7 @@
 <?php
 
-remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
-add_action( 'woocommerce_review_order_before_payment', 'woocommerce_checkout_coupon_form', 10 );
+/*remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
+add_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_coupon_form', 10 );*/
 
 /*
 
