@@ -27,6 +27,6 @@ if ( ! $notices ) {
 
 <?php foreach ( $notices as $notice ) : ?>
 	<div class="mb-2" <?php echo wc_get_notice_data_attr( $notice ); ?>>
-		<?php echo wc_kses_notice( $notice['notice'] ); ?>
+		<strong><?php echo wc_kses_notice( $notice['notice'] ); ?></strong>
 	</div>
 <?php endforeach; ?>

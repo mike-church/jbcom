@@ -48,7 +48,7 @@ if ( ! wc_ship_to_billing_address_only() && wc_shipping_enabled() ) {
 
 <div class="col-sm-6 mb-4">
 	<h2 class="woocommerce-column__title mb-3"><?php echo $title; ?></h2>
-	<div class="p-3 mb-3" style="border: #E0E0E0 solid 4px;" data-mh>
+	<div class="p-3 mb-3 bg-white" style="border: #E0E0E0 solid 4px;" data-mh>
 		<address><?php
 		$address = wc_get_account_formatted_address( $name );
 		echo $address ? wp_kses_post( $address ) : esc_html_e( 'You have not set up this type of address yet.', 'woocommerce' ); ?></address>

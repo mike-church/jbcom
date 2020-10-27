@@ -11,13 +11,13 @@
  * the readme will list any important changes.
  *
  * @see     https://docs.woocommerce.com/document/template-structure/
- * @package WooCommerce/Templates
- * @version 3.7.0
+ * @package WooCommerce\Templates
+ * @version 4.6.0
  */
 
 defined( 'ABSPATH' ) || exit;
 
-$order = wc_get_order( $order_id ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.OverrideProhibited
+$order = wc_get_order( $order_id ); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited
 
 if ( ! $order ) {
 	return;
@@ -44,9 +44,8 @@ if ( $show_downloads ) {
 
 	<h2 class="woocommerce-order-details__title"><?php esc_html_e( 'Order details', 'woocommerce' ); ?></h2>
 
-	<div class="p-3 mb-3" style="border: #E0E0E0 solid 4px;">
+	<div class="p-3 mb-3 bg-white" style="border: #E0E0E0 solid 4px;">
 
-		
 		<div style="border-bottom:#E0E0E0 solid 4px;">
 			<?php
 			do_action( 'woocommerce_order_details_before_order_table_items', $order );
@@ -72,7 +71,6 @@ if ( $show_downloads ) {
 
 	</div>
 
-
 		<?php
 			foreach ( $order->get_order_item_totals() as $key => $total ) {
 				?>
@@ -90,22 +88,9 @@ if ( $show_downloads ) {
 				</div>
 			<?php endif; ?>
 
-
-
-
-
-
-
-
 	</div>
 
-
-
-
-
-
 	<?php do_action( 'woocommerce_order_details_after_order_table', $order ); ?>
-
 
 </div>
 

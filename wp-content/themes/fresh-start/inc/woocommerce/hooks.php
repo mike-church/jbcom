@@ -65,22 +65,15 @@ remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wra
 add_action('woocommerce_after_main_content', 'fresh_start_wrapper_end', 10);
 function fresh_start_wrapper_end() { 
 	if ( is_shop() ) { ?>
-						</div>
-					</div>
 				</div>
-			</section>
-		</main>
-
-
-
-
+			</div>
+		</div>
+	</section>
+</main>
 
 <div id="filters" class="overlay">
 	<div class="overlay-container py-5">
-
 		<a href="javascript:void(0)" onclick="closeFilters()" class="lockscroll close circle"><i class="icon-times"></i></a>
-	
-
 		<div class="container py-5">
 			<div class="row">
 				<div class="col-10 mx-auto">
@@ -92,12 +85,8 @@ function fresh_start_wrapper_end() {
 				
 			</div>
 		</div>
-
-
-
 	</div>
 </div>
-
 
 <script type="text/javascript">
 //Overlay

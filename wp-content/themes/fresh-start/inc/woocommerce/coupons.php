@@ -3,8 +3,6 @@
 /*remove_action( 'woocommerce_before_checkout_form', 'woocommerce_checkout_coupon_form', 10 );
 add_action( 'woocommerce_checkout_order_review', 'woocommerce_checkout_coupon_form', 10 );*/
 
-/*
-
 function wp_schedule_delete_expired_coupons() {
   if ( ! wp_next_scheduled( 'delete_expired_coupons' ) ) {
     wp_schedule_event( time(), 'every_minute', 'delete_expired_coupons' );
@@ -43,5 +41,3 @@ function wp_delete_expired_coupons() {
   }
 }
 add_action( 'delete_expired_coupons', 'wp_delete_expired_coupons' );
-
-*/

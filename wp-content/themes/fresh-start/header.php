@@ -25,9 +25,9 @@
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-<?php if ( is_page( 'registration') ) { 
+<?php if ( is_page( array('signup', 'wholesale-login', 'wholesale-registration-page') ) ) { 
 
-} elseif ( is_page( 'home') ) { ?>
+} elseif ( is_page( 'home' ) ) { ?>
 
 <header class="position-absolute w-100 py-2 py-md-4">
 	<div class="container-fluid">
@@ -70,9 +70,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 								</li>
 								<li class="d-inline-block">
 									<a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-link text-white px-2"><i class="icon-shopping-cart"></i> <sup><?php echo WC()->cart->get_cart_contents_count(); ?></sup></a>
-								</li>
-								<li class="d-inline-block">
-									<a href="javascript:void(0)" class="btn btn-link text-white lockscroll px-2" onclick="openSearch()"><i class="icon-search"></i></a>
 								</li>
 								<li class="d-none d-lg-inline-block">
 									<button data-toggle="dropdown" class="btn btn-link text-white px-2"><i class="icon-more"></i></button>
@@ -151,9 +148,6 @@ background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);">
 									</li>
 									<li class="d-inline-block">
 										<a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-link text-white px-2"><i class="icon-shopping-cart"></i> <sup><?php echo WC()->cart->get_cart_contents_count(); ?></sup></a>
-									</li>
-									<li class="d-inline-block">
-										<a href="javascript:void(0)" class="btn btn-link text-white lockscroll px-2" onclick="openSearch()"><i class="icon-search"></i></a>
 									</li>
 									<li class="d-none d-lg-inline-block">
 										<button data-toggle="dropdown" class="btn btn-link text-white px-2"><i class="icon-more"></i></button>
@@ -238,9 +232,6 @@ background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);">
 									</li>
 									<li class="d-inline-block">
 										<a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-link text-dark px-2"><i class="icon-shopping-cart"></i> <sup><?php echo WC()->cart->get_cart_contents_count(); ?></sup></a>
-									</li>
-									<li class="d-inline-block">
-										<a href="javascript:void(0)" class="btn btn-link text-dark px-2 lockscroll" onclick="openSearch()"><i class="icon-search"></i></a>
 									</li>
 									<li class="d-none d-lg-inline-block">
 										<button data-toggle="dropdown" data-offset="0,10" class="btn btn-link text-dark px-2"><i class="icon-more"></i></button>
@@ -333,9 +324,6 @@ $value = rwmb_meta( 'jb_homepage_hero_color_value' );
 								<li class="d-inline-block">
 									<a href="<?php echo wc_get_cart_url(); ?>" class="btn btn-link text-dark px-2"><i class="icon-shopping-cart"></i> <sup><?php echo WC()->cart->get_cart_contents_count(); ?></sup></a>
 								</li>
-								<li class="d-inline-block">
-									<a href="javascript:void(0)" class="btn btn-link text-dark px-2 lockscroll" onclick="openSearch()"><i class="icon-search"></i></a>
-								</li>
 								<li class="d-none d-lg-inline-block">
 									<button data-toggle="dropdown" data-offset="0,10" class="btn btn-link text-dark px-2"><i class="icon-more"></i></button>
 									<?php wp_nav_menu( array( 
@@ -361,6 +349,7 @@ $value = rwmb_meta( 'jb_homepage_hero_color_value' );
 	</div>
 </header>
 <div class="brand-strip <?php echo $color;?><?php echo $value;?>"></div>
+
 <?php } 
 
 wp_reset_postdata(); 
@@ -368,29 +357,6 @@ wp_reset_postdata();
 }   
 ?>
 
-
 <?php if ( is_archive() || is_page( array('cart', 'checkout') ) ) { ?>
-	<div class="w-100 py-2 mdc-bg-grey-100 text-center text-uppercase font-medium border-bottom">Free U.S. shipping on orders $39+</div>
+	<div class="w-100 py-2 mdc-bg-grey-800 text-center text-uppercase font-medium text-light">Free U.S. shipping on orders $39+</div>
 <?php } ?>
-
-
-<div id="siteSearch" class="overlay">
-	<div class="overlay-container d-flex justify-content-center align-items-center">
-	
-		<a href="javascript:void(0)" onclick="closeSearch()" class="lockscroll close circle"><i class="icon-times"></i></a>
-
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-8 m-auto">
-					<form role="search" method="get" class="search" action="<?php echo home_url( '/' ); ?>" >
-						<label class="text-uppercase">Search</label>
-						<input type="search" class="search-field" placeholder="What are you looking for?" value="" name="s" title="Search Julian Bakery" data-swplive="true" data-swpconfig />
-						<button type="submit" class="btn btn-link search-btn"><i class="icon-search" aria-hidden="true"></i></button>
-					</form>
-				</div>
-				
-			</div>
-		</div>
-
-	</div>
-</div>

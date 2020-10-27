@@ -18,11 +18,28 @@
 defined( 'ABSPATH' ) || exit;
 
 ?>
-<div class="container py-5">
+
+<div class="container-fluid login">
 	<div class="row">
-		<div class="col-sm-8 col-lg-4 mx-auto px-4">
-			<?php wc_print_notice( esc_html__( 'Password reset email has been sent.', 'woocommerce' ) );?>
-			<p><span class="font-bold">A password reset email has been sent to the email address on file for your account</span>, but may take several minutes to show up in your inbox. Please wait at least 10 minutes before attempting another reset.</p>
+		<div class="col-md-6 col-lg-5 col-xl-4">
+			<div class="d-flex flex-column justify-content-between vh-100">
+				<div class="pl-3 pt-3">
+					<a href="/home" class="color-logo header-logo"></a>
+				</div>
+
+				<div class="px-5">
+					<?php wc_print_notice( esc_html__( 'Password reset email has been sent.', 'woocommerce' ) );?>
+					<p><span class="font-bold">A password reset email has been sent to the email address on file for your account</span>, but may take several minutes to show up in your inbox. Please wait at least 10 minutes before attempting another reset.</p>
+				</div>
+
+				<div>
+					<p><small>&copy; <?php echo date("Y");?> Julian Bakery. All rights reserved.</small></p>
+				</div>
+
+			</div>
 		</div>
+		
+		<div class="d-none d-md-block col-md-6 col-lg-7 col-xl-8 vh-100 mdc-bg-grey-100 login-image"></div>
+		
 	</div>
 </div>

@@ -1,9 +1,7 @@
 <?php
 
 // Ajax code for showing cart count in header
-
 add_filter( 'woocommerce_add_to_cart_fragments', 'woocommerce_header_add_to_cart_fragment' );
-
 function woocommerce_header_add_to_cart_fragment( $fragments ) {
 	global $woocommerce;
 	ob_start();
@@ -15,7 +13,6 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 }
 
 // Hide Product Tags
-
 add_action('init', function() {
     register_taxonomy('product_tag', 'product', [
         'public'            => false,
@@ -34,7 +31,6 @@ add_action( 'admin_init' , function() {
 });
 
 // Prevents Additional Items Added to Cart on page refresh
-
 add_action('add_to_cart_redirect', 'resolve_dupes_add_to_cart_redirect');
 function resolve_dupes_add_to_cart_redirect($url = false) {
      if(!empty($url)) { return $url; }
@@ -82,7 +78,6 @@ function add_custom_field_general_product_fields(){
 
     echo '</div>';;
 }
-
 
 //Exclude product from all coupons
 
@@ -143,13 +138,12 @@ function remove_order_notes( $fields ) {
      return $fields;
 }
 
-// Add Wholesale Role Capabilities
+// IMPORTANT! Add Wholesale Role Capabilities when plugin is installed.
 /*function wholesale_role_caps() {
     // Gets the simple_role role object.
     $role = get_role( 'wholesale_customer' );
     $role = get_role( 'wholesale_net_30' );
 
- 
     // Add a new capability.
     $role->add_cap( 'buy_wholesale', true );
 }

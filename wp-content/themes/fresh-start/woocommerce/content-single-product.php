@@ -88,7 +88,7 @@ if ( post_password_required() ) {
 				</div>
 
 				<div class="col-lg-5 order-1 order-lg-2 single-product-price">
-					<div class="py-5 sticky-top block">
+					<div class="py-5 sticky-top block price-block">
 					
 						<div class="d-block d-lg-none">
 							<?php do_action( 'woocommerce_product_title_rating' ); ?>

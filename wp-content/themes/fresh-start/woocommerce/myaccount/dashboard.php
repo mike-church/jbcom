@@ -50,7 +50,7 @@ $current_user = wp_get_current_user();
 if ( current_user_can( 'buy_wholesale' ) ): ?>
 
     <div class="col-sm-6 col-md-4">
-		<div class="card mb-4" data-mh>
+		<div class="card mb-4 shadow" data-mh>
 			<div class="card-body">
 				<div class="display-4"><i class="icon-form mdc-text-indigo-500"></i></div>
 				<h5>Wholesale Order Form</h5>
@@ -65,7 +65,7 @@ if ( current_user_can( 'buy_wholesale' ) ): ?>
 <?php endif; ?>
 
 <div class="col-sm-6 col-md-4">
-	<div class="card mb-4" data-mh>
+	<div class="card mb-4 shadow" data-mh>
 		<div class="card-body">
 			<div class="display-4"><i class="icon-package mdc-text-red-500"></i></div>
 			<h5>Orders</h5>
@@ -77,7 +77,7 @@ if ( current_user_can( 'buy_wholesale' ) ): ?>
 	</div>
 </div>
 <div class="col-sm-6 col-md-4">
-	<div class="card mb-4" data-mh>
+	<div class="card mb-4 shadow" data-mh>
 		<div class="card-body">
 			<div class="display-4"><i class="icon-address-card mdc-text-orange-500"></i></div>
 			<h5>Addresses</h5>
@@ -89,7 +89,7 @@ if ( current_user_can( 'buy_wholesale' ) ): ?>
 	</div>
 </div>
 <div class="col-sm-6 col-md-4">
-	<div class="card mb-4" data-mh>
+	<div class="card mb-4 shadow" data-mh>
 		<div class="card-body">
 			<div class="display-4"><i class="icon-user mdc-text-pink-500"></i></div>
 			<h5>Account Details</h5>
@@ -101,7 +101,7 @@ if ( current_user_can( 'buy_wholesale' ) ): ?>
 	</div>
 </div>
 <div class="col-sm-6 col-md-4">
-	<div class="card mb-4" data-mh>
+	<div class="card mb-4 shadow" data-mh>
 		<div class="card-body">
 			<div class="display-4"><i class="icon-credit-card mdc-text-teal-500"></i></div>
 			<h5>Payment Methods</h5>
@@ -119,7 +119,7 @@ if ( current_user_can( 'buy_wholesale' ) ): ?>
 	if ( current_user_can( 'customer' ) ): ?>
 
 	    <div class="col-sm-6 col-md-4">
-			<div class="card mb-4" data-mh>
+			<div class="card mb-4 shadow" data-mh>
 				<div class="card-body">
 					<div class="display-4"><i class="icon-us-dollar mdc-text-green-500"></i></div>
 					<h5>Affiliate Program</h5>

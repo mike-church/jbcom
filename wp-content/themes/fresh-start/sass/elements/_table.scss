@@ -1,11 +1,59 @@
 @include media-breakpoint-up(xs) {
 	.table, .shop_table {
+		background:$white;
+		border:$mdc-grey-200 solid 1px;
 		thead th {
+			border-top:none;
 			font-weight: $medium !important;
+			font-size:1rem;
+			color:$mdc-grey-600;
 		}
 		thead tr th:last-child, tbody tr td:last-child {
 			text-align: right;
 		}
-
+		td {
+			border-top:$mdc-grey-200 solid 1px !important;
+		}
 	}
+	.shop_attributes {
+		tbody {
+			vertical-align: top;
+			font-size:.95rem;
+		}
+		th {
+			font-weight: $medium !important;
+			padding:5px 0 !important;
+			background:none !important;
+			line-height: normal !important;
+		}
+		td {
+			padding:5px 0 !important;
+			background:none !important;
+			line-height: normal !important;
+		}
+		p {
+			padding:0 !important;
+		}
+	}
+	
+	// Wholesale order form
+
+	.product_row_action {
+		label {
+			display: none;
+		}
+	}
+
+	.product_title_col {
+		.product_link {
+			font-weight: $medium;
+		}
+	}
+
+	.quantity {
+		input {
+			width:5rem;
+		}
+	}
+
 }

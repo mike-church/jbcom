@@ -25,3 +25,5 @@ register_nav_menus([
 ]);
 
 add_theme_support( 'title-tag' );
+
+remove_filter( 'the_content', 'wpautop' ); the_content();

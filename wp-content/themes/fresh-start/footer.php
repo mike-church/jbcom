@@ -1,4 +1,4 @@
-<?php if ( is_page( 'registration') ) { ?>
+<?php if ( is_page( array('signup', 'wholesale-login', 'wholesale-registration-page') ) ) { ?>
 
 	<?php wp_footer(); ?>
 
@@ -57,25 +57,6 @@
 	<?php wp_footer(); ?>
 
 	<script>AOS.init();</script>
-	<script type="text/javascript">
-	//Overlay
-	function openNav() {
-	  document.getElementById("siteNav").setAttribute( "style", "height: 100%; opacity: 1;");
-	}
-	function closeNav() {
-	  document.getElementById("siteNav").setAttribute( "style", "height: 0%; opacity: 0;");
-	}
-
-	function openSearch() {
-	  document.getElementById("siteSearch").setAttribute( "style", "left:0");
-	  $( ".overlay-container" ).css( "opacity", "1");
-	}
-
-	function closeSearch() {
-	  document.getElementById("siteSearch").setAttribute( "style", "left:-9999px");
-	  $( ".overlay-container" ).css( "opacity", "0");
-	}
-	</script>
 
 <?php } ?>
 

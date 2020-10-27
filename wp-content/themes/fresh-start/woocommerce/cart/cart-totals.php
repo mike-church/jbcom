@@ -19,13 +19,13 @@ defined( 'ABSPATH' ) || exit;
 
 ?>
 <div class="d-flex justify-content-end w-100">
-<div class="col-md-6 <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
+<div class="col-md-6 cart_totals <?php echo ( WC()->customer->has_calculated_shipping() ) ? 'calculated_shipping' : ''; ?>">
 
 	<?php do_action( 'woocommerce_before_cart_totals' ); ?>
 
 	<h2><?php esc_html_e( 'Cart totals', 'woocommerce' ); ?></h2>
 
-	<div class="p-3 mb-3 border">
+	<div class="p-3 mb-3 border bg-white">
 		<div class="d-flex flex-row justify-content-between border-bottom pb-2">
 			<div><h6 class="m-0"><?php esc_html_e( 'Subtotal', 'woocommerce' ); ?></h6></div>
 			<div data-title="<?php esc_attr_e( 'Subtotal', 'woocommerce' ); ?>"><?php wc_cart_totals_subtotal_html(); ?></div>

@@ -1,19 +1,21 @@
-.nutrition-facts.border {
-    line-height: normal;
-    border:$black solid 1px !important;
-    .border-bottom {
-        border-bottom: $black solid 1px!important;
-    }
-    hr {
-        margin-top: .5rem;
-        margin-bottom: .5rem;
-        border: 0;
-        border-top: 6px solid $black;
-    }
-
-}
-
 @include media-breakpoint-up(xs) {
+    .nutrition-facts {
+        background:$mdc-grey-50;
+    }
+    .nutrition-facts.border {
+        line-height: normal;
+        border:$black solid 1px !important;
+        .border-bottom {
+            border-bottom: $black solid 1px!important;
+        }
+        hr {
+            margin-top: .5rem;
+            margin-bottom: .5rem;
+            border: 0;
+            border-top: 6px solid $black;
+        }
+
+    }
 
     .featured-facts {
         line-height: normal;

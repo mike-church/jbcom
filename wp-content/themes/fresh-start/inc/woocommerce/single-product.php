@@ -17,24 +17,16 @@ function woocommerce_template_single_title() { ?>
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_rating', 10);
 add_action('woocommerce_product_title_rating', 'woocommerce_template_single_rating', 10);
 
-// Add This Code
-/*add_action( 'woocommerce_before_single_product_summary', 'fresh_start_addthis', 10 );
-function fresh_start_addthis() {
-   echo '<div class="addthis_inline_share_toolbox pb-4 d-none d-lg-block"></div>';
-}
-add_action( 'wp_footer', 'fresh_start_addthis_js', 100 );
-function fresh_start_addthis_js() {
-   // Only run this on the single product page
-   if ( ! is_product() ) return;
-   ?>
-      <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58a72778826dc565"></script>
-   <?php
-}*/
-
 // Content
 add_action( 'woocommerce_before_single_product_summary', 'woocommerce_template_product_description', 30 );
 function woocommerce_template_product_description() {
 	wc_get_template( 'single-product/tabs/description.php' );
+}
+
+// Additional Information
+add_action( 'woocommerce_before_single_product_summary', 'woocommerce_template_product_additional', 40 );
+function woocommerce_template_product_additional() {
+  wc_get_template( 'single-product/tabs/additional-information.php' );
 }
 
 // Product Video and Product Gallery
@@ -182,7 +174,6 @@ function fresh_start_product_gallery() {
   }
 }
 
-
 // Reviews
 add_action( 'woocommerce_before_single_product_summary', 'comments_template', 80 );
 
@@ -195,22 +186,9 @@ add_action( 'woocommerce_review_meta', 'woocommerce_review_display_meta', 20 );
 remove_action('woocommerce_review_before_comment_meta', 'woocommerce_review_display_rating', 10);
 add_action( 'woocommerce_review_meta', 'woocommerce_review_display_rating', 30 );
 
-
-// Add Price Wrapper
-/*add_action( 'woocommerce_single_product_summary', 'fresh_start_start_price_wrapper', 0 );
-function fresh_start_start_price_wrapper() {
-   echo '<div class="price-wrap border-bottom pb-2 mb-3">';
-}
-add_action( 'woocommerce_single_product_summary', 'fresh_start_end_price_wrapper', 30 );
-function fresh_start_end_price_wrapper() {
-   echo '</div>';
-}*/
-
 // Move Sale Flash to Summary
 remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_sale_flash', 10);
 add_action('woocommerce_single_product_summary', 'woocommerce_show_product_sale_flash', 5);
-
-
 
 // Change Cart Form Position
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30);
@@ -219,7 +197,7 @@ add_action('woocommerce_single_product_summary', 'woocommerce_template_single_ad
 // Add Cart Form Wrapper
 add_action( 'woocommerce_before_add_to_cart_quantity', 'fresh_start_start_cart_wrapper' );
 function fresh_start_start_cart_wrapper() {
-   echo '<div class="d-flex justify-content-between add-to-cart-wrap p-2 border shadow rounded"><label>Qty</label>';
+   echo '<div class="d-flex justify-content-between add-to-cart-wrap p-2 border shadow rounded mdc-bg-grey-50"><label>Qty</label>';
 }
 add_action( 'woocommerce_after_add_to_cart_button', 'fresh_start_end_cart_wrapper', 10 );
 function fresh_start_end_cart_wrapper() {
@@ -229,32 +207,24 @@ function fresh_start_end_cart_wrapper() {
 remove_action( 'woocommerce_after_single_product_summary', 'wc_mnm_template_add_to_cart_after_summary', -1000 );
 
 
-
-
- 
-
 // Remove Category Taxonomy Links
 
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 
 
-
 // Remove product data tabs
-
-add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
+/*add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
 function woo_remove_product_tabs( $tabs ) {
   unset( $tabs['reviews'] );  // Removes the reviews tab
   unset( $tabs['additional_information'] );  	// Remove the additional information tab
   unset( $tabs['description'] );
   return $tabs;
-}
+}*/
 
 // Remove WooCommerce Default Product Image and Gallery
 remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
 
-
 // Change Order of Upsell and Related Products
-
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs', 10);
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
 add_action( 'woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 20 );
@@ -262,37 +232,14 @@ remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_re
 add_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_related_products', 30 );
 
 // Remove Short Description
-
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
 add_action('add_meta_boxes', 'remove_short_description', 999);
 function remove_short_description() {
      remove_meta_box( 'postexcerpt', 'product', 'normal');
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+/*
 //Hide price range on variable products
-
 add_filter('woocommerce_get_price_html', 'lw_hide_variation_price', 10, 2);
 function lw_hide_variation_price( $v_price, $v_product ) {
 $v_product_types = array( 'variable');
@@ -302,33 +249,7 @@ return '';
 // return regular price
 return $v_price;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+*/
 
 // Add Product Page Scripts
  
@@ -548,14 +469,31 @@ function fresh_start_add_cart_quantity_plus_minus() {
     initPhotoSwipeFromDOM('.product-gallery');
 
 
-
-
-   
     </script>
 
    <?php
 }
 
+//Variable Product Price 
 
-
+//Remove Price Range
+add_filter( 'woocommerce_variable_sale_price_html', 'detect_variation_price_format', 10, 2 );
+add_filter( 'woocommerce_variable_price_html', 'detect_variation_price_format', 10, 2 );
+function detect_variation_price_format( $price, $product ) {
+// Main Price
+$prices = array( $product->get_variation_price( 'min', true ), $product->get_variation_price( 'max', true ) );
+if ($prices[0] !== $prices[1] && is_product()) {
+$price = $prices[0] !== $prices[1] ? sprintf( __( '', 'woocommerce' ), wc_price( $prices[0] ) ) : wc_price( $prices[0] );
+}
+// Sale Price
+$prices = array( $product->get_variation_regular_price( 'min', true ), $product->get_variation_regular_price( 'max', true ) );
+sort( $prices );
+$saleprice = $prices[0] !== $prices[1] ? sprintf( __( '', 'woocommerce' ), wc_price( $prices[0] ) ) : wc_price( $prices[0] );
+if ( $price !== $saleprice ) {
+$price = '<del>' . $saleprice . '</del> <ins>' . $price . '</ins>';
+}
+return $price;
+}
+remove_action('woocommerce_single_variation', 'woocommerce_single_variation', 10 );
+add_action('woocommerce_before_variations_form', 'woocommerce_single_variation', 10 );
 

@@ -24,7 +24,7 @@ $show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_a
 		<?php if ( $show_shipping ) echo '<div class="col-sm-6">'; else echo '<div class="col-12">' ?>
 
 			<h2 class="woocommerce-column__title mb-3"><?php esc_html_e( 'Billing address', 'woocommerce' ); ?></h2>
-			<div class="p-3 mb-3" style="border: #E0E0E0 solid 4px;" data-mh>
+			<div class="p-3 mb-3 bg-white" style="border: #E0E0E0 solid 4px;" data-mh>
 				<address>
 					<?php echo wp_kses_post( $order->get_formatted_billing_address( __( 'N/A', 'woocommerce' ) ) ); ?>
 
@@ -43,7 +43,7 @@ $show_shipping = ! wc_ship_to_billing_address_only() && $order->needs_shipping_a
 
 		<div class="col-sm-6">
 			<h2 class="woocommerce-column__title mb-3"><?php esc_html_e( 'Shipping address', 'woocommerce' ); ?></h2>
-			<div class="p-3 mb-3" style="border: #E0E0E0 solid 4px;" data-mh>
+			<div class="p-3 mb-3 bg-white" style="border: #E0E0E0 solid 4px;" data-mh>
 				<address>
 					<?php echo wp_kses_post( $order->get_formatted_shipping_address( __( 'N/A', 'woocommerce' ) ) ); ?>
 				</address>

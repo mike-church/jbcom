@@ -26,7 +26,7 @@ do_action( 'woocommerce_before_account_navigation' );?>
 
 <ul class="nav nav-pills">
   <li class="nav-item dropdown">
-    <a class="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
+    <a class="nav-link active dropdown-toggle text-uppercase font-medium" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Menu</a>
     <div class="dropdown-menu">
 		<a class="dropdown-item" href="/my-account/">Dashboard</a>
 		<?php $current_user = wp_get_current_user(); if ( current_user_can( 'buy_wholesale' ) ): ?>

@@ -45,7 +45,7 @@
 	}
 }
 
-.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
+/*form.checkout_coupon {
     border: 1px solid $mdc-grey-400;
     padding: 20px;
     margin: 0;
@@ -54,13 +54,25 @@
     background-color: $mdc-grey-50;
 }
 
-.woocommerce form.login, .woocommerce form.register {
+form.login, form.register {
 	.input-text {
-		width:100%;
+		width:100% !important;
 	}
+}*/
+
+
+.woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
+    border: $mdc-grey-400 solid 1px;
+    border-radius:0;
+    padding: 1em;
+    margin: 0;
+    text-align: left;
+    background:$white;
+    margin-bottom:1em;
+
 }
 
-.woocommerce form {
+form {
 	.form-row {
 		margin-right:0;
 		margin-left:0;
@@ -158,4 +170,8 @@
 
 .woocommerce #content table.cart td.actions .input-text, .woocommerce table.cart td.actions .input-text, .woocommerce-page #content table.cart td.actions .input-text, .woocommerce-page table.cart td.actions .input-text {
     width: auto;
+}
+
+a.form-control {
+	display: none !important;
 }
