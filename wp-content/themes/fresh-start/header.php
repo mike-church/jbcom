@@ -358,5 +358,5 @@ wp_reset_postdata();
 ?>
 
 <?php if ( is_archive() || is_page( array('cart', 'checkout') ) ) { ?>
-	<div class="w-100 py-2 mdc-bg-grey-800 text-center text-uppercase font-medium text-light">Free U.S. shipping on orders $39+</div>
+	<div class="w-100 py-2 mdc-bg-grey-800 text-center text-uppercase font-medium text-light">Free U.S. shipping on orders $29+</div>
 <?php } ?>
