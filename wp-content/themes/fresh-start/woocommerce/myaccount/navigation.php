@@ -36,6 +36,7 @@ do_action( 'woocommerce_before_account_navigation' );?>
 		<a class="dropdown-item" href="/my-account/edit-address/">Addresses</a>
 		<a class="dropdown-item" href="/my-account/edit-account/">Account Details</a>
 		<a class="dropdown-item" href="/my-account/payment-methods/">Payment Methods</a>
+		<!--<a class="dropdown-item" href="/my-account/giftcards/">Gift Cards</a>-->
 		<?php $current_user = wp_get_current_user(); if ( current_user_can( 'customer' ) ): ?>
 			<a class="dropdown-item" href="/affiliates/">Affiliate Program</a>
 		<?php endif; ?>

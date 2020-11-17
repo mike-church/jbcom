@@ -197,7 +197,7 @@ add_action('woocommerce_single_product_summary', 'woocommerce_template_single_ad
 // Add Cart Form Wrapper
 add_action( 'woocommerce_before_add_to_cart_quantity', 'fresh_start_start_cart_wrapper' );
 function fresh_start_start_cart_wrapper() {
-   echo '<div class="d-flex justify-content-between add-to-cart-wrap p-2 border shadow rounded mdc-bg-grey-50"><label>Qty</label>';
+   echo '<div class="d-flex justify-content-between add-to-cart-wrap">';
 }
 add_action( 'woocommerce_after_add_to_cart_button', 'fresh_start_end_cart_wrapper', 10 );
 function fresh_start_end_cart_wrapper() {
@@ -206,20 +206,9 @@ function fresh_start_end_cart_wrapper() {
 
 remove_action( 'woocommerce_after_single_product_summary', 'wc_mnm_template_add_to_cart_after_summary', -1000 );
 
-
 // Remove Category Taxonomy Links
 
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
-
-
-// Remove product data tabs
-/*add_filter( 'woocommerce_product_tabs', 'woo_remove_product_tabs', 98 );
-function woo_remove_product_tabs( $tabs ) {
-  unset( $tabs['reviews'] );  // Removes the reviews tab
-  unset( $tabs['additional_information'] );  	// Remove the additional information tab
-  unset( $tabs['description'] );
-  return $tabs;
-}*/
 
 // Remove WooCommerce Default Product Image and Gallery
 remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
@@ -237,19 +226,6 @@ add_action('add_meta_boxes', 'remove_short_description', 999);
 function remove_short_description() {
      remove_meta_box( 'postexcerpt', 'product', 'normal');
 }
-
-/*
-//Hide price range on variable products
-add_filter('woocommerce_get_price_html', 'lw_hide_variation_price', 10, 2);
-function lw_hide_variation_price( $v_price, $v_product ) {
-$v_product_types = array( 'variable');
-if ( in_array ( $v_product->product_type, $v_product_types ) && !(is_shop()) ) {
-return '';
-}
-// return regular price
-return $v_price;
-}
-*/
 
 // Add Product Page Scripts
  

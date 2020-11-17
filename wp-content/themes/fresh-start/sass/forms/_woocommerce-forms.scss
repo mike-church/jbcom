@@ -4,6 +4,10 @@
 		margin:0 !important;
 		.add-to-cart-wrap {
 			position:relative;
+			background:$mdc-grey-50;
+			border:$mdc-grey-300 solid 1px;
+			box-shadow: 0 .5rem 1rem rgba(0,0,0,.15);
+			padding: .5rem;
 			label {
 				font-size:14px;
 				font-weight:$medium;
@@ -35,7 +39,24 @@
 				}
 
 			}
+			.quantity::before {
+				content:"QTY";
+				font-size:14px;
+				font-weight:$medium;
+				letter-spacing: 1px;
+				position:absolute;
+				top:.5rem;
+				left:.5rem;
+				padding:10px 12px 0 12px;
+				height:42px;
+				background-color:$mdc-grey-100;
+				border:$mdc-grey-300 solid 1px;
+			}
+			.quantity.hidden {
+				display: none;
+			}
 		}
+	
 		.button {
 			float:none !important;
 			height:42px;
@@ -43,23 +64,14 @@
 
 		}
 	}
-}
-
-/*form.checkout_coupon {
-    border: 1px solid $mdc-grey-400;
-    padding: 20px;
-    margin: 0;
-    text-align: left;
-    border-radius: 0;
-    background-color: $mdc-grey-50;
-}
-
-form.login, form.register {
-	.input-text {
-		width:100% !important;
+	.wc_gc_giftcard_product form.cart .add-to-cart-wrap {
+		position:relative;
+		background:none;
+		border:none;
+		box-shadow: none;
+		padding:0;
 	}
-}*/
-
+}
 
 .woocommerce form.checkout_coupon, .woocommerce form.login, .woocommerce form.register {
     border: $mdc-grey-400 solid 1px;
@@ -174,4 +186,9 @@ form {
 
 a.form-control {
 	display: none !important;
+}
+
+.wc_gc_datepicker {
+	border:$mdc-grey-300 solid 1px;
+	background:$white;
 }

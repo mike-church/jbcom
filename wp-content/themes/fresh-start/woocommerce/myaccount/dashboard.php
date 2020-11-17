@@ -112,6 +112,18 @@ if ( current_user_can( 'buy_wholesale' ) ): ?>
 		</div>
 	</div>
 </div>
+<!--<div class="col-sm-6 col-md-4">
+	<div class="card mb-4 shadow" data-mh>
+		<div class="card-body">
+			<div class="display-4"><i class="icon-gift-card mdc-text-purple-500"></i></div>
+			<h5>Gift Cards</h5>
+			<p>Add a Julian Bakery gift card to your account and track balance.</p>
+		</div>
+		<div class="card-footer">
+			<a href="/my-account/giftcards/" class="btn btn-primary btn-sm">Manage</a>
+		</div>
+	</div>
+</div>-->
 
 	<?php
 	$current_user = wp_get_current_user(); 

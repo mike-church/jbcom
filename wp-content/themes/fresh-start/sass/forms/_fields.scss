@@ -18,4 +18,22 @@
 		}
 	}
 
+	.woocommerce_gc_giftcard_form {
+		label {
+			font-size:14px;
+			font-weight:$medium;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+		}
+		.wc_gc_field {
+			input {
+				padding:.3rem 1rem;
+			}
+			textarea {
+				width:100%;
+				padding:.3rem 1rem;
+			}
+		}
+	}
+
 }

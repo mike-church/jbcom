@@ -62,9 +62,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 										) ); ?>	
 									</div>
 								</li>
-								<li class="nav-item d-none d-lg-inline-block">
-									<a href="https://blog.julianbakery.com/" class="btn btn-outline-light ">Blog</a>
-								</li>
+								<!--<li class="nav-item d-none d-lg-inline-block">
+									<a href="/gift-cards" class="btn btn-outline-light ">Gift Cards</a>
+								</li>-->
 								<li class="d-none d-lg-inline-block">
 									<a href="/my-account" class="btn btn-outline-light">My Account</a>
 								</li>
@@ -140,9 +140,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);">
 											) ); ?>	
 										</div>
 									</li>
-									<li class="nav-item d-none d-lg-inline-block">
-										<a href="https://blog.julianbakery.com/" class="btn btn-outline-light ">Blog</a>
-									</li>
+									<!--<li class="nav-item d-none d-lg-inline-block">
+										<a href="/gift-cards" class="btn btn-outline-light ">Gift Cards</a>
+									</li>-->
 									<li class="d-none d-lg-inline-block">
 										<a href="/my-account" class="btn btn-outline-light">My Account</a>
 									</li>
@@ -224,9 +224,9 @@ background: linear-gradient(180deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0) 100%);">
 											) ); ?>	
 										</div>
 									</li>
-									<li class="nav-item d-none d-lg-inline-block">
-										<a href="https://blog.julianbakery.com/" class="btn btn-outline-dark ">Blog</a>
-									</li>
+									<!--<li class="nav-item d-none d-lg-inline-block">
+										<a href="/gift-cards" class="btn btn-outline-dark ">Gift Cards</a>
+									</li>-->
 									<li class="d-none d-lg-inline-block">
 										<a href="/my-account" class="btn btn-outline-dark">My Account</a>
 									</li>
@@ -315,9 +315,9 @@ $value = rwmb_meta( 'jb_homepage_hero_color_value' );
 										) ); ?>	
 									</div>
 								</li>
-								<li class="nav-item d-none d-lg-inline-block">
-									<a href="https://blog.julianbakery.com/" class="btn btn-outline-dark ">Blog</a>
-								</li>
+								<!--<li class="nav-item d-none d-lg-inline-block">
+									<a href="/gift-cards" class="btn btn-outline-dark ">Gift Cards</a>
+								</li>-->
 								<li class="d-none d-lg-inline-block">
 									<a href="/my-account" class="btn btn-outline-dark">My Account</a>
 								</li>

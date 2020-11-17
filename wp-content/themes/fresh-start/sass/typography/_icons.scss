@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('../fonts/icomoon.eot?xvzp27');
-  src:  url('../fonts/icomoon.eot?xvzp27#iefix') format('embedded-opentype'),
-    url('../fonts/icomoon.ttf?xvzp27') format('truetype'),
-    url('../fonts/icomoon.woff?xvzp27') format('woff'),
-    url('../fonts/icomoon.svg?xvzp27#icomoon') format('svg');
+  src:  url('../fonts/icomoon.eot?uorkzk');
+  src:  url('../fonts/icomoon.eot?uorkzk#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?uorkzk') format('truetype'),
+    url('../fonts/icomoon.woff?uorkzk') format('woff'),
+    url('../fonts/icomoon.svg?uorkzk#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-gift-card:before {
+  content: "\e934";
+}
 .icon-us-dollar:before {
   content: "\e932";
 }
