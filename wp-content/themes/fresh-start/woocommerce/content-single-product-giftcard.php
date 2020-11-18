@@ -69,7 +69,7 @@ if ( post_password_required() ) {
 						<?php $jb_notice = rwmb_meta( 'jb_product_notice_notice' );?>
 
 						<div><img src="<?php echo get_the_post_thumbnail_url(get_the_ID(),'four-three');?>" class="img-fluid"></div>
-						<p class="text-center"><small>This is a Virtual Gift Card. The recipient of this card will get an email with a unique code that will allow them to use the gift amount at checkout.</small></p>
+						<p class="text-center"><small>This is a e-Gift Card. The recipient of this card will get an email with a unique code that will allow them to use the gift amount at checkout.</small></p>
 						
 				
 					</div>
