@@ -112,7 +112,7 @@ if ( current_user_can( 'buy_wholesale' ) ): ?>
 		</div>
 	</div>
 </div>
-<!--<div class="col-sm-6 col-md-4">
+<div class="col-sm-6 col-md-4">
 	<div class="card mb-4 shadow" data-mh>
 		<div class="card-body">
 			<div class="display-4"><i class="icon-gift-card mdc-text-purple-500"></i></div>
@@ -123,7 +123,7 @@ if ( current_user_can( 'buy_wholesale' ) ): ?>
 			<a href="/my-account/giftcards/" class="btn btn-primary btn-sm">Manage</a>
 		</div>
 	</div>
-</div>-->
+</div>
 
 	<?php
 	$current_user = wp_get_current_user(); 
