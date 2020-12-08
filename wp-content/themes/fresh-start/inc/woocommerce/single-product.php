@@ -207,7 +207,6 @@ function fresh_start_end_cart_wrapper() {
 remove_action( 'woocommerce_after_single_product_summary', 'wc_mnm_template_add_to_cart_after_summary', -1000 );
 
 // Remove Category Taxonomy Links
-
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_meta', 40);
 
 // Remove WooCommerce Default Product Image and Gallery
@@ -222,13 +221,8 @@ add_action( 'woocommerce_after_single_product_summary', 'woocommerce_output_rela
 
 // Remove Short Description
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20);
-add_action('add_meta_boxes', 'remove_short_description', 999);
-function remove_short_description() {
-     remove_meta_box( 'postexcerpt', 'product', 'normal');
-}
 
 // Add Product Page Scripts
- 
 add_action( 'wp_footer', 'fresh_start_add_cart_quantity_plus_minus', 100 );
 function fresh_start_add_cart_quantity_plus_minus() {
    // Only run this on the single product page
