@@ -13,7 +13,7 @@ function woocommerce_header_add_to_cart_fragment( $fragments ) {
 }
 
 // Hide Product Tags
-add_action('init', function() {
+/*add_action('init', function() {
     register_taxonomy('product_tag', 'product', [
         'public'            => false,
         'show_ui'           => false,
@@ -28,7 +28,7 @@ add_action( 'admin_init' , function() {
         unset($columns['product_tag']);
         return $columns;
     }, 100);
-});
+});*/
 
 // Prevents Additional Items Added to Cart on page refresh
 add_action('add_to_cart_redirect', 'resolve_dupes_add_to_cart_redirect');
